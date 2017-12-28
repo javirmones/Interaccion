@@ -26,7 +26,7 @@ public class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1121, 881);
+		setBounds(100, 100, 1331, 881);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -42,13 +42,13 @@ public class VentanaPrincipal extends JFrame {
 					tree.addTreeSelectionListener(null);
 					tree.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Informacion") {
 						{
-							DefaultMutableTreeNode node_1;
-							node_1 = new DefaultMutableTreeNode("Proyecto 1");
-							add(node_1);
-							node_1 = new DefaultMutableTreeNode("Proyecto 2");
-							add(node_1);
-							node_1 = new DefaultMutableTreeNode("Proyecto 3");
-							add(node_1);
+							//DefaultMutableTreeNode node_1;
+							//node_1 = new DefaultMutableTreeNode("Proyecto 1");
+							//getContentPane().add(node_1);
+							//node_1 = new DefaultMutableTreeNode("Proyecto 2");
+							//getContentPane().add(node_1);
+							//node_1 = new DefaultMutableTreeNode("Proyecto 3");
+							//getContentPane().add(node_1);
 						}
 					}));
 					scrollPane.setViewportView(tree);

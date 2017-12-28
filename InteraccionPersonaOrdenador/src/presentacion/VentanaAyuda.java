@@ -24,8 +24,9 @@ public class VentanaAyuda extends JFrame {
 	 * /** Create the frame.
 	 */
 	public VentanaAyuda() {
+		setTitle("Ayuda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 755, 451);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -43,12 +44,12 @@ public class VentanaAyuda extends JFrame {
 		tree = new JTree();
 		tree.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Ayuda") {
 			{
-				add(new DefaultMutableTreeNode("Inicio"));
-				add(new DefaultMutableTreeNode("Proyectos"));
-				add(new DefaultMutableTreeNode("Tareas"));
-				add(new DefaultMutableTreeNode("Usuarios"));
-				add(new DefaultMutableTreeNode("Interfaz"));
-				add(new DefaultMutableTreeNode("Idioma"));
+				//getContentPane().add(new DefaultMutableTreeNode("Inicio"));
+				//getContentPane().add(new DefaultMutableTreeNode("Proyectos"));
+				//getContentPane().add(new DefaultMutableTreeNode("Tareas"));
+				//getContentPane().add(new DefaultMutableTreeNode("Usuarios"));
+				//getContentPane().add(new DefaultMutableTreeNode("Interfaz"));
+				//getContentPane().add(new DefaultMutableTreeNode("Idioma"));
 			}
 		}));
 		panel_1.add(tree);

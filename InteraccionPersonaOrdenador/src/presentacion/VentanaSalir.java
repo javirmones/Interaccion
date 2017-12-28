@@ -24,20 +24,20 @@ public class VentanaSalir extends JPanel {
 		lblNewLabel = new JLabel("Aviso");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(89, 11, 78, 25);
+		lblNewLabel.setBounds(184, 47, 78, 25);
 		add(lblNewLabel);
 
 		lblEstaSeguroDe = new JLabel("\u00BFEsta seguro de desear salir de la aplicacion?");
 		lblEstaSeguroDe.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEstaSeguroDe.setBounds(20, 47, 220, 48);
+		lblEstaSeguroDe.setBounds(28, 88, 395, 48);
 		add(lblEstaSeguroDe);
 
 		btnNewButton = new JButton("No");
-		btnNewButton.setBounds(0, 117, 133, 48);
+		btnNewButton.setBounds(231, 152, 133, 48);
 		add(btnNewButton);
 
 		btnNewButton_1 = new JButton("Si");
-		btnNewButton_1.setBounds(129, 117, 133, 48);
+		btnNewButton_1.setBounds(75, 152, 133, 48);
 		add(btnNewButton_1);
 
 	}
