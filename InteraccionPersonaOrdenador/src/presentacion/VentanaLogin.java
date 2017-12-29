@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,6 +19,9 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JPasswordField;
@@ -39,9 +44,6 @@ public class VentanaLogin {
 	private final String password = "ipo1";
 	private final String user = "javi";
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
@@ -56,20 +58,16 @@ public class VentanaLogin {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public VentanaLogin() {
 		initialize();
 
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frLogin = new JFrame();
+		frLogin.addWindowListener(new FrLoginWindowListener());
 		frLogin.setResizable(false);
+		frLogin.setLocationRelativeTo(null);
 		frLogin.setBounds(100, 100, 498, 446);
 		frLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -80,15 +78,12 @@ public class VentanaLogin {
 		btnLimpiar = new JButton("Limpiar");
 		btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnLimpiar.addMouseListener(new LimpiarMouseListener());
-		// Limpiar.addMouseListener(new BtnNewButtonMouseListener());
 		btnLimpiar.setBounds(93, 249, 152, 41);
 		panel.add(btnLimpiar);
 
 		btnEntrar = new JButton("Entrar");
 		btnEntrar.addMouseListener(new EntrarMouseListener());
 		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		// Entrar.addMouseListener(new EntrarMouseListener());
-		// Entrar.addActionListener(new BtnNewButton_1ActionListener());
 		btnEntrar.setBounds(257, 249, 160, 41);
 		panel.add(btnEntrar);
 
@@ -149,6 +144,7 @@ public class VentanaLogin {
 		public void mouseClicked(MouseEvent e) {
 			txtContrasenia.setText("");
 			txtUsuario.setText("");
+			
 		}
 	}
 
@@ -158,6 +154,7 @@ public class VentanaLogin {
 
 			VentanaRegistro R = new VentanaRegistro();
 			R.setVisible(true);
+			frLogin.dispose();
 		}
 	}
 
@@ -167,7 +164,7 @@ public class VentanaLogin {
 
 			if (String.valueOf(txtContrasenia.getPassword()).equals(password)
 					&& String.valueOf(txtUsuario.getText()).equals(user)) {
-				JOptionPane.showMessageDialog(null, "Login correcto", "Mensaje Informativo",
+				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
 						JOptionPane.INFORMATION_MESSAGE);
 				VentanaPrincipal v = new VentanaPrincipal();
 				v.setVisible(true);
@@ -175,11 +172,26 @@ public class VentanaLogin {
 
 			} else {
 
-				JOptionPane.showMessageDialog(null, "Login incorrecto, introduzca la contraseña correcta.",
+				JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la contraseña correcta.",
 						"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
 
 			}
 
+		}
+	}
+
+	private class FrLoginWindowListener extends WindowAdapter {
+		public void windowClosing(WindowEvent arg0) {
+			int dialogButton = JOptionPane.YES_NO_OPTION;
+			int dialogResult = JOptionPane.showConfirmDialog(frLogin, "¿Quiere salir de la aplicación?", "Salir",
+					dialogButton);
+			if (dialogResult == 0) {
+				frLogin.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+				JOptionPane.showMessageDialog(frLogin, "Gracias por utilizar nuestra aplicación",
+						"Cerrar la aplicación", JOptionPane.PLAIN_MESSAGE);
+			} else {
+				frLogin.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+			}
 		}
 	}
 

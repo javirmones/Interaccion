@@ -38,10 +38,6 @@ public class VentanaRegistro extends JFrame {
 	private JButton button_1;
 
 	/**
-	 * Launch the application.
-	 */
-
-	/**
 	 * Create the frame.
 	 */
 	public VentanaRegistro() {

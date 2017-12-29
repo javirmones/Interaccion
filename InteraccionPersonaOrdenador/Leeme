@@ -1,0 +1,28 @@
+La clase Arbol Renderizado sirve para aniadir imagenes al arbol que esta en la clase principal, aún no está implementado
+Al igual que la clase ImageFilter sirve para lógicamente seleccionar imagenes con un JFileChooser, es como un tipo de filtro en java
+Tenemos que comenzar con la capa de presentación ya que es lo más importante en el momento, 
+Como algunas modificaciones que he hecho son las siguientes:
+-Eliminar ventana salir, ya que he puesto un JDialog, que es mas sencillo
+-Aniadir los Paneles que irán dentro de la ventana Principal.
+-Aniadir GridBagLayout en Principal, Login
+-Hacer la ventana Principal, el arbol de la ventana principal
+-Iniciar la lógica de dominio
+
+
+
+
+Tareas a realizar
+-Aniadir eventos hacer bien la ventana registro, usando GridBagLayout
+-Hacer la ventana de ayuda del programa
+-Conseguir que el SplitPane de ventanaPrincipal, haga mas grande la parte del arbol 
+y no se desplace que se quede fijo, miralo en ejecución
+-Terminar la ventana principal, mañana me encargaré de ello
+-Hacer el arbol bien
+-Buscar iconos de apagar, atrás, correo, etc... y ponerlos en persistencia
+
+
+
+Tareas que no se si va a dar tiempo
+Si no tenemos tiempo para conectar bien la base de datos, ya que hay que poner las sentencias SQL utilizar ResulSet,
+en la capa persistencia utilizariamos ficheros o algo por el estilo sin complicarse la vida, depende de como vayamos con el tiempo,
+porque es lo más dificil que yo veo, lo demás lo más comp

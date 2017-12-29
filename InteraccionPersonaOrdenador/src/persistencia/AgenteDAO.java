@@ -17,7 +17,7 @@ public class AgenteDAO {
 			String url = "jdbc:mysql://localhost/bbdd_ipo"
 					+ "?autoReconnect=true&useSSL=false";
 			String user = "root";
-			String pass = "1234";
+			String pass = "root";
 			con = DriverManager.getConnection(url, user, pass);
 		} catch (ClassNotFoundException e) {
 			System.out.println("Error al cargar el driver.");
