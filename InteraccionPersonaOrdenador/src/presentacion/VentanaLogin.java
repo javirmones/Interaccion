@@ -2,6 +2,7 @@ package presentacion;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -21,11 +22,18 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileReader;
+import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 import java.awt.Dimension;
+
+import dominio.Usuario;
+import persistencia.LeerUsuario;
+import java.util.*;
 
 public class VentanaLogin {
 
@@ -41,8 +49,9 @@ public class VentanaLogin {
 	private JLabel lblRegistrarse;
 	private JLabel lblNewLabel;
 	private JPasswordField txtContrasenia;
-	private final String password = "ipo1";
-	private final String user = "javi";
+	private  String password = null;
+	private  String user = null;
+	private List<Usuario> u=null;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -151,17 +160,31 @@ public class VentanaLogin {
 	private class LblRegistrarseMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-
-			VentanaRegistro R = new VentanaRegistro();
+			try {
+				u=LeerUsuario.leer();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			VentanaRegistro R = new VentanaRegistro(u);
 			R.setVisible(true);
-			frLogin.dispose();
+			System.out.println(u.size());
+			//frLogin.dispose();
 		}
 	}
 
 	private class EntrarMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
-
+			try {
+				u=LeerUsuario.leer();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			for (int i=0;i<u.size();i++) {
+				user=u.get(i).getIdUsuario();
+				password=u.get(i).getContrasenia();
 			if (String.valueOf(txtContrasenia.getPassword()).equals(password)
 					&& String.valueOf(txtUsuario.getText()).equals(user)) {
 				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
@@ -176,7 +199,7 @@ public class VentanaLogin {
 						"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
 
 			}
-
+			}
 		}
 	}
 
@@ -203,4 +226,6 @@ public class VentanaLogin {
 
 		}
 	}
+	
+
 }

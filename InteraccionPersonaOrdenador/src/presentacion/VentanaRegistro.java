@@ -4,13 +4,23 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.MaskFormatter;
+
+import dominio.Usuario;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+
 import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.List;
 import java.awt.event.ActionEvent;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class VentanaRegistro extends JFrame {
 
@@ -19,30 +29,33 @@ public class VentanaRegistro extends JFrame {
 	private JPanel panel_1;
 	private JLabel label;
 	private JLabel label_1;
-	private JTextField textField;
+	private JTextField testnombre;
 	private JLabel label_2;
 	private JLabel label_3;
-	private JTextField textField_1;
+	private JTextField textapellidos;
 	private JLabel label_4;
-	private JTextField textField_2;
+	private JFormattedTextField textDNI;
 	private JLabel label_5;
-	private JTextField textField_3;
+	private JTextField textcontra;
 	private JLabel label_6;
-	private JTextField textField_4;
-	private JLabel label_7;
-	private JTextField textField_5;
+	private JTextField textemail;
 	private JLabel label_8;
-	private JTextField textField_6;
+	private JFormattedTextField textfecha;
+	private MaskFormatter fecha;
+	private MaskFormatter DNI;
 	private JLabel label_9;
 	private JButton button;
 	private JButton button_1;
+	private JTextField textusuario;
+	List<Usuario> u;
 
 	/**
 	 * Create the frame.
 	 */
-	public VentanaRegistro() {
+	public VentanaRegistro( List<Usuario> u) {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 364, 466);
+		setBounds(100, 100, 516, 386);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -50,93 +63,196 @@ public class VentanaRegistro extends JFrame {
 
 		panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.CENTER);
-		panel_1.setLayout(null);
-
-		label = new JLabel("\u00A1Bienvenido al sistema!");
-		label.setBounds(82, 11, 155, 14);
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_1.add(label);
-
-		label_1 = new JLabel("Por favor para registrarte introduce tus datos personales");
-		label_1.setBounds(32, 24, 275, 14);
-		panel_1.add(label_1);
-
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(160, 63, 147, 20);
-		panel_1.add(textField);
+		GridBagLayout gbl_panel_1 = new GridBagLayout();
+		gbl_panel_1.columnWidths = new int[] { 92, 126, 147, 0 };
+		gbl_panel_1.rowHeights = new int[] { 27, 20, 20, 20, 20, 20, 20, 20, 14, 0, 0, 0, 0, 0, 0 };
+		gbl_panel_1.columnWeights = new double[] { 0.0, 0.0, 1.0, Double.MIN_VALUE };
+		gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+				0.0, Double.MIN_VALUE };
+		panel_1.setLayout(gbl_panel_1);
+				
+						label = new JLabel("\u00A1Bienvenido al sistema!");
+						label.setHorizontalAlignment(SwingConstants.CENTER);
+						GridBagConstraints gbc_label = new GridBagConstraints();
+						gbc_label.gridwidth = 3;
+						gbc_label.anchor = GridBagConstraints.NORTH;
+						gbc_label.insets = new Insets(0, 0, 5, 0);
+						gbc_label.gridx = 0;
+						gbc_label.gridy = 1;
+						panel_1.add(label, gbc_label);
+		
+				label_1 = new JLabel("Por favor para registrarte introduce tus datos personales");
+				GridBagConstraints gbc_label_1 = new GridBagConstraints();
+				gbc_label_1.gridwidth = 3;
+				gbc_label_1.anchor = GridBagConstraints.SOUTH;
+				gbc_label_1.insets = new Insets(0, 0, 5, 0);
+				gbc_label_1.gridx = 0;
+				gbc_label_1.gridy = 2;
+				panel_1.add(label_1, gbc_label_1);
 
 		label_2 = new JLabel("Usuario");
-		label_2.setBounds(32, 66, 46, 14);
-		panel_1.add(label_2);
+		GridBagConstraints gbc_label_2 = new GridBagConstraints();
+		gbc_label_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_2.insets = new Insets(0, 0, 5, 5);
+		gbc_label_2.gridx = 0;
+		gbc_label_2.gridy = 4;
+		panel_1.add(label_2, gbc_label_2);
+
+		textusuario = new JTextField();
+		textusuario.setColumns(10);
+		GridBagConstraints gbc_textusuario = new GridBagConstraints();
+		gbc_textusuario.insets = new Insets(0, 0, 5, 0);
+		gbc_textusuario.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textusuario.gridx = 2;
+		gbc_textusuario.gridy = 4;
+		panel_1.add(textusuario, gbc_textusuario);
 
 		label_3 = new JLabel("Nombre");
-		label_3.setBounds(32, 104, 46, 14);
-		panel_1.add(label_3);
+		GridBagConstraints gbc_label_3 = new GridBagConstraints();
+		gbc_label_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_3.insets = new Insets(0, 0, 5, 5);
+		gbc_label_3.gridx = 0;
+		gbc_label_3.gridy = 5;
+		panel_1.add(label_3, gbc_label_3);
 
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(160, 101, 147, 20);
-		panel_1.add(textField_1);
+		testnombre = new JTextField();
+		testnombre.setColumns(10);
+		GridBagConstraints gbc_testnombre = new GridBagConstraints();
+		gbc_testnombre.anchor = GridBagConstraints.NORTH;
+		gbc_testnombre.fill = GridBagConstraints.HORIZONTAL;
+		gbc_testnombre.insets = new Insets(0, 0, 5, 0);
+		gbc_testnombre.gridx = 2;
+		gbc_testnombre.gridy = 5;
+		panel_1.add(testnombre, gbc_testnombre);
 
 		label_4 = new JLabel("Apellidos");
-		label_4.setBounds(32, 139, 46, 14);
-		panel_1.add(label_4);
+		GridBagConstraints gbc_label_4 = new GridBagConstraints();
+		gbc_label_4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_4.insets = new Insets(0, 0, 5, 5);
+		gbc_label_4.gridx = 0;
+		gbc_label_4.gridy = 6;
+		panel_1.add(label_4, gbc_label_4);
 
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(160, 136, 147, 20);
-		panel_1.add(textField_2);
+		textapellidos = new JTextField();
+		textapellidos.setColumns(10);
+		GridBagConstraints gbc_textapellidos = new GridBagConstraints();
+		gbc_textapellidos.anchor = GridBagConstraints.NORTH;
+		gbc_textapellidos.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textapellidos.insets = new Insets(0, 0, 5, 0);
+		gbc_textapellidos.gridx = 2;
+		gbc_textapellidos.gridy = 6;
+		panel_1.add(textapellidos, gbc_textapellidos);
 
 		label_5 = new JLabel("DNI");
-		label_5.setBounds(32, 180, 46, 14);
-		panel_1.add(label_5);
+		GridBagConstraints gbc_label_5 = new GridBagConstraints();
+		gbc_label_5.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_5.insets = new Insets(0, 0, 5, 5);
+		gbc_label_5.gridx = 0;
+		gbc_label_5.gridy = 7;
+		panel_1.add(label_5, gbc_label_5);
 
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(160, 177, 147, 20);
-		panel_1.add(textField_3);
+		textDNI = new JFormattedTextField();
+		try {
+			 DNI = new MaskFormatter("########'-U");
+			 //fecha.setPlaceholderCharacter('X');
+			 textDNI = new JFormattedTextField(DNI);
+			 } catch (ParseException e) {
+			 // TODO Auto-generated catch block
+			 e.printStackTrace();
+			 }
+		textDNI.setColumns(10);
+		GridBagConstraints gbc_textDNI = new GridBagConstraints();
+		gbc_textDNI.anchor = GridBagConstraints.NORTH;
+		gbc_textDNI.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textDNI.insets = new Insets(0, 0, 5, 0);
+		gbc_textDNI.gridx = 2;
+		gbc_textDNI.gridy = 7;
+		panel_1.add(textDNI, gbc_textDNI);
 
 		label_6 = new JLabel("Contrase\u00F1a");
-		label_6.setBounds(32, 222, 46, 14);
-		panel_1.add(label_6);
+		GridBagConstraints gbc_label_6 = new GridBagConstraints();
+		gbc_label_6.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_6.insets = new Insets(0, 0, 5, 5);
+		gbc_label_6.gridx = 0;
+		gbc_label_6.gridy = 8;
+		panel_1.add(label_6, gbc_label_6);
 
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(160, 219, 147, 20);
-		panel_1.add(textField_4);
-
-		label_7 = new JLabel("Conf Contrase\u00F1a");
-		label_7.setBounds(32, 269, 94, 14);
-		panel_1.add(label_7);
-
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(160, 266, 147, 20);
-		panel_1.add(textField_5);
+		textcontra = new JTextField();
+		textcontra.setColumns(10);
+		GridBagConstraints gbc_textcontra = new GridBagConstraints();
+		gbc_textcontra.anchor = GridBagConstraints.NORTH;
+		gbc_textcontra.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textcontra.insets = new Insets(0, 0, 5, 0);
+		gbc_textcontra.gridx = 2;
+		gbc_textcontra.gridy = 8;
+		panel_1.add(textcontra, gbc_textcontra);
 
 		label_8 = new JLabel("Email");
-		label_8.setBounds(32, 307, 46, 14);
-		panel_1.add(label_8);
+		GridBagConstraints gbc_label_8 = new GridBagConstraints();
+		gbc_label_8.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_8.insets = new Insets(0, 0, 5, 5);
+		gbc_label_8.gridx = 0;
+		gbc_label_8.gridy = 9;
+		panel_1.add(label_8, gbc_label_8);
 
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(160, 304, 147, 20);
-		panel_1.add(textField_6);
+		textemail = new JTextField();
+		textemail.setColumns(10);
+		GridBagConstraints gbc_textemail = new GridBagConstraints();
+		gbc_textemail.anchor = GridBagConstraints.NORTH;
+		gbc_textemail.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textemail.insets = new Insets(0, 0, 5, 0);
+		gbc_textemail.gridx = 2;
+		gbc_textemail.gridy = 9;
+		panel_1.add(textemail, gbc_textemail);
 
 		label_9 = new JLabel("Fecha Nacimiento");
-		label_9.setBounds(32, 345, 94, 14);
-		panel_1.add(label_9);
+		GridBagConstraints gbc_label_9 = new GridBagConstraints();
+		gbc_label_9.anchor = GridBagConstraints.NORTHWEST;
+		gbc_label_9.insets = new Insets(0, 0, 5, 5);
+		gbc_label_9.gridwidth = 2;
+		gbc_label_9.gridx = 0;
+		gbc_label_9.gridy = 10;
+		panel_1.add(label_9, gbc_label_9);
+
+		textfecha = new JFormattedTextField();
+		try {
+			 fecha = new MaskFormatter("##-##-####");
+			 //fecha.setPlaceholderCharacter('X');
+			 textfecha = new JFormattedTextField(fecha);
+			 } catch (ParseException e) {
+			 // TODO Auto-generated catch block
+			 e.printStackTrace();
+			 }
+		textfecha.setColumns(10);
+		GridBagConstraints gbc_textfecha = new GridBagConstraints();
+		gbc_textfecha.anchor = GridBagConstraints.NORTH;
+		gbc_textfecha.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textfecha.insets = new Insets(0, 0, 5, 0);
+		gbc_textfecha.gridx = 2;
+		gbc_textfecha.gridy = 10;
+		panel_1.add(textfecha, gbc_textfecha);
 
 		button = new JButton("Cancelar");
 		button.addActionListener(new ButtonActionListener());
-		button.setBounds(32, 382, 118, 23);
-		panel_1.add(button);
+		GridBagConstraints gbc_button = new GridBagConstraints();
+		gbc_button.anchor = GridBagConstraints.NORTH;
+		gbc_button.fill = GridBagConstraints.HORIZONTAL;
+		gbc_button.insets = new Insets(0, 0, 5, 5);
+		gbc_button.gridx = 0;
+		gbc_button.gridy = 12;
+		panel_1.add(button, gbc_button);
 
 		button_1 = new JButton("Registrarse");
 		button_1.addActionListener(new Button_1ActionListener());
-		button_1.setBounds(196, 382, 111, 23);
-		panel_1.add(button_1);
+		GridBagConstraints gbc_button_1 = new GridBagConstraints();
+		gbc_button_1.insets = new Insets(0, 0, 5, 0);
+		gbc_button_1.anchor = GridBagConstraints.NORTH;
+		gbc_button_1.gridx = 2;
+		gbc_button_1.gridy = 12;
+		panel_1.add(button_1, gbc_button_1);
+		
+		
+
 
 	}
 
@@ -150,6 +266,10 @@ public class VentanaRegistro extends JFrame {
 	private class Button_1ActionListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			
+			
+			Usuario U =new Usuario (String.valueOf(textusuario), String.valueOf(testnombre),String.valueOf(textapellidos),String.valueOf(textDNI) ,String.valueOf(textemail), String.valueOf(textcontra),String.valueOf(textfecha));
+			u.add(U);
 			dispose();
 		}
 	}

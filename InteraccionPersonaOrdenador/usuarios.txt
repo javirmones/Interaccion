@@ -1,0 +1,16 @@
+empleados:
+1
+idUsuario
+ragnar
+nombre
+angel
+apellidos
+loro
+DNI
+01234567E
+email
+angel@correo.es
+contrasenia
+1234
+fecha
+26-06-1997
