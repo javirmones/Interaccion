@@ -11,14 +11,13 @@ public class AgenteDAO {
 	}
 
 	public static Connection getConexion() {
-		Connection con = null;
+		Connection conexion = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/bbdd_ipo"
-					+ "?autoReconnect=true&useSSL=false";
+			String url = "jdbc:mysql://localhost/bbdd_ipo" + "?autoReconnect=true&useSSL=false";
 			String user = "root";
-			String pass = "root";
-			con = DriverManager.getConnection(url, user, pass);
+			String pass = "diablete3123AB";
+			conexion = DriverManager.getConnection(url, user, pass);
 		} catch (ClassNotFoundException e) {
 			System.out.println("Error al cargar el driver.");
 			e.printStackTrace();
@@ -27,6 +26,6 @@ public class AgenteDAO {
 			e.printStackTrace();
 		}
 
-		return con;
+		return conexion;
 	}
 }
