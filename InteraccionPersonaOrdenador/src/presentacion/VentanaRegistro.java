@@ -53,9 +53,10 @@ public class VentanaRegistro extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaRegistro( List<Usuario> u) {
+		setTitle("Registrarse");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 516, 386);
+		setBounds(100, 100, 511, 440);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -64,9 +65,9 @@ public class VentanaRegistro extends JFrame {
 		panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.CENTER);
 		GridBagLayout gbl_panel_1 = new GridBagLayout();
-		gbl_panel_1.columnWidths = new int[] { 92, 126, 147, 0 };
+		gbl_panel_1.columnWidths = new int[] { 92, 126, 147, 0, 0, 0 };
 		gbl_panel_1.rowHeights = new int[] { 27, 20, 20, 20, 20, 20, 20, 20, 14, 0, 0, 0, 0, 0, 0 };
-		gbl_panel_1.columnWeights = new double[] { 0.0, 0.0, 1.0, Double.MIN_VALUE };
+		gbl_panel_1.columnWeights = new double[] { 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_panel_1.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
 				0.0, Double.MIN_VALUE };
 		panel_1.setLayout(gbl_panel_1);
@@ -74,7 +75,7 @@ public class VentanaRegistro extends JFrame {
 						label = new JLabel("\u00A1Bienvenido al sistema!");
 						label.setHorizontalAlignment(SwingConstants.CENTER);
 						GridBagConstraints gbc_label = new GridBagConstraints();
-						gbc_label.gridwidth = 3;
+						gbc_label.gridwidth = 5;
 						gbc_label.anchor = GridBagConstraints.NORTH;
 						gbc_label.insets = new Insets(0, 0, 5, 0);
 						gbc_label.gridx = 0;
@@ -83,16 +84,16 @@ public class VentanaRegistro extends JFrame {
 		
 				label_1 = new JLabel("Por favor para registrarte introduce tus datos personales");
 				GridBagConstraints gbc_label_1 = new GridBagConstraints();
-				gbc_label_1.gridwidth = 3;
+				gbc_label_1.gridwidth = 5;
 				gbc_label_1.anchor = GridBagConstraints.SOUTH;
-				gbc_label_1.insets = new Insets(0, 0, 5, 0);
+				gbc_label_1.insets = new Insets(0, 0, 5, 5);
 				gbc_label_1.gridx = 0;
 				gbc_label_1.gridy = 2;
 				panel_1.add(label_1, gbc_label_1);
 
 		label_2 = new JLabel("Usuario");
 		GridBagConstraints gbc_label_2 = new GridBagConstraints();
-		gbc_label_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_2.gridwidth = 2;
 		gbc_label_2.insets = new Insets(0, 0, 5, 5);
 		gbc_label_2.gridx = 0;
 		gbc_label_2.gridy = 4;
@@ -101,7 +102,7 @@ public class VentanaRegistro extends JFrame {
 		textusuario = new JTextField();
 		textusuario.setColumns(10);
 		GridBagConstraints gbc_textusuario = new GridBagConstraints();
-		gbc_textusuario.insets = new Insets(0, 0, 5, 0);
+		gbc_textusuario.insets = new Insets(0, 0, 5, 5);
 		gbc_textusuario.fill = GridBagConstraints.HORIZONTAL;
 		gbc_textusuario.gridx = 2;
 		gbc_textusuario.gridy = 4;
@@ -109,7 +110,7 @@ public class VentanaRegistro extends JFrame {
 
 		label_3 = new JLabel("Nombre");
 		GridBagConstraints gbc_label_3 = new GridBagConstraints();
-		gbc_label_3.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_3.gridwidth = 2;
 		gbc_label_3.insets = new Insets(0, 0, 5, 5);
 		gbc_label_3.gridx = 0;
 		gbc_label_3.gridy = 5;
@@ -120,14 +121,14 @@ public class VentanaRegistro extends JFrame {
 		GridBagConstraints gbc_testnombre = new GridBagConstraints();
 		gbc_testnombre.anchor = GridBagConstraints.NORTH;
 		gbc_testnombre.fill = GridBagConstraints.HORIZONTAL;
-		gbc_testnombre.insets = new Insets(0, 0, 5, 0);
+		gbc_testnombre.insets = new Insets(0, 0, 5, 5);
 		gbc_testnombre.gridx = 2;
 		gbc_testnombre.gridy = 5;
 		panel_1.add(testnombre, gbc_testnombre);
 
 		label_4 = new JLabel("Apellidos");
 		GridBagConstraints gbc_label_4 = new GridBagConstraints();
-		gbc_label_4.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_4.gridwidth = 2;
 		gbc_label_4.insets = new Insets(0, 0, 5, 5);
 		gbc_label_4.gridx = 0;
 		gbc_label_4.gridy = 6;
@@ -138,14 +139,14 @@ public class VentanaRegistro extends JFrame {
 		GridBagConstraints gbc_textapellidos = new GridBagConstraints();
 		gbc_textapellidos.anchor = GridBagConstraints.NORTH;
 		gbc_textapellidos.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textapellidos.insets = new Insets(0, 0, 5, 0);
+		gbc_textapellidos.insets = new Insets(0, 0, 5, 5);
 		gbc_textapellidos.gridx = 2;
 		gbc_textapellidos.gridy = 6;
 		panel_1.add(textapellidos, gbc_textapellidos);
 
 		label_5 = new JLabel("DNI");
 		GridBagConstraints gbc_label_5 = new GridBagConstraints();
-		gbc_label_5.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_5.gridwidth = 2;
 		gbc_label_5.insets = new Insets(0, 0, 5, 5);
 		gbc_label_5.gridx = 0;
 		gbc_label_5.gridy = 7;
@@ -164,14 +165,14 @@ public class VentanaRegistro extends JFrame {
 		GridBagConstraints gbc_textDNI = new GridBagConstraints();
 		gbc_textDNI.anchor = GridBagConstraints.NORTH;
 		gbc_textDNI.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textDNI.insets = new Insets(0, 0, 5, 0);
+		gbc_textDNI.insets = new Insets(0, 0, 5, 5);
 		gbc_textDNI.gridx = 2;
 		gbc_textDNI.gridy = 7;
 		panel_1.add(textDNI, gbc_textDNI);
 
 		label_6 = new JLabel("Contrase\u00F1a");
 		GridBagConstraints gbc_label_6 = new GridBagConstraints();
-		gbc_label_6.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_6.gridwidth = 2;
 		gbc_label_6.insets = new Insets(0, 0, 5, 5);
 		gbc_label_6.gridx = 0;
 		gbc_label_6.gridy = 8;
@@ -182,14 +183,14 @@ public class VentanaRegistro extends JFrame {
 		GridBagConstraints gbc_textcontra = new GridBagConstraints();
 		gbc_textcontra.anchor = GridBagConstraints.NORTH;
 		gbc_textcontra.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textcontra.insets = new Insets(0, 0, 5, 0);
+		gbc_textcontra.insets = new Insets(0, 0, 5, 5);
 		gbc_textcontra.gridx = 2;
 		gbc_textcontra.gridy = 8;
 		panel_1.add(textcontra, gbc_textcontra);
 
 		label_8 = new JLabel("Email");
 		GridBagConstraints gbc_label_8 = new GridBagConstraints();
-		gbc_label_8.fill = GridBagConstraints.HORIZONTAL;
+		gbc_label_8.gridwidth = 2;
 		gbc_label_8.insets = new Insets(0, 0, 5, 5);
 		gbc_label_8.gridx = 0;
 		gbc_label_8.gridy = 9;
@@ -200,14 +201,14 @@ public class VentanaRegistro extends JFrame {
 		GridBagConstraints gbc_textemail = new GridBagConstraints();
 		gbc_textemail.anchor = GridBagConstraints.NORTH;
 		gbc_textemail.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textemail.insets = new Insets(0, 0, 5, 0);
+		gbc_textemail.insets = new Insets(0, 0, 5, 5);
 		gbc_textemail.gridx = 2;
 		gbc_textemail.gridy = 9;
 		panel_1.add(textemail, gbc_textemail);
 
 		label_9 = new JLabel("Fecha Nacimiento");
 		GridBagConstraints gbc_label_9 = new GridBagConstraints();
-		gbc_label_9.anchor = GridBagConstraints.NORTHWEST;
+		gbc_label_9.anchor = GridBagConstraints.NORTH;
 		gbc_label_9.insets = new Insets(0, 0, 5, 5);
 		gbc_label_9.gridwidth = 2;
 		gbc_label_9.gridx = 0;
@@ -227,25 +228,25 @@ public class VentanaRegistro extends JFrame {
 		GridBagConstraints gbc_textfecha = new GridBagConstraints();
 		gbc_textfecha.anchor = GridBagConstraints.NORTH;
 		gbc_textfecha.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textfecha.insets = new Insets(0, 0, 5, 0);
+		gbc_textfecha.insets = new Insets(0, 0, 5, 5);
 		gbc_textfecha.gridx = 2;
 		gbc_textfecha.gridy = 10;
 		panel_1.add(textfecha, gbc_textfecha);
 
-		button = new JButton("Cancelar");
-		button.addActionListener(new ButtonActionListener());
-		GridBagConstraints gbc_button = new GridBagConstraints();
-		gbc_button.anchor = GridBagConstraints.NORTH;
-		gbc_button.fill = GridBagConstraints.HORIZONTAL;
-		gbc_button.insets = new Insets(0, 0, 5, 5);
-		gbc_button.gridx = 0;
-		gbc_button.gridy = 12;
-		panel_1.add(button, gbc_button);
-
 		button_1 = new JButton("Registrarse");
 		button_1.addActionListener(new Button_1ActionListener());
+		
+				button = new JButton("Cancelar");
+				button.addActionListener(new ButtonActionListener());
+				GridBagConstraints gbc_button = new GridBagConstraints();
+				gbc_button.anchor = GridBagConstraints.NORTH;
+				gbc_button.fill = GridBagConstraints.HORIZONTAL;
+				gbc_button.insets = new Insets(0, 0, 5, 5);
+				gbc_button.gridx = 1;
+				gbc_button.gridy = 12;
+				panel_1.add(button, gbc_button);
 		GridBagConstraints gbc_button_1 = new GridBagConstraints();
-		gbc_button_1.insets = new Insets(0, 0, 5, 0);
+		gbc_button_1.insets = new Insets(0, 0, 5, 5);
 		gbc_button_1.anchor = GridBagConstraints.NORTH;
 		gbc_button_1.gridx = 2;
 		gbc_button_1.gridy = 12;

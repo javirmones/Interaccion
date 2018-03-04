@@ -47,6 +47,7 @@ public class VentanaPrincipal extends JFrame {
 	private JPanel panel_proyecto;
 
 	public VentanaPrincipal() {
+		setTitle("Gestion de proyectos");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1155, 706);

@@ -74,6 +74,7 @@ public class VentanaLogin {
 
 	private void initialize() {
 		frLogin = new JFrame();
+		frLogin.setTitle("Aplicacion");
 		frLogin.addWindowListener(new FrLoginWindowListener());
 		frLogin.setResizable(false);
 		frLogin.setLocationRelativeTo(null);
@@ -87,35 +88,35 @@ public class VentanaLogin {
 		btnLimpiar = new JButton("Limpiar");
 		btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnLimpiar.addMouseListener(new LimpiarMouseListener());
-		btnLimpiar.setBounds(93, 249, 152, 41);
+		btnLimpiar.setBounds(78, 317, 152, 41);
 		panel.add(btnLimpiar);
 
 		btnEntrar = new JButton("Entrar");
 		btnEntrar.addMouseListener(new EntrarMouseListener());
 		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnEntrar.setBounds(257, 249, 160, 41);
+		btnEntrar.setBounds(256, 317, 160, 41);
 		panel.add(btnEntrar);
 
 		txtUsuario = new JTextField();
 		txtUsuario.addMouseListener(new TxtUsuarioMouseListener());
-		txtUsuario.setBounds(157, 142, 207, 26);
+		txtUsuario.setBounds(153, 211, 207, 26);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
 
 		lblUsuario = new JLabel("Usuario");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblUsuario.setBounds(50, 151, 73, 14);
+		lblUsuario.setBounds(52, 216, 73, 14);
 		panel.add(lblUsuario);
 
 		lblContrasea = new JLabel("Contrase\u00F1a");
 		lblContrasea.setEnabled(false);
 		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblContrasea.setBounds(50, 177, 92, 20);
+		lblContrasea.setBounds(52, 251, 92, 20);
 		panel.add(lblContrasea);
 
 		lblaunNoTienes = new JLabel("\u00BFAun no tienes cuenta?");
 		lblaunNoTienes.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblaunNoTienes.setBounds(123, 213, 183, 14);
+		lblaunNoTienes.setBounds(111, 287, 183, 14);
 		panel.add(lblaunNoTienes);
 
 		comboBox = new JComboBox();
@@ -129,21 +130,21 @@ public class VentanaLogin {
 		lblRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblRegistrarse.addMouseListener(new LblRegistrarseMouseListener());
 		lblRegistrarse.setForeground(Color.BLUE);
-		lblRegistrarse.setBounds(298, 213, 98, 14);
+		lblRegistrarse.setBounds(302, 287, 98, 14);
 		panel.add(lblRegistrarse);
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setEnabled(false);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/Presentacion/1200px-LogoUCLM.svg.png")));
-		lblNewLabel.setBounds(170, 29, 152, 100);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\absit\\git\\Interaccion\\InteraccionPersonaOrdenador\\image004.png"));
+		lblNewLabel.setBounds(170, 36, 152, 159);
 		panel.add(lblNewLabel);
 		{
 			txtContrasenia = new JPasswordField();
 
 			txtContrasenia.setEnabled(false);
 
-			txtContrasenia.setBounds(157, 175, 207, 26);
+			txtContrasenia.setBounds(153, 249, 207, 26);
 			panel.add(txtContrasenia);
 		}
 	}
