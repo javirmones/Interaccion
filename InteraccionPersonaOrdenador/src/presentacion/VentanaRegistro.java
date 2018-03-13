@@ -269,9 +269,9 @@ public class VentanaRegistro extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			
 			
-			Usuario U =new Usuario (String.valueOf(textusuario), String.valueOf(testnombre),String.valueOf(textapellidos),String.valueOf(textDNI) ,String.valueOf(textemail), String.valueOf(textcontra),String.valueOf(textfecha));
-			u.add(U);
-			dispose();
+//			Usuario U =new Usuario (String.valueOf(textusuario), String.valueOf(testnombre),String.valueOf(textapellidos),String.valueOf(textDNI) ,String.valueOf(textemail), String.valueOf(textcontra),String.valueOf(textfecha));
+			//u.add(U);
+			//dispose();
 		}
 	}
 }

@@ -1,33 +1,81 @@
 package dominio;
 
-public class Usuario {
-	private String idUsuario;
+import java.util.Arrays;
+import java.util.Date;
+import javax.swing.ImageIcon;
+
+public class Usuario implements Comparable<Usuario> {
+
+	private int idUsuario;
+	private String user;
+	private String contrasenia;
 	private String nombre;
 	private String apellidos;
 	private String email;
-	private String DNI;
-	private String contrasenia;
-	private String fecha;
-	//private int telefono;
+	private String dni;
+	private Date ultimoAcceso;
+	private Date fecha;
+	private String telefono;
 	private String rolPrincipal;
-	private String conocimientos;
+	private String[] conocimientos;
+	private ImageIcon foto;
 
-	public Usuario(String idUsuario, String nombre, String apellidos, String DNI,String email, String contrasenia,String fecha) {
+	public Usuario(int idUsuario, String user, String contrasenia, String nombre, String apellidos, String email,
+			String dni, Date ultimoAcceso, Date fecha, String telefono, String rolPrincipal, String[] conocimientos,
+			ImageIcon foto) {
+
 		this.idUsuario = idUsuario;
+		this.user = user;
+		this.contrasenia = contrasenia;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
-		this.contrasenia = contrasenia;
-		//this.telefono = 0;
-		this.rolPrincipal = "";
-		this.conocimientos = "";
+		this.dni = dni;
+		this.ultimoAcceso = ultimoAcceso;
+		this.fecha = fecha;
+		this.telefono = telefono;
+		this.rolPrincipal = rolPrincipal;
+		this.conocimientos = conocimientos;
+		this.foto = foto;
 	}
 
-	public String getIdUsuario() {
+	public String getUser() {
+		return user;
+	}
+
+	public void setUser(String user) {
+		this.user = user;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+
+	public Date getUltimoAcceso() {
+		return ultimoAcceso;
+	}
+
+	public void setUltimoAcceso(Date ultimoAcceso) {
+		this.ultimoAcceso = ultimoAcceso;
+	}
+
+	public ImageIcon getFoto() {
+		return foto;
+	}
+
+	public void setFoto(ImageIcon foto) {
+		this.foto = foto;
+	}
+
+	public int getIdUsuario() {
 		return idUsuario;
 	}
 
-	public void setIdUsuario(String idUsuario) {
+	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
 
@@ -63,13 +111,13 @@ public class Usuario {
 		this.contrasenia = contrasenia;
 	}
 
-	/*public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}*/
+	}
 
 	public String getRolPrincipal() {
 		return rolPrincipal;
@@ -80,34 +128,43 @@ public class Usuario {
 	}
 
 	public String getDNI() {
-		return DNI;
+		return dni;
 	}
 
 	public void setDNI(String dNI) {
-		DNI = dNI;
+		dni = dNI;
 	}
 
-	public String getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(String fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
 
-	public String getConocimientos() {
+	public String[] getConocimientos() {
 		return conocimientos;
 	}
 
-	public void setConocimientos(String conocimientos) {
+	public void setConocimientos(String[] conocimientos) {
 		this.conocimientos = conocimientos;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [idUsuario=" + idUsuario + ", nombre=" + nombre + ", apellidos=" + apellidos + ", email="
-				+ email + ", contrasenia=" + contrasenia + ", telefono=" +  ", rolPrincipal=" + rolPrincipal
-				+ ", conocimientos=" + conocimientos + "]";
+		return "Usuario [idUsuario=" + idUsuario + ", user=" + user + ", contrasenia=" + contrasenia + ", nombre="
+				+ nombre + ", apellidos=" + apellidos + ", email=" + email + ", dni=" + dni + ", ultimoAcceso="
+				+ ultimoAcceso + ", fecha=" + fecha + ", telefono=" + telefono + ", rolPrincipal=" + rolPrincipal
+				+ ", conocimientos=" + Arrays.toString(conocimientos) + ", foto=" + foto + "]";
 	}
 
+	@Override
+	public int compareTo(Usuario a) {
+		if (this.idUsuario > a.getIdUsuario()) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
 }

@@ -50,7 +50,7 @@ public class VentanaLogin {
 	private JLabel lblNewLabel;
 	private JPasswordField txtContrasenia;
 	private  String password = null;
-	private  String user = null;
+	private  int user = 0;
 	private List<Usuario> u=null;
 
 	public static void main(String[] args) {

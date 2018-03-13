@@ -1,22 +1,38 @@
 package dominio;
 
-public class Proyecto {
+import javax.swing.ImageIcon;
+import java.util.Date;
+import java.util.Comparator;
+
+public class Proyecto implements Comparator<Proyecto>, Comparable<Proyecto> {
 
 	private int idProyecto;
 	private String nombre;
-	private String fechaCrecion;
-	private int responsable;
+	private Date fechaInicio;
+	private Date fechaFin;
 	private String descripcion;
+	private int manager;
+	private int[] personal;
+	private int[] tareas;
+	private ImageIcon icono;
 
-	public Proyecto(int idProyecto, String nombre, String fechaCrecion, int responsable, String descripcion) {
-
+	public Proyecto(int idProyecto, String nombre, Date fechaInicio, Date fechaFin, String descripcion, int manager,
+			int[] personal, int[] tareas, ImageIcon icono) {
+		
 		this.idProyecto = idProyecto;
 		this.nombre = nombre;
-		this.fechaCrecion = fechaCrecion;
-		this.responsable = responsable;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
 		this.descripcion = descripcion;
+		this.manager = manager;
+		this.personal = personal;
+		this.tareas = tareas;
+		this.icono = icono;
 	}
 
+	public Proyecto() {
+		
+	}
 	public int getIdProyecto() {
 		return idProyecto;
 	}
@@ -33,20 +49,20 @@ public class Proyecto {
 		this.nombre = nombre;
 	}
 
-	public String getFechaCrecion() {
-		return fechaCrecion;
+	public Date getFechaInicio() {
+		return fechaInicio;
 	}
 
-	public void setFechaCrecion(String fechaCrecion) {
-		this.fechaCrecion = fechaCrecion;
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
 	}
 
-	public int getResponsable() {
-		return responsable;
+	public Date getFechaFin() {
+		return fechaFin;
 	}
 
-	public void setResponsable(int responsable) {
-		this.responsable = responsable;
+	public void setFechaFin(Date fechaFin) {
+		this.fechaFin = fechaFin;
 	}
 
 	public String getDescripcion() {
@@ -57,10 +73,49 @@ public class Proyecto {
 		this.descripcion = descripcion;
 	}
 
-	@Override
-	public String toString() {
-		return "Proyecto [idProyecto=" + idProyecto + ", nombre=" + nombre + ", fechaCrecion=" + fechaCrecion
-				+ ", responsable=" + responsable + ", descripcion=" + descripcion + "]";
+	public int getManager() {
+		return manager;
 	}
 
+	public void setManager(int manager) {
+		this.manager = manager;
+	}
+
+	public int[] getPersonal() {
+		return personal;
+	}
+
+	public void setPersonal(int[] personal) {
+		this.personal = personal;
+	}
+
+	public int[] getTareas() {
+		return tareas;
+	}
+
+	public void setTareas(int[] tareas) {
+		this.tareas = tareas;
+	}
+
+	public ImageIcon getIcono() {
+		return icono;
+	}
+
+	public void setIcono(ImageIcon icono) {
+		this.icono = icono;
+	}
+
+	@Override
+	public int compareTo(Proyecto p) {
+		if (this.idProyecto > p.getIdProyecto()) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
+
+	@Override
+	public int compare(Proyecto p1, Proyecto p2) {
+		return p1.fechaFin.compareTo(p2.getFechaFin());
+	}
 }

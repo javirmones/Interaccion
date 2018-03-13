@@ -1,4 +1,4 @@
-package presentacion;
+package presentacion.personalizado;
 
 import java.awt.Component;
 
@@ -16,7 +16,7 @@ public class ArbolRenderizado extends DefaultTreeCellRenderer {
 		String c = (String) (nodo.getUserObject());
 		switch (c) {
 		case "":
-			
+
 			break;
 		}
 		return this;
