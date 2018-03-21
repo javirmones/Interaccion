@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Date;
 import javax.swing.ImageIcon;
 
-public class Usuario implements Comparable<Usuario> {
+public class Usuario {
 
 	private int idUsuario;
 	private String user;
@@ -159,12 +159,4 @@ public class Usuario implements Comparable<Usuario> {
 				+ ", conocimientos=" + Arrays.toString(conocimientos) + ", foto=" + foto + "]";
 	}
 
-	@Override
-	public int compareTo(Usuario a) {
-		if (this.idUsuario > a.getIdUsuario()) {
-			return 1;
-		} else {
-			return -1;
-		}
-	}
 }

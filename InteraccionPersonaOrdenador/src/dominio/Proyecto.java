@@ -2,9 +2,9 @@ package dominio;
 
 import javax.swing.ImageIcon;
 import java.util.Date;
-import java.util.Comparator;
 
-public class Proyecto implements Comparator<Proyecto>, Comparable<Proyecto> {
+
+public class Proyecto{
 
 	private int idProyecto;
 	private String nombre;
@@ -104,18 +104,8 @@ public class Proyecto implements Comparator<Proyecto>, Comparable<Proyecto> {
 	public void setIcono(ImageIcon icono) {
 		this.icono = icono;
 	}
-
-	@Override
-	public int compareTo(Proyecto p) {
-		if (this.idProyecto > p.getIdProyecto()) {
-			return 1;
-		} else {
-			return -1;
-		}
-	}
-
-	@Override
-	public int compare(Proyecto p1, Proyecto p2) {
-		return p1.fechaFin.compareTo(p2.getFechaFin());
-	}
+        
+      
+        
+        
 }

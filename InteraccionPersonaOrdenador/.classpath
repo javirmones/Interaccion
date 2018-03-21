@@ -4,6 +4,10 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/absit/git/Interaccion/InteraccionPersonaOrdenador/miglayout15-swing.jar"/>
 	<classpathentry kind="lib" path="C:/Users/absit/git/Interaccion/InteraccionPersonaOrdenador/jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/absit/git/Interaccion/InteraccionPersonaOrdenador/mysql-connector-java-5.1.44-bin.jar"/>
+	<classpathentry kind="lib" path="UCanAccess-4.0.2-bin/lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="UCanAccess-4.0.2-bin/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="UCanAccess-4.0.2-bin/lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="UCanAccess-4.0.2-bin/lib/jackcess-2.1.6.jar"/>
+	<classpathentry kind="lib" path="UCanAccess-4.0.2-bin/ucanaccess-4.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

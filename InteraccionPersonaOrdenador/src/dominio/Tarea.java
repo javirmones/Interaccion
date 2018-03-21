@@ -1,20 +1,20 @@
 package dominio;
 
-
 import java.util.Arrays;
 import java.util.Date;
 import javax.swing.ImageIcon;
 
 public class Tarea extends Proyecto {
-	
+
 	private String[] etiquetas;
 	private String estado;
 	private int prioridad;
 	private ImageIcon[] imagenes;
-	
-	public Tarea(String[] etiquetas, String estado, int prioridad, ImageIcon[] imagenes, int idProyecto, String nombre, Date fechaInicio, Date fechaFin, String descripcion, int manager,
-			int[] personal, int[] tareas, ImageIcon icono) {
-		
+
+	public Tarea(String[] etiquetas, String estado, int prioridad, ImageIcon[] imagenes, int idProyecto, String nombre,
+			Date fechaInicio, Date fechaFin, String descripcion, int manager, int[] personal, int[] tareas,
+			ImageIcon icono) {
+
 		this.etiquetas = etiquetas;
 		this.estado = estado;
 		this.prioridad = prioridad;
@@ -60,4 +60,3 @@ public class Tarea extends Proyecto {
 	}
 
 }
-

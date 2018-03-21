@@ -38,13 +38,6 @@ public class VentanaPrincipal extends JFrame {
 	private JLabel lblNombre;
 	private JLabel lblApellidos;
 	private JButton btnA;
-	private JSplitPane splitPane;
-	private JScrollPane scrollPaneArbol;
-	private JTree tree;
-	private JPanel panel_vistas;
-	private JPanel panel_usuario;
-	private JPanel panel_tarea;
-	private JPanel panel_proyecto;
 
 	public VentanaPrincipal() {
 		setTitle("Gestion de proyectos");
@@ -130,36 +123,6 @@ public class VentanaPrincipal extends JFrame {
 				gbc_lblConexin.gridx = 15;
 				gbc_lblConexin.gridy = 1;
 				panel.add(lblConexin, gbc_lblConexin);
-			}
-		}
-		{
-			splitPane = new JSplitPane();
-			contentPane.add(splitPane, BorderLayout.CENTER);
-			{
-				scrollPaneArbol = new JScrollPane();
-				splitPane.setLeftComponent(scrollPaneArbol);
-				{
-					tree = new JTree();
-					scrollPaneArbol.setViewportView(tree);
-				}
-			}
-			{
-				panel_vistas = new JPanel();
-				panel_vistas.setBorder(new LineBorder(new Color(0, 0, 0)));
-				splitPane.setRightComponent(panel_vistas);
-				panel_vistas.setLayout(new CardLayout(0, 0));
-				{
-					panel_usuario = new JPanel();
-					panel_vistas.add(panel_usuario, "name_416206528786253");
-				}
-				{
-					panel_tarea = new JPanel();
-					panel_vistas.add(panel_tarea, "name_416414177521511");
-				}
-				{
-					panel_proyecto = new JPanel();
-					panel_vistas.add(panel_proyecto, "name_416455648644235");
-				}
 			}
 		}
 	}

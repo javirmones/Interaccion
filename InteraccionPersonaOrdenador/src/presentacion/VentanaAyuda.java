@@ -1,58 +1,81 @@
 package presentacion;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JTree;
 import javax.swing.border.EmptyBorder;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.JTextArea;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaAyuda extends JFrame {
 
 	private JPanel contentPane;
-	private JSplitPane splitPane;
 	private JPanel panel;
-	private JPanel panel_1;
-	private JTree tree;
+	private JTextArea textArea;
+	private JButton btnCerrar;
 
 	/**
 	 * Launch the application.
-	 * 
-	 * 
-	 * /** Create the frame.
+	 */
+
+	/**
+	 * Create the frame.
 	 */
 	public VentanaAyuda() {
+		setResizable(false);
 		setTitle("Ayuda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 861, 534);
+		setBounds(100, 100, 519, 473);
 		contentPane = new JPanel();
+		contentPane.setFocusable(false);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-
-		splitPane = new JSplitPane();
-		contentPane.add(splitPane, BorderLayout.CENTER);
-
-		panel = new JPanel();
-		splitPane.setRightComponent(panel);
-
-		panel_1 = new JPanel();
-		splitPane.setLeftComponent(panel_1);
-
-		tree = new JTree();
-		tree.setModel(new DefaultTreeModel(new DefaultMutableTreeNode("Ayuda") {
+		{
+			panel = new JPanel();
+			contentPane.add(panel, BorderLayout.SOUTH);
+			GridBagLayout gbl_panel = new GridBagLayout();
+			gbl_panel.columnWidths = new int[]{164, 0, 0, 68, 0, 0, 129, 0};
+			gbl_panel.rowHeights = new int[]{0, 54, 72, 63, 69, 63, 57, 0};
+			gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+			gbl_panel.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+			panel.setLayout(gbl_panel);
 			{
-				//getContentPane().add(new DefaultMutableTreeNode("Inicio"));
-				//getContentPane().add(new DefaultMutableTreeNode("Proyectos"));
-				//getContentPane().add(new DefaultMutableTreeNode("Tareas"));
-				//getContentPane().add(new DefaultMutableTreeNode("Usuarios"));
-				//getContentPane().add(new DefaultMutableTreeNode("Interfaz"));
-				//getContentPane().add(new DefaultMutableTreeNode("Idioma"));
+				textArea = new JTextArea();
+				GridBagConstraints gbc_textArea = new GridBagConstraints();
+				gbc_textArea.gridwidth = 7;
+				gbc_textArea.gridheight = 6;
+				gbc_textArea.insets = new Insets(0, 0, 5, 0);
+				gbc_textArea.fill = GridBagConstraints.BOTH;
+				gbc_textArea.gridx = 0;
+				gbc_textArea.gridy = 0;
+				panel.add(textArea, gbc_textArea);
 			}
-		}));
-		panel_1.add(tree);
+			{
+				btnCerrar = new JButton("Cerrar");
+				btnCerrar.addActionListener(new BtnCerrarActionListener());
+				GridBagConstraints gbc_btnCerrar = new GridBagConstraints();
+				gbc_btnCerrar.gridwidth = 3;
+				gbc_btnCerrar.insets = new Insets(0, 0, 0, 5);
+				gbc_btnCerrar.gridx = 1;
+				gbc_btnCerrar.gridy = 6;
+				panel.add(btnCerrar, gbc_btnCerrar);
+			}
+		}
 	}
 
+	private class BtnCerrarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			
+		}
+	}
 }

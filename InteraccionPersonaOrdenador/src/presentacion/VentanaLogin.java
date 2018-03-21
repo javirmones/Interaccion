@@ -2,7 +2,6 @@ package presentacion;
 
 import java.awt.EventQueue;
 
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
@@ -34,6 +33,9 @@ import java.awt.Dimension;
 import dominio.Usuario;
 import persistencia.LeerUsuario;
 import java.util.*;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class VentanaLogin {
 
@@ -49,26 +51,14 @@ public class VentanaLogin {
 	private JLabel lblRegistrarse;
 	private JLabel lblNewLabel;
 	private JPasswordField txtContrasenia;
-	private  String password = null;
-	private  int user = 0;
-	private List<Usuario> u=null;
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					VentanaLogin window = new VentanaLogin();
-					window.frLogin.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private String password = null;
+	private int user = 0;
+	private List<Usuario> u = null;
 
 	public VentanaLogin() {
+
 		initialize();
+		frLogin.setVisible(true);
 
 	}
 
@@ -83,70 +73,126 @@ public class VentanaLogin {
 
 		panel = new JPanel();
 		frLogin.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
-
-		btnLimpiar = new JButton("Limpiar");
-		btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnLimpiar.addMouseListener(new LimpiarMouseListener());
-		btnLimpiar.setBounds(78, 317, 152, 41);
-		panel.add(btnLimpiar);
-
-		btnEntrar = new JButton("Entrar");
-		btnEntrar.addMouseListener(new EntrarMouseListener());
-		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnEntrar.setBounds(256, 317, 160, 41);
-		panel.add(btnEntrar);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[] { 52, 92, 77, 38, 50, 89, 0, 53, 0 };
+		gbl_panel.rowHeights = new int[] { 20, 159, 26, 26, 14, 41, 0, 0, 0, 0 };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		panel.setLayout(gbl_panel);
 
 		txtUsuario = new JTextField();
 		txtUsuario.addMouseListener(new TxtUsuarioMouseListener());
-		txtUsuario.setBounds(153, 211, 207, 26);
-		panel.add(txtUsuario);
-		txtUsuario.setColumns(10);
-
-		lblUsuario = new JLabel("Usuario");
-		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblUsuario.setBounds(52, 216, 73, 14);
-		panel.add(lblUsuario);
-
-		lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setEnabled(false);
-		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblContrasea.setBounds(52, 251, 92, 20);
-		panel.add(lblContrasea);
-
-		lblaunNoTienes = new JLabel("\u00BFAun no tienes cuenta?");
-		lblaunNoTienes.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblaunNoTienes.setBounds(111, 287, 183, 14);
-		panel.add(lblaunNoTienes);
 
 		comboBox = new JComboBox();
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Espa\u00F1ol", "Ingles" }));
 		comboBox.setMaximumRowCount(2);
-		comboBox.setBounds(367, 16, 89, 20);
-		panel.add(comboBox);
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.fill = GridBagConstraints.BOTH;
+		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBox.gridx = 6;
+		gbc_comboBox.gridy = 0;
+		panel.add(comboBox, gbc_comboBox);
+
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setEnabled(false);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/iconos/image004.png")));
+		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+		gbc_lblNewLabel.fill = GridBagConstraints.BOTH;
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+		gbc_lblNewLabel.gridwidth = 4;
+		gbc_lblNewLabel.gridx = 2;
+		gbc_lblNewLabel.gridy = 1;
+		panel.add(lblNewLabel, gbc_lblNewLabel);
+
+		lblUsuario = new JLabel("Usuario");
+		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		GridBagConstraints gbc_lblUsuario = new GridBagConstraints();
+		gbc_lblUsuario.anchor = GridBagConstraints.WEST;
+		gbc_lblUsuario.insets = new Insets(0, 0, 5, 5);
+		gbc_lblUsuario.gridx = 1;
+		gbc_lblUsuario.gridy = 2;
+		panel.add(lblUsuario, gbc_lblUsuario);
+		GridBagConstraints gbc_txtUsuario = new GridBagConstraints();
+		gbc_txtUsuario.anchor = GridBagConstraints.NORTH;
+		gbc_txtUsuario.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtUsuario.insets = new Insets(0, 0, 5, 5);
+		gbc_txtUsuario.gridwidth = 4;
+		gbc_txtUsuario.gridx = 2;
+		gbc_txtUsuario.gridy = 2;
+		panel.add(txtUsuario, gbc_txtUsuario);
+		txtUsuario.setColumns(10);
+
+		lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea.setEnabled(false);
+		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		GridBagConstraints gbc_lblContrasea = new GridBagConstraints();
+		gbc_lblContrasea.fill = GridBagConstraints.HORIZONTAL;
+		gbc_lblContrasea.insets = new Insets(0, 0, 5, 5);
+		gbc_lblContrasea.gridx = 1;
+		gbc_lblContrasea.gridy = 3;
+		panel.add(lblContrasea, gbc_lblContrasea);
+		{
+			txtContrasenia = new JPasswordField();
+
+			txtContrasenia.setEnabled(false);
+			GridBagConstraints gbc_txtContrasenia = new GridBagConstraints();
+			gbc_txtContrasenia.anchor = GridBagConstraints.NORTH;
+			gbc_txtContrasenia.fill = GridBagConstraints.HORIZONTAL;
+			gbc_txtContrasenia.insets = new Insets(0, 0, 5, 5);
+			gbc_txtContrasenia.gridwidth = 4;
+			gbc_txtContrasenia.gridx = 2;
+			gbc_txtContrasenia.gridy = 3;
+			panel.add(txtContrasenia, gbc_txtContrasenia);
+		}
+
+		btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnLimpiar.addMouseListener(new LimpiarMouseListener());
+
+		lblaunNoTienes = new JLabel("\u00BFAun no tienes cuenta?");
+		lblaunNoTienes.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		GridBagConstraints gbc_lblaunNoTienes = new GridBagConstraints();
+		gbc_lblaunNoTienes.anchor = GridBagConstraints.EAST;
+		gbc_lblaunNoTienes.fill = GridBagConstraints.VERTICAL;
+		gbc_lblaunNoTienes.insets = new Insets(0, 0, 5, 5);
+		gbc_lblaunNoTienes.gridwidth = 4;
+		gbc_lblaunNoTienes.gridx = 1;
+		gbc_lblaunNoTienes.gridy = 4;
+		panel.add(lblaunNoTienes, gbc_lblaunNoTienes);
 
 		lblRegistrarse = new JLabel("Registrarse");
 		lblRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblRegistrarse.addMouseListener(new LblRegistrarseMouseListener());
 		lblRegistrarse.setForeground(Color.BLUE);
-		lblRegistrarse.setBounds(302, 287, 98, 14);
-		panel.add(lblRegistrarse);
+		GridBagConstraints gbc_lblRegistrarse = new GridBagConstraints();
+		gbc_lblRegistrarse.anchor = GridBagConstraints.WEST;
+		gbc_lblRegistrarse.fill = GridBagConstraints.VERTICAL;
+		gbc_lblRegistrarse.insets = new Insets(0, 0, 5, 5);
+		gbc_lblRegistrarse.gridwidth = 2;
+		gbc_lblRegistrarse.gridx = 5;
+		gbc_lblRegistrarse.gridy = 4;
+		panel.add(lblRegistrarse, gbc_lblRegistrarse);
+		GridBagConstraints gbc_btnLimpiar = new GridBagConstraints();
+		gbc_btnLimpiar.fill = GridBagConstraints.BOTH;
+		gbc_btnLimpiar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLimpiar.gridwidth = 2;
+		gbc_btnLimpiar.gridx = 1;
+		gbc_btnLimpiar.gridy = 5;
+		panel.add(btnLimpiar, gbc_btnLimpiar);
 
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setEnabled(false);
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\absit\\git\\Interaccion\\InteraccionPersonaOrdenador\\image004.png"));
-		lblNewLabel.setBounds(170, 36, 152, 159);
-		panel.add(lblNewLabel);
-		{
-			txtContrasenia = new JPasswordField();
-
-			txtContrasenia.setEnabled(false);
-
-			txtContrasenia.setBounds(153, 249, 207, 26);
-			panel.add(txtContrasenia);
-		}
+		btnEntrar = new JButton("Entrar");
+		btnEntrar.addActionListener(new BtnEntrarActionListener());
+		btnEntrar.addMouseListener(new EntrarMouseListener());
+		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		GridBagConstraints gbc_btnEntrar = new GridBagConstraints();
+		gbc_btnEntrar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnEntrar.fill = GridBagConstraints.BOTH;
+		gbc_btnEntrar.gridwidth = 2;
+		gbc_btnEntrar.gridx = 5;
+		gbc_btnEntrar.gridy = 5;
+		panel.add(btnEntrar, gbc_btnEntrar);
 	}
 
 	private class LimpiarMouseListener extends MouseAdapter {
@@ -154,7 +200,7 @@ public class VentanaLogin {
 		public void mouseClicked(MouseEvent e) {
 			txtContrasenia.setText("");
 			txtUsuario.setText("");
-			
+
 		}
 	}
 
@@ -162,7 +208,7 @@ public class VentanaLogin {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			try {
-				u=LeerUsuario.leer();
+				u = LeerUsuario.leer();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -170,7 +216,7 @@ public class VentanaLogin {
 			VentanaRegistro R = new VentanaRegistro(u);
 			R.setVisible(true);
 			System.out.println(u.size());
-			//frLogin.dispose();
+			frLogin.dispose();
 		}
 	}
 
@@ -178,28 +224,28 @@ public class VentanaLogin {
 		@Override
 		public void mouseClicked(MouseEvent arg0) {
 			try {
-				u=LeerUsuario.leer();
+				u = LeerUsuario.leer();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			for (int i=0;i<u.size();i++) {
-				user=u.get(i).getIdUsuario();
-				password=u.get(i).getContrasenia();
-			if (String.valueOf(txtContrasenia.getPassword()).equals(password)
-					&& String.valueOf(txtUsuario.getText()).equals(user)) {
-				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
-						JOptionPane.INFORMATION_MESSAGE);
-				VentanaPrincipal v = new VentanaPrincipal();
-				v.setVisible(true);
-				frLogin.dispose();
+			for (int i = 0; i < u.size(); i++) {
+				user = u.get(i).getIdUsuario();
+				password = u.get(i).getContrasenia();
+				if (String.valueOf(txtContrasenia.getPassword()).equals(password)
+						&& String.valueOf(txtUsuario.getText()).equals(user)) {
+					JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
+							JOptionPane.INFORMATION_MESSAGE);
+					VentanaPrincipal v = new VentanaPrincipal();
+					v.setVisible(true);
+					frLogin.dispose();
 
-			} else {
+				} else {
 
-				JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la contraseña correcta.",
-						"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la contraseña correcta.",
+							"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
 
-			}
+				}
 			}
 		}
 	}
@@ -227,6 +273,10 @@ public class VentanaLogin {
 
 		}
 	}
-	
+
+	private class BtnEntrarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+		}
+	}
 
 }
