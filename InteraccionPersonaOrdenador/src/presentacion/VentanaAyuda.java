@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
 
 public class VentanaAyuda extends JFrame {
 
@@ -31,6 +32,7 @@ public class VentanaAyuda extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAyuda() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAyuda.class.getResource("/iconos/rate-star-button.png")));
 		setResizable(false);
 		setTitle("Ayuda");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

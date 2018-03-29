@@ -25,7 +25,7 @@ import java.sql.PreparedStatement;
 public class Conexion {
 	Connection conexion;
 	Statement sentencia;
-	private final String NOMBRE_BASE_DE_DATOS = "C:\\Users\\absit\\Documents\\NetBeansProjects\\baul\\practicaIPO\\BBDDIPO.accdb";
+	private final String NOMBRE_BASE_DE_DATOS = "BBDDIPO.accdb";
 	private final String CLAVE_BASE_DE_DATOS = "";
 	private final String USUARIO_BASE_DE_DATOS = "admin";
 	// private final String USUARIO_BASE_DE_DATOS = "admin";
@@ -60,7 +60,7 @@ public class Conexion {
 		}
 	}
 
-	public boolean verificarContraseña(String User, String Pass) {
+	public boolean verificarContrasenia(String User, String Pass) {
 		String Nombre = "";
 		String Clave = "";
 
