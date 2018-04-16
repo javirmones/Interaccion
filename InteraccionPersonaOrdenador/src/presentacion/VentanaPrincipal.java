@@ -28,7 +28,7 @@ import javax.swing.JMenu;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import com.toedter.calendar.JCalendar;
+//import com.toedter.calendar.JCalendar;
 import java.awt.Font;
 import java.awt.Toolkit;
 
@@ -55,7 +55,7 @@ public class VentanaPrincipal extends JFrame {
 	private JPanel panel_1;
 	private JMenuItem mntmVerAyuda;
 	private JPanel panel_2;
-	private JCalendar calendar;
+	//private JCalendar calendar;
 	private JSplitPane splitPane;
 	private JTree tree;
 	private JScrollPane scrollPane;
@@ -188,8 +188,8 @@ public class VentanaPrincipal extends JFrame {
 			panel_2 = new JPanel();
 			contentPane.add(panel_2, BorderLayout.EAST);
 			{
-				calendar = new JCalendar();
-				panel_2.add(calendar);
+				//calendar = new JCalendar();
+				//panel_2.add(calendar);
 			}
 		}
 		{
