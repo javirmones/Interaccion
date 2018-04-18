@@ -1,111 +1,67 @@
 package dominio;
 
-import javax.swing.ImageIcon;
 import java.util.Date;
 
 
-public class Proyecto{
-
+public class Proyecto {
+	
 	private int idProyecto;
 	private String nombre;
-	private Date fechaInicio;
-	private Date fechaFin;
+	private Date fechaCreacion;
+	private int responsable;
 	private String descripcion;
-	private int manager;
-	private int[] personal;
-	private int[] tareas;
-	private ImageIcon icono;
-
-	public Proyecto(int idProyecto, String nombre, Date fechaInicio, Date fechaFin, String descripcion, int manager,
-			int[] personal, int[] tareas, ImageIcon icono) {
-		
+	
+	public Proyecto() {
+	}
+	
+	public Proyecto(int idProyecto, String nombre, Date fechaCreacion, int responsable, String descripcion) {
 		this.idProyecto = idProyecto;
 		this.nombre = nombre;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
+		this.fechaCreacion = fechaCreacion; 
+		this.responsable = responsable;
 		this.descripcion = descripcion;
-		this.manager = manager;
-		this.personal = personal;
-		this.tareas = tareas;
-		this.icono = icono;
 	}
-
-	public Proyecto() {
-		
+	
+	public Proyecto(String nombre, Date fechaCreacion, int responsable, String descripcion) {		
+		this.nombre = nombre;
+		this.fechaCreacion = fechaCreacion; 
+		this.responsable = responsable;
+		this.descripcion = descripcion;
 	}
+	
 	public int getIdProyecto() {
 		return idProyecto;
 	}
-
 	public void setIdProyecto(int idProyecto) {
 		this.idProyecto = idProyecto;
 	}
-
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public Date getFechaInicio() {
-		return fechaInicio;
+	public Date getFechaCreacion() {
+		return fechaCreacion;
 	}
-
-	public void setFechaInicio(Date fechaInicio) {
-		this.fechaInicio = fechaInicio;
+	public void setFechaCreacion(Date fechaCrecion) {
+		this.fechaCreacion = fechaCrecion;
 	}
-
-	public Date getFechaFin() {
-		return fechaFin;
+	public int getResponsable() {
+		return responsable;
 	}
-
-	public void setFechaFin(Date fechaFin) {
-		this.fechaFin = fechaFin;
+	public void setResponsable(int responsable) {
+		this.responsable = responsable;
 	}
-
-	public String getDescripcion() {
+	public String getDesripcion() {
 		return descripcion;
 	}
-
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDesripcion(String desripcion) {
+		this.descripcion = desripcion;
 	}
-
-	public int getManager() {
-		return manager;
+	
+	@Override
+	public String toString() {
+		return nombre;
 	}
-
-	public void setManager(int manager) {
-		this.manager = manager;
-	}
-
-	public int[] getPersonal() {
-		return personal;
-	}
-
-	public void setPersonal(int[] personal) {
-		this.personal = personal;
-	}
-
-	public int[] getTareas() {
-		return tareas;
-	}
-
-	public void setTareas(int[] tareas) {
-		this.tareas = tareas;
-	}
-
-	public ImageIcon getIcono() {
-		return icono;
-	}
-
-	public void setIcono(ImageIcon icono) {
-		this.icono = icono;
-	}
-        
-      
-        
-        
 }

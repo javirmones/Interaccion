@@ -4,7 +4,7 @@ package dominio;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import persistencia.GestorMensaje;
+
 
 public class Mensaje {
 
@@ -14,7 +14,7 @@ public class Mensaje {
 	private String asunto;
 	private String texto;
 	private Date fecha;
-	private GestorMensaje gMensaje;
+	//private GestorMensaje gMensaje;
 
 	public Mensaje(int idMensaje, String emisor, String receptor, String asunto, String texto, Date fecha, int tipo) {
 
@@ -73,7 +73,7 @@ public class Mensaje {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-
+/*
 	public String obtenerMensaje() {
 		ResultSet rs = gMensaje.ConsultarMensajes(asunto, receptor);
 		String m = "";
@@ -86,7 +86,7 @@ public class Mensaje {
 		}
 		return m;
 	}
-
+*/
 	@Override
 	public String toString() {
 		return "Mensaje [idMensaje=" + idMensaje + ", emisor=" + emisor + ", receptor=" + receptor + ", asunto="

@@ -31,7 +31,8 @@ import javax.swing.JPasswordField;
 import java.awt.Dimension;
 
 import dominio.Usuario;
-import persistencia.LeerUsuario;
+
+
 import java.util.*;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -51,12 +52,9 @@ public class VentanaLogin {
 	private JLabel lblRegistrarse;
 	private JLabel lblNewLabel;
 	private JPasswordField txtContrasenia;
-	private String password = null;
-	private int user = 0;
-	private List<Usuario> u = null;
 	private JLabel label;
-	private String usuario = "javi";
-	private String contra="javi";
+	private String usuario = "";
+	private String contra = "";
 
 	public VentanaLogin() {
 
@@ -67,7 +65,8 @@ public class VentanaLogin {
 
 	private void initialize() {
 		frLogin = new JFrame();
-		frLogin.setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/iconos/rate-star-button.png")));
+		frLogin.setIconImage(
+				Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/iconos/rate-star-button.png")));
 		frLogin.setTitle("Gestion de Proyectos");
 		frLogin.addWindowListener(new FrLoginWindowListener());
 		frLogin.setResizable(false);
@@ -154,19 +153,19 @@ public class VentanaLogin {
 		gbc_lblaunNoTienes.gridx = 1;
 		gbc_lblaunNoTienes.gridy = 4;
 		panel.add(lblaunNoTienes, gbc_lblaunNoTienes);
-		
-				lblRegistrarse = new JLabel("Registrarse");
-				lblRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 17));
-				lblRegistrarse.addMouseListener(new LblRegistrarseMouseListener());
-				lblRegistrarse.setForeground(Color.BLUE);
-				GridBagConstraints gbc_lblRegistrarse = new GridBagConstraints();
-				gbc_lblRegistrarse.anchor = GridBagConstraints.WEST;
-				gbc_lblRegistrarse.fill = GridBagConstraints.VERTICAL;
-				gbc_lblRegistrarse.insets = new Insets(0, 0, 5, 5);
-				gbc_lblRegistrarse.gridwidth = 2;
-				gbc_lblRegistrarse.gridx = 5;
-				gbc_lblRegistrarse.gridy = 4;
-				panel.add(lblRegistrarse, gbc_lblRegistrarse);
+
+		lblRegistrarse = new JLabel("Registrarse");
+		lblRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblRegistrarse.addMouseListener(new LblRegistrarseMouseListener());
+		lblRegistrarse.setForeground(Color.BLUE);
+		GridBagConstraints gbc_lblRegistrarse = new GridBagConstraints();
+		gbc_lblRegistrarse.anchor = GridBagConstraints.WEST;
+		gbc_lblRegistrarse.fill = GridBagConstraints.VERTICAL;
+		gbc_lblRegistrarse.insets = new Insets(0, 0, 5, 5);
+		gbc_lblRegistrarse.gridwidth = 2;
+		gbc_lblRegistrarse.gridx = 5;
+		gbc_lblRegistrarse.gridy = 4;
+		panel.add(lblRegistrarse, gbc_lblRegistrarse);
 		GridBagConstraints gbc_btnLimpiar = new GridBagConstraints();
 		gbc_btnLimpiar.fill = GridBagConstraints.BOTH;
 		gbc_btnLimpiar.insets = new Insets(0, 0, 5, 5);
@@ -177,7 +176,7 @@ public class VentanaLogin {
 
 		btnEntrar = new JButton("Entrar");
 		btnEntrar.addActionListener(new BtnEntrarActionListener());
-		btnEntrar.addMouseListener(new EntrarMouseListener());
+
 		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		GridBagConstraints gbc_btnEntrar = new GridBagConstraints();
 		gbc_btnEntrar.insets = new Insets(0, 0, 5, 5);
@@ -186,7 +185,7 @@ public class VentanaLogin {
 		gbc_btnEntrar.gridx = 4;
 		gbc_btnEntrar.gridy = 5;
 		panel.add(btnEntrar, gbc_btnEntrar);
-		
+
 		label = new JLabel("");
 		GridBagConstraints gbc_label = new GridBagConstraints();
 		gbc_label.insets = new Insets(0, 0, 5, 5);
@@ -207,56 +206,10 @@ public class VentanaLogin {
 	private class LblRegistrarseMouseListener extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			try {
-				u = LeerUsuario.leer();
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			VentanaRegistro R = new VentanaRegistro(u);
-			R.setVisible(true);
-			System.out.println(u.size());
-			frLogin.dispose();
-		}
-	}
 
-	private class EntrarMouseListener extends MouseAdapter {
-		@Override
-		public void mouseClicked(MouseEvent arg0) {
-			if (String.valueOf(txtContrasenia.getPassword()).equals(contra)) {
-				
-				btnEntrar.setEnabled(true);
+			VentanaRegistro r = new VentanaRegistro();
+			r.setVisible(true);
 			
-			} else {
-			
-				btnEntrar.setEnabled(false);
-			}
-			/*
-			try {
-				u = LeerUsuario.leer();
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			for (int i = 0; i < u.size(); i++) {
-				user = u.get(i).getIdUsuario();
-				password = u.get(i).getContrasenia();
-				if (String.valueOf(txtContrasenia.getPassword()).equals(password)
-						&& String.valueOf(txtUsuario.getText()).equals(user)) {
-					JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
-							JOptionPane.INFORMATION_MESSAGE);
-					VentanaPrincipal v = new VentanaPrincipal();
-					v.setVisible(true);
-					frLogin.dispose();
-
-				} else {
-
-					JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la contraseña correcta.",
-							"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
-
-				}
-			}
-			*/
 		}
 	}
 
@@ -285,11 +238,46 @@ public class VentanaLogin {
 	}
 
 	private class BtnEntrarActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent arg0) {
+		public void actionPerformed(ActionEvent e) {
+			//VentanaPrincipal v = new VentanaPrincipal(); 
+			//v.setVisible(true); 
+			//frLogin.dispose();
+		
+			usuario= lblUsuario.getText();
+			contra= String.valueOf(txtContrasenia.getPassword());
 			VentanaPrincipal vp= new VentanaPrincipal();
 			vp.setVisible(true);
 			frLogin.dispose();
+
+			//if (c.verificarContrasenia(usuario, contra)) {
+				////JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
+				//		JOptionPane.INFORMATION_MESSAGE);
+				//VentanaPrincipal v = new VentanaPrincipal();
+				//v.setVisible(true);
+				//frLogin.dispose();
+
+			//}else {
+			//	JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la contraseña correcta.",
+				//		"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
+//
+			//}
+			/*
+			 * 
+			 * if (c.verificarContrasenia(lblUsuario.getText(), txtContrasenia.getText())) {
+			 * JOptionPane.showMessageDialog(frLogin, "Login correcto",
+			 * "Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE); VentanaPrincipal v =
+			 * new VentanaPrincipal(); v.setVisible(true); frLogin.dispose(); } else {
+			 * 
+			 * JOptionPane.showMessageDialog(frLogin,
+			 * "Login incorrecto, introduzca la contraseña correcta.",
+			 * "Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
+			 * 
+			 * }
+			 */
 		}
+	}
+	public void comprobarUsuario() {
+		
 	}
 
 }

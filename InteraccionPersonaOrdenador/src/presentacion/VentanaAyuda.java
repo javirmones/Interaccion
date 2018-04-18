@@ -35,7 +35,7 @@ public class VentanaAyuda extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAyuda.class.getResource("/iconos/rate-star-button.png")));
 		setResizable(false);
 		setTitle("Ayuda");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 519, 473);
 		contentPane = new JPanel();
 		contentPane.setFocusable(false);
@@ -77,7 +77,7 @@ public class VentanaAyuda extends JFrame {
 
 	private class BtnCerrarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			
+			dispose();
 		}
 	}
 }
