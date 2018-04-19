@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class VentanaLogin2 extends JFrame {
+public class VentanaEditarImagen extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class VentanaLogin2 extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaLogin2 frame = new VentanaLogin2();
+					VentanaEditarImagen frame = new VentanaEditarImagen();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class VentanaLogin2 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaLogin2() {
+	public VentanaEditarImagen() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

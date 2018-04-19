@@ -139,7 +139,7 @@ public class PanelUsuario extends JPanel {
 			tfTelefono.setColumns(10);
 		}
 		{
-			lblUltimaConexion = new JLabel("Conexion:");
+			lblUltimaConexion = new JLabel("Última conexion:");
 			GridBagConstraints gbc_lblUltimaConexion = new GridBagConstraints();
 			gbc_lblUltimaConexion.anchor = GridBagConstraints.EAST;
 			gbc_lblUltimaConexion.insets = new Insets(0, 0, 5, 5);
