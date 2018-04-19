@@ -210,6 +210,7 @@ public class VentanaPrincipal extends JFrame {
 				splitPane.setLeftComponent(splitPane_1);
 				{
 					panel_5 = new JPanel();
+					
 					PanelCalendario c1 = new PanelCalendario(); 
 					GridBagLayout gridBagLayout = (GridBagLayout) c1.getLayout();
 					gridBagLayout.columnWidths = new int[]{0, 182, 0};
