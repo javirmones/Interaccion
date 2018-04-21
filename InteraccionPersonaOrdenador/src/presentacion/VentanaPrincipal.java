@@ -30,7 +30,9 @@ import java.awt.event.ActionEvent;
 import com.toedter.calendar.JCalendar;
 
 import presentacion.paneles.PanelCalendario;
+import presentacion.paneles.PanelProyecto;
 import presentacion.paneles.PanelUsuario;
+import presentacion.personalizado.TablaModelo;
 
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -39,6 +41,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 import javax.swing.JRadioButtonMenuItem;
+import javax.swing.JTable;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -71,13 +74,16 @@ public class VentanaPrincipal extends JFrame {
 	private JButton btnNewButton_2;
 	private JMenuItem mntmIrAProyectos;
 	private JMenuItem mntmNuevoProyecto;
-	private JRadioButtonMenuItem rdbtnmntmEditarProyecto;
 	private JMenuItem mntmEliminarProyecto;
 	private JMenuItem mntmIrAPersonas;
 	private JMenuItem mntmEnviarMensaje;
 	private JMenu mnInformacin;
 	private JMenuItem mntmACercaDe;
 	private JPanel panel_card;
+	private JTable table;
+	private JPanel panel_2;
+	private JMenu mnInicio;
+	private JMenuItem mntmInicio;
 
 	public VentanaPrincipal() {
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -90,19 +96,25 @@ public class VentanaPrincipal extends JFrame {
 			menuBar_1 = new JMenuBar();
 			setJMenuBar(menuBar_1);
 			{
+				mnInicio = new JMenu("Inicio");
+				menuBar_1.add(mnInicio);
+				{
+					mntmInicio = new JMenuItem("Inicio");
+					mntmInicio.addActionListener(new MntmInicioActionListener());
+					mnInicio.add(mntmInicio);
+				}
+			}
+			{
 				mnProyectos = new JMenu("Proyectos");
 				menuBar_1.add(mnProyectos);
 				{
 					mntmIrAProyectos = new JMenuItem("Ir a proyectos...");
+					mntmIrAProyectos.addActionListener(new MntmIrAProyectosActionListener());
 					mnProyectos.add(mntmIrAProyectos);
 				}
 				{
 					mntmNuevoProyecto = new JMenuItem("Nuevo proyecto");
 					mnProyectos.add(mntmNuevoProyecto);
-				}
-				{
-					rdbtnmntmEditarProyecto = new JRadioButtonMenuItem("Editar proyecto");
-					mnProyectos.add(rdbtnmntmEditarProyecto);
 				}
 				{
 					mntmEliminarProyecto = new JMenuItem("Eliminar proyecto");
@@ -122,6 +134,7 @@ public class VentanaPrincipal extends JFrame {
 				menuBar_1.add(mnMensajes);
 				{
 					mntmEnviarMensaje = new JMenuItem("Enviar mensaje");
+					mntmEnviarMensaje.addActionListener(new MntmEnviarMensajeActionListener());
 					mnMensajes.add(mntmEnviarMensaje);
 				}
 			}
@@ -139,6 +152,7 @@ public class VentanaPrincipal extends JFrame {
 				menuBar_1.add(mnInformacin);
 				{
 					mntmACercaDe = new JMenuItem("A cerca de...");
+					mntmACercaDe.addActionListener(new MntmACercaDeActionListener());
 					mnInformacin.add(mntmACercaDe);
 				}
 			}
@@ -178,11 +192,12 @@ public class VentanaPrincipal extends JFrame {
 				panel_3.add(panel_4);
 				panel_4.setLayout(new GridLayout(0, 2, 20, 0));
 				{
-					btnNewButton = new JButton("New button");
+					btnNewButton = new JButton("Ajustes");
 					panel_4.add(btnNewButton);
 				}
 				{
-					btnNewButton_1 = new JButton("New button");
+					btnNewButton_1 = new JButton("Cerrar sesión");
+					btnNewButton_1.addActionListener(new BtnNewButton_1ActionListener());
 					panel_4.add(btnNewButton_1);
 				}
 			}
@@ -199,7 +214,8 @@ public class VentanaPrincipal extends JFrame {
 			contentPane.add(panel_card, BorderLayout.CENTER);
 			panel_card.setLayout(new CardLayout(0, 0));
 			splitPane = new JSplitPane();
-			panel_card.add(splitPane, "name_8541342585746");
+			panel_card.add(splitPane, "panel_inicial");
+			
 			{
 				panel_6 = new PanelUsuario();
 				splitPane.setRightComponent(panel_6);
@@ -218,7 +234,7 @@ public class VentanaPrincipal extends JFrame {
 					panel_5.setLayout(new CardLayout(0, 0));
 					{
 						
-						panel_5.add(c1, "name_8308654116119");
+						panel_5.add(c1, "panel_calendario");
 					}
 				
 				}
@@ -226,10 +242,24 @@ public class VentanaPrincipal extends JFrame {
 					panel_7 = new JPanel();
 					splitPane_1.setRightComponent(panel_7);
 					panel_7.setLayout(new CardLayout(0, 0));
+					{
+						TablaModelo tb= new TablaModelo();
+						table = new JTable();
+						//table.setModel(tb);
+						
+						panel_7.add(table, "name_188720639094886");
+						
+												
+					}
+			
 				}
 				splitPane_1.setDividerLocation(300);
 			}
 			splitPane.setDividerLocation(550);
+			{
+				panel_2 = new PanelProyecto();
+				panel_card.add(panel_2, "panel_proyectos");
+			}
 		}
 	}
 
@@ -237,6 +267,36 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			VentanaAyuda va = new VentanaAyuda();
 			va.setVisible(true);
+		}
+	}
+	private class BtnNewButton_1ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+		}
+	}
+
+	private class MntmIrAProyectosActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_proyectos");
+
+		}
+	}
+	private class MntmInicioActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_inicial");
+		}
+	}
+	private class MntmACercaDeActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			VentanaCreditos vc = new VentanaCreditos();
+			vc.setVisible(true);
+		}
+	}
+	private class MntmEnviarMensajeActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			VentanaMensaje vm = new VentanaMensaje();
+			vm.setVisible(true);
 		}
 	}
 }

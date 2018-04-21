@@ -21,7 +21,7 @@ public class VentanaAyuda extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panel;
-	private JTextArea textArea;
+	private JTextArea txtrAquiVaLa;
 	private JButton btnCerrar;
 
 	/**
@@ -52,15 +52,17 @@ public class VentanaAyuda extends JFrame {
 			gbl_panel.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			panel.setLayout(gbl_panel);
 			{
-				textArea = new JTextArea();
-				GridBagConstraints gbc_textArea = new GridBagConstraints();
-				gbc_textArea.gridwidth = 7;
-				gbc_textArea.gridheight = 6;
-				gbc_textArea.insets = new Insets(0, 0, 5, 0);
-				gbc_textArea.fill = GridBagConstraints.BOTH;
-				gbc_textArea.gridx = 0;
-				gbc_textArea.gridy = 0;
-				panel.add(textArea, gbc_textArea);
+				txtrAquiVaLa = new JTextArea();
+				txtrAquiVaLa.setText("Aqui va la ayuda o que pasa loko");
+				txtrAquiVaLa.setEditable(false);
+				GridBagConstraints gbc_txtrAquiVaLa = new GridBagConstraints();
+				gbc_txtrAquiVaLa.gridwidth = 7;
+				gbc_txtrAquiVaLa.gridheight = 6;
+				gbc_txtrAquiVaLa.insets = new Insets(0, 0, 5, 0);
+				gbc_txtrAquiVaLa.fill = GridBagConstraints.BOTH;
+				gbc_txtrAquiVaLa.gridx = 0;
+				gbc_txtrAquiVaLa.gridy = 0;
+				panel.add(txtrAquiVaLa, gbc_txtrAquiVaLa);
 			}
 			{
 				btnCerrar = new JButton("Cerrar");
