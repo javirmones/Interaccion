@@ -42,6 +42,8 @@ import javax.swing.BoxLayout;
 import java.awt.GridLayout;
 import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTable;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaPrincipal extends JFrame {
 
@@ -109,6 +111,10 @@ public class VentanaPrincipal extends JFrame {
 				menuBar_1.add(mnProyectos);
 				{
 					mntmIrAProyectos = new JMenuItem("Ir a proyectos...");
+					mntmIrAProyectos.addMouseListener(new MouseAdapter() {
+					
+						
+					});
 					mntmIrAProyectos.addActionListener(new MntmIrAProyectosActionListener());
 					mnProyectos.add(mntmIrAProyectos);
 				}
@@ -126,6 +132,18 @@ public class VentanaPrincipal extends JFrame {
 				menuBar_1.add(mnPersonas);
 				{
 					mntmIrAPersonas = new JMenuItem("Ir a personas...");
+					mntmIrAPersonas.addMouseListener(new MouseAdapter() {
+						
+						public void mouseClicked(MouseEvent arg0) {
+							/*JPanel personas=new PanelUsuario();
+							panel_6=personas;
+							splitPane.setRightComponent(panel_6);*/
+							CardLayout cl = (CardLayout) (panel_card.getLayout());
+							cl.show(panel_card, "panel_proyectos");
+							
+
+						}
+					});
 					mnPersonas.add(mntmIrAPersonas);
 				}
 			}
