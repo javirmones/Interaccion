@@ -20,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class VentanaMensaje extends JFrame {
 
@@ -91,10 +93,22 @@ public class VentanaMensaje extends JFrame {
 		panel.add(lblfoto);
 		
 		JButton btnEnviar = new JButton("Enviar");
+		btnEnviar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				dispose();
+			}
+		});
 		btnEnviar.setBounds(361, 636, 128, 25);
 		contentPane.add(btnEnviar);
 		
 		btnAtrs = new JButton("Atrás");
+		btnAtrs.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				dispose();
+			}
+		});
 		btnAtrs.setBounds(223, 636, 128, 25);
 		contentPane.add(btnAtrs);
 		btnEnviar.addActionListener(new ActionListener() {
