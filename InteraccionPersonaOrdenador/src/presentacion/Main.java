@@ -12,8 +12,9 @@ public class Main {
 			public void run() {
 				try {
 					
-					VentanaBbdd vb = new VentanaBbdd();
-					vb.setVisible(true);
+					//VentanaBbdd vb = new VentanaBbdd();
+					//vb.setVisible(true);
+					VentanaLogin v=new VentanaLogin();
 					
 				} catch (Exception e) {
 					e.printStackTrace();

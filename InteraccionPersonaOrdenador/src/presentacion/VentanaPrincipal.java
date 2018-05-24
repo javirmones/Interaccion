@@ -4,10 +4,12 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
+import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -44,9 +46,21 @@ import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+import java.awt.Frame;
+import java.awt.Dimension;
+import javax.swing.SwingConstants;
 
 public class VentanaPrincipal extends JFrame {
-
+	
 	private JPanel contentPane;
 	private JPanel panelCard;
 	private JMenuBar menuBar;
@@ -62,7 +76,6 @@ public class VentanaPrincipal extends JFrame {
 	private JPanel panel_3;
 	private Component horizontalStrut;
 	private JLabel lblHola;
-	private Component horizontalStrut_1;
 	private Component horizontalStrut_2;
 	private JPanel panel_4;
 	private JButton btnNewButton;
@@ -86,19 +99,20 @@ public class VentanaPrincipal extends JFrame {
 	private JPanel panel_2;
 	private JMenu mnInicio;
 	private JMenuItem mntmInicio;
+	private JLabel lblNewLabel;
 
-	public VentanaPrincipal() {
+	public VentanaPrincipal() throws FileNotFoundException {	
+		setMinimumSize(new Dimension(720, 480));	
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VentanaPrincipal.class.getResource("/iconos/rate-star-button.png")));
 		setTitle("Gestion de proyectos");
-
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1155, 706);
 		{
 			menuBar_1 = new JMenuBar();
 			setJMenuBar(menuBar_1);
 			{
 				mnInicio = new JMenu("Inicio");
+				mnInicio.setToolTipText("Ventana de inicio");
 				menuBar_1.add(mnInicio);
 				{
 					mntmInicio = new JMenuItem("Inicio");
@@ -108,9 +122,11 @@ public class VentanaPrincipal extends JFrame {
 			}
 			{
 				mnProyectos = new JMenu("Proyectos");
+				
 				menuBar_1.add(mnProyectos);
 				{
 					mntmIrAProyectos = new JMenuItem("Ir a proyectos...");
+					mntmIrAProyectos.setToolTipText("Ventana para gestionar los proyectos");
 					mntmIrAProyectos.addMouseListener(new MouseAdapter() {
 					
 						
@@ -118,32 +134,19 @@ public class VentanaPrincipal extends JFrame {
 					mntmIrAProyectos.addActionListener(new MntmIrAProyectosActionListener());
 					mnProyectos.add(mntmIrAProyectos);
 				}
-				{
-					mntmNuevoProyecto = new JMenuItem("Nuevo proyecto");
-					mnProyectos.add(mntmNuevoProyecto);
-				}
-				{
-					mntmEliminarProyecto = new JMenuItem("Eliminar proyecto");
-					mnProyectos.add(mntmEliminarProyecto);
-				}
+				
 			}
 			{
 				mnPersonas = new JMenu("Personas");
 				menuBar_1.add(mnPersonas);
 				{
 					mntmIrAPersonas = new JMenuItem("Ir a personas...");
+					mntmIrAPersonas.setToolTipText("Ventana para gestionar la plantilla");
 					mntmIrAPersonas.addMouseListener(new MouseAdapter() {
 						
-						public void mouseClicked(MouseEvent arg0) {
-							/*JPanel personas=new PanelUsuario();
-							panel_6=personas;
-							splitPane.setRightComponent(panel_6);*/
-							CardLayout cl = (CardLayout) (panel_card.getLayout());
-							cl.show(panel_card, "panel_proyectos");
-							
-
-						}
+						
 					});
+					mntmIrAPersonas.addActionListener(new MntmIrAPersonasActionListener());
 					mnPersonas.add(mntmIrAPersonas);
 				}
 			}
@@ -152,6 +155,7 @@ public class VentanaPrincipal extends JFrame {
 				menuBar_1.add(mnMensajes);
 				{
 					mntmEnviarMensaje = new JMenuItem("Enviar mensaje");
+					mntmEnviarMensaje.setToolTipText("Envio de mensajes");
 					mntmEnviarMensaje.addActionListener(new MntmEnviarMensajeActionListener());
 					mnMensajes.add(mntmEnviarMensaje);
 				}
@@ -161,6 +165,7 @@ public class VentanaPrincipal extends JFrame {
 				menuBar_1.add(mnAyuda);
 				{
 					mntmVerAyuda = new JMenuItem("Ver ayuda");
+					mntmVerAyuda.setToolTipText("Ayuda del sistema");
 					mntmVerAyuda.addActionListener(new MntmVerAyudaActionListener());
 					mnAyuda.add(mntmVerAyuda);
 				}
@@ -170,6 +175,7 @@ public class VentanaPrincipal extends JFrame {
 				menuBar_1.add(mnInformacin);
 				{
 					mntmACercaDe = new JMenuItem("A cerca de...");
+					mntmACercaDe.setToolTipText("Informacion sobre los programadores");
 					mntmACercaDe.addActionListener(new MntmACercaDeActionListener());
 					mnInformacin.add(mntmACercaDe);
 				}
@@ -196,8 +202,9 @@ public class VentanaPrincipal extends JFrame {
 				panel_3.add(lblHola);
 			}
 			{
-				horizontalStrut_1 = Box.createHorizontalStrut(20);
-				panel_3.add(horizontalStrut_1);
+				lblNewLabel = new JLabel(lecturaFichero());
+				lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+				panel_3.add(lblNewLabel);
 			}
 			{
 				horizontalStrut_2 = Box.createHorizontalStrut(20);
@@ -278,8 +285,13 @@ public class VentanaPrincipal extends JFrame {
 				panel_2 = new PanelProyecto();
 				panel_card.add(panel_2, "panel_proyectos");
 			}
+			{
+				panel_7 = new PanelUsuario();
+				panel_card.add(panel_7, "panel_personas");
+			}
 		}
 	}
+	
 
 	private class MntmVerAyudaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
@@ -289,6 +301,11 @@ public class VentanaPrincipal extends JFrame {
 	}
 	private class BtnNewButton_1ActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
+			VentanaLogin v=new VentanaLogin();
+			java.util.Date fecha = new Date();
+			escrituraFichero(fecha);
+			
+			dispose();
 		}
 	}
 
@@ -296,6 +313,14 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_proyectos");
+
+		}
+	}
+
+	private class MntmIrAPersonasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_personas");
 
 		}
 	}
@@ -315,6 +340,38 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			VentanaMensaje vm = new VentanaMensaje();
 			vm.setVisible(true);
+		}
+	}
+	
+	private String lecturaFichero() throws FileNotFoundException {
+		String ultimaConexion="";
+		FileReader f = new FileReader("conexion.txt");
+		try (BufferedReader b = new BufferedReader(f)) {
+             ultimaConexion=b.readLine();
+        b.close();
+    }   catch(Exception e){
+                e.printStackTrace();
+                    }  
+    return ultimaConexion;
+	}
+	
+	private void escrituraFichero(Date dia) {
+		FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter("conexion.txt");
+            pw = new PrintWriter(fichero);
+            pw.println(dia);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+	}
+        try {
+			fichero.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

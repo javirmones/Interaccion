@@ -16,13 +16,19 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import javax.swing.JLabel;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class VentanaAyuda extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panel;
-	private JTextArea txtrAquiVaLa;
-	private JButton btnCerrar;
+	private JPanel panel_1;
+	private JLabel lblNewLabel;
+	private JLabel lblEnlaceAUna;
 
 	/**
 	 * Launch the application.
@@ -36,7 +42,7 @@ public class VentanaAyuda extends JFrame {
 		setResizable(false);
 		setTitle("Ayuda");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 519, 473);
+		setBounds(100, 100, 460, 324);
 		contentPane = new JPanel();
 		contentPane.setFocusable(false);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -45,41 +51,40 @@ public class VentanaAyuda extends JFrame {
 		{
 			panel = new JPanel();
 			contentPane.add(panel, BorderLayout.SOUTH);
-			GridBagLayout gbl_panel = new GridBagLayout();
-			gbl_panel.columnWidths = new int[]{164, 0, 0, 68, 0, 0, 129, 0};
-			gbl_panel.rowHeights = new int[]{0, 54, 72, 63, 69, 63, 57, 0};
-			gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-			gbl_panel.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-			panel.setLayout(gbl_panel);
 			{
-				txtrAquiVaLa = new JTextArea();
-				txtrAquiVaLa.setText("Aqui va la ayuda o que pasa loko");
-				txtrAquiVaLa.setEditable(false);
-				GridBagConstraints gbc_txtrAquiVaLa = new GridBagConstraints();
-				gbc_txtrAquiVaLa.gridwidth = 7;
-				gbc_txtrAquiVaLa.gridheight = 6;
-				gbc_txtrAquiVaLa.insets = new Insets(0, 0, 5, 0);
-				gbc_txtrAquiVaLa.fill = GridBagConstraints.BOTH;
-				gbc_txtrAquiVaLa.gridx = 0;
-				gbc_txtrAquiVaLa.gridy = 0;
-				panel.add(txtrAquiVaLa, gbc_txtrAquiVaLa);
-			}
-			{
-				btnCerrar = new JButton("Cerrar");
-				btnCerrar.addActionListener(new BtnCerrarActionListener());
-				GridBagConstraints gbc_btnCerrar = new GridBagConstraints();
-				gbc_btnCerrar.gridwidth = 3;
-				gbc_btnCerrar.insets = new Insets(0, 0, 0, 5);
-				gbc_btnCerrar.gridx = 1;
-				gbc_btnCerrar.gridy = 6;
-				panel.add(btnCerrar, gbc_btnCerrar);
+				panel.setLayout(null);
 			}
 		}
-	}
-
-	private class BtnCerrarActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			dispose();
+		{
+			panel_1 = new JPanel();
+			contentPane.add(panel_1, BorderLayout.CENTER);
+			GridBagLayout gbl_panel_1 = new GridBagLayout();
+			gbl_panel_1.columnWidths = new int[]{32, 393, 0, 0};
+			gbl_panel_1.rowHeights = new int[]{61, 38, 54, 65, 0};
+			gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+			gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+			panel_1.setLayout(gbl_panel_1);
+			{
+				lblNewLabel = new JLabel("Ayuda");
+				lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+				GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
+				gbc_lblNewLabel.fill = GridBagConstraints.VERTICAL;
+				gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
+				gbc_lblNewLabel.gridx = 1;
+				gbc_lblNewLabel.gridy = 1;
+				panel_1.add(lblNewLabel, gbc_lblNewLabel);
+			}
+			{
+				lblEnlaceAUna = new JLabel("www.vaporware.com/GPProfesional/manualusuario");
+				lblEnlaceAUna.setHorizontalAlignment(SwingConstants.CENTER);
+				lblEnlaceAUna.setForeground(Color.CYAN);
+				GridBagConstraints gbc_lblEnlaceAUna = new GridBagConstraints();
+				gbc_lblEnlaceAUna.insets = new Insets(0, 0, 0, 5);
+				gbc_lblEnlaceAUna.fill = GridBagConstraints.BOTH;
+				gbc_lblEnlaceAUna.gridx = 1;
+				gbc_lblEnlaceAUna.gridy = 3;
+				panel_1.add(lblEnlaceAUna, gbc_lblEnlaceAUna);
+			}
 		}
 	}
 }

@@ -4,12 +4,33 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import static javax.swing.UIManager.setLookAndFeel;
+
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+
+import org.pushingpixels.substance.api.SubstanceLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceCeruleanLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceCremeCoffeeLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceCremeLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceDustLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceEmeraldDuskLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceGeminiLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceGraphiteLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceMagellanLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceMarinerLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceMistAquaLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceModerateLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceNebulaBrickWallLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceOfficeBlue2007LookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceRavenLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceSaharaLookAndFeel;
+import org.pushingpixels.substance.api.skin.SubstanceTwilightLookAndFeel;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -22,16 +43,18 @@ import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.Frame;
+
 import javax.swing.JPasswordField;
 import java.awt.Dimension;
 
 import dominio.Usuario;
-
 
 import java.util.*;
 import java.awt.GridBagLayout;
@@ -55,15 +78,23 @@ public class VentanaLogin {
 	private JLabel label;
 	private String usuario = "";
 	private String contra = "";
+	private String contraCorrecta = "12345";
+	private String usuarioCorrecto = "ragnar";
 
 	public VentanaLogin() {
-
+		//JFrame.setDefaultLookAndFeelDecorated(true);
+		//SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.DustSkin");
 		initialize();
 		frLogin.setVisible(true);
 
 	}
 
 	private void initialize() {
+		try {
+			setLookAndFeel(new SubstanceTwilightLookAndFeel());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		frLogin = new JFrame();
 		frLogin.setIconImage(
 				Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/iconos/rate-star-button.png")));
@@ -71,13 +102,13 @@ public class VentanaLogin {
 		frLogin.addWindowListener(new FrLoginWindowListener());
 		frLogin.setResizable(false);
 		frLogin.setLocationRelativeTo(null);
-		frLogin.setBounds(100, 100, 498, 446);
+		frLogin.setBounds(700, 200, 492, 415);
 		frLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panel = new JPanel();
 		frLogin.getContentPane().add(panel, BorderLayout.CENTER);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 52, 92, 77, 38, 50, 0, 89, 0, 53, 0 };
+		gbl_panel.columnWidths = new int[] { 50, 92, 77, 38, 50, 0, 89, 42, 53, 0 };
 		gbl_panel.rowHeights = new int[] { 20, 159, 26, 26, 49, 54, 0, 0, 0, 0 };
 		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
@@ -209,7 +240,7 @@ public class VentanaLogin {
 
 			VentanaRegistro r = new VentanaRegistro();
 			r.setVisible(true);
-			
+
 		}
 	}
 
@@ -239,45 +270,40 @@ public class VentanaLogin {
 
 	private class BtnEntrarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			//VentanaPrincipal v = new VentanaPrincipal(); 
-			//v.setVisible(true); 
-			//frLogin.dispose();
-		
-			usuario= lblUsuario.getText();
-			contra= String.valueOf(txtContrasenia.getPassword());
-			VentanaPrincipal vp= new VentanaPrincipal();
-			vp.setVisible(true);
+
+			usuario = txtUsuario.getText();
+			contra = String.valueOf(txtContrasenia.getPassword());
+			VentanaPrincipal vp;
+			try {
+				vp = new VentanaPrincipal();
+				vp.setExtendedState(Frame.MAXIMIZED_BOTH);
+				vp.setVisible(true);
+			} catch (FileNotFoundException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			frLogin.dispose();
+			 
+			/*if (usuario.equals(usuarioCorrecto) && contraCorrecta.equals(contra)) {
+				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
+						JOptionPane.INFORMATION_MESSAGE);
+				VentanaPrincipal vp = new VentanaPrincipal();
+				vp.setExtendedState(Frame.MAXIMIZED_BOTH);
+				vp.setVisible(true);
+				frLogin.dispose();
 
-			//if (c.verificarContrasenia(usuario, contra)) {
-				////JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
-				//		JOptionPane.INFORMATION_MESSAGE);
-				//VentanaPrincipal v = new VentanaPrincipal();
-				//v.setVisible(true);
-				//frLogin.dispose();
+			} else {
+				JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la		 contraseña correcta.",
+						"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
 
-			//}else {
-			//	JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la contraseña correcta.",
-				//		"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
-//
-			//}
-			/*
-			 * 
-			 * if (c.verificarContrasenia(lblUsuario.getText(), txtContrasenia.getText())) {
-			 * JOptionPane.showMessageDialog(frLogin, "Login correcto",
-			 * "Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE); VentanaPrincipal v =
-			 * new VentanaPrincipal(); v.setVisible(true); frLogin.dispose(); } else {
-			 * 
-			 * JOptionPane.showMessageDialog(frLogin,
-			 * "Login incorrecto, introduzca la contraseña correcta.",
-			 * "Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
-			 * 
-			 * }
-			 */
+			}*/
+		
 		}
 	}
+
 	public void comprobarUsuario() {
-		
+
 	}
 
 }
