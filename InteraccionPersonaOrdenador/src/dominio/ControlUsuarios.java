@@ -20,7 +20,7 @@ public class ControlUsuarios {
 		try {
 			ResultSet resultSet = daoUsuario.obtenerUsuariosDAO();
 			while(resultSet.next()) {			
-				user = obtenerUsuario(resultSet.getInt(1));
+				//user = obtenerUsuario(resultSet.getInt(1));
 				listaUsuarios.add(user);
 			}
 		} catch(Exception e) {
@@ -29,7 +29,7 @@ public class ControlUsuarios {
 		return listaUsuarios;
 	}
 	
-	public Usuario obtenerUsuario(int idUser) {
+	/*public Usuario obtenerUsuario(int idUser) {
 		Usuario user = null;		
 		try{
 			ResultSet resultSet = daoUsuario.obtenerUsuarioDAO(idUser);
@@ -42,7 +42,7 @@ public class ControlUsuarios {
 			System.out.println(e);
 		}
 		return user;
-	}
+	}*/
 	
 	public boolean añadirUsuario(Usuario user) {		
 		return daoUsuario.insertarUsuarioDAO(user.getIdUser(), user.getNombre(), user.getApellidos(), user.getEmail(), 
@@ -71,8 +71,8 @@ public class ControlUsuarios {
 		return comprobar;
 	}
 	
-	public boolean comprobarPass(int idUsuario, String pass) {
+	/*public boolean comprobarPass(int idUsuario, String pass) {
 		Usuario user = obtenerUsuario(idUsuario);
 		return user.getContraseña().equals(pass);
-	}
+	}*/
 }

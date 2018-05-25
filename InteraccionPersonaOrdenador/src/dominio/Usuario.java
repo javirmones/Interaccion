@@ -2,7 +2,7 @@ package dominio;
 
 public class Usuario {
 	
-	private int idUser;
+	private static int idUser=0;
 	private String nombre;
 	private String apellidos;
 	private String email;
@@ -16,8 +16,8 @@ public class Usuario {
 		
 	}
 	
-	public Usuario(int idUser, String nombre, String apellidos, String email, String contraseña, int telefono, String imagen) {
-		this.idUser = idUser;
+	public Usuario(String nombre, String apellidos, String email, String contraseña, int telefono, String imagen) {
+		this.idUser = ++idUser;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;
@@ -28,9 +28,9 @@ public class Usuario {
 		this.imagen = imagen;
 	}
 	
-	public Usuario(int idUser, String nombre, String apellidos, String email, String contraseña, int telefono,
+	public Usuario( String nombre, String apellidos, String email, String contraseña, int telefono,
 			String rolPrincipal, String conocimientos, String imagen) {
-		this.idUser = idUser;
+		this.idUser = ++idUser;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.email = email;

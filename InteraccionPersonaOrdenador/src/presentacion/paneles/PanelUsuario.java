@@ -66,6 +66,7 @@ public class PanelUsuario extends JPanel {
 		panel_1.setLayout(new BorderLayout(0, 0));
 
 		JList<Usuario> listUsuarios = new JList();
+		listUsuarios.setFont(new Font("Arial", Font.PLAIN, 20));
 		listUsuarios.setModel(u.getLista());
 		panel_1.add(listUsuarios, BorderLayout.CENTER);
 		listUsuarios.addListSelectionListener(new ListSelectionListener() {
@@ -179,7 +180,7 @@ public class PanelUsuario extends JPanel {
 					
 				}}
 				if (nEncontrado) {
-					Usuario x = new Usuario(3, textNombre.getText(), textApellidos.getText(), textEmail.getText(),
+					Usuario x = new Usuario( textNombre.getText(), textApellidos.getText(), textEmail.getText(),
 							textContraseña.getText(), Integer.parseInt(textTelefono.getText()), textRol.getText(),
 							textComentarios.getText(), "");
 					u.ActualizarList(x);

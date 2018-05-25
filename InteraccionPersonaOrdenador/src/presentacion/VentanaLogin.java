@@ -37,6 +37,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -55,6 +57,7 @@ import javax.swing.JPasswordField;
 import java.awt.Dimension;
 
 import dominio.Usuario;
+import persistencia.GestorUsuarios;
 
 import java.util.*;
 import java.awt.GridBagLayout;
@@ -80,6 +83,7 @@ public class VentanaLogin {
 	private String contra = "";
 	private String contraCorrecta = "12345";
 	private String usuarioCorrecto = "ragnar";
+	private GestorUsuarios usuarios = new GestorUsuarios();
 
 	public VentanaLogin() {
 		//JFrame.setDefaultLookAndFeelDecorated(true);
@@ -90,6 +94,7 @@ public class VentanaLogin {
 	}
 
 	private void initialize() {
+		usuarios.Inicializacion();
 		try {
 			setLookAndFeel(new SubstanceTwilightLookAndFeel());
 		} catch (Exception e) {
@@ -274,30 +279,33 @@ public class VentanaLogin {
 			usuario = txtUsuario.getText();
 			contra = String.valueOf(txtContrasenia.getPassword());
 			VentanaPrincipal vp;
-			try {
-				vp = new VentanaPrincipal();
-				vp.setExtendedState(Frame.MAXIMIZED_BOTH);
-				vp.setVisible(true);
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			DefaultListModel<Usuario> listaUsuarios=usuarios.getLista();
+			boolean correcto=false;
+			for (int i=0;i<listaUsuarios.size();i++) {
+				if (listaUsuarios.getElementAt(i).getEmail().equals(usuario)&&listaUsuarios.getElementAt(i).getContraseña().equals(contra)){
+					correcto=true;
+				}
 			}
-			
-			frLogin.dispose();
 			 
-			/*if (usuario.equals(usuarioCorrecto) && contraCorrecta.equals(contra)) {
+			if (correcto) {
 				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
 						JOptionPane.INFORMATION_MESSAGE);
-				VentanaPrincipal vp = new VentanaPrincipal();
-				vp.setExtendedState(Frame.MAXIMIZED_BOTH);
-				vp.setVisible(true);
+				try {
+					vp = new VentanaPrincipal();
+					vp.setExtendedState(Frame.MAXIMIZED_BOTH);
+					vp.setVisible(true);
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				frLogin.dispose();
 
 			} else {
 				JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la		 contraseña correcta.",
 						"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
 
-			}*/
+			}
 		
 		}
 	}
