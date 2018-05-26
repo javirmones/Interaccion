@@ -38,11 +38,12 @@ public class VentanaAyuda extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAyuda() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAyuda.class.getResource("/iconos/rate-star-button.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAyuda.class.getResource("/iconos/question-mark.png")));
 		setResizable(false);
 		setTitle("Ayuda");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 460, 324);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setFocusable(false);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

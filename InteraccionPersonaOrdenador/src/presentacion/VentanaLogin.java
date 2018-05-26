@@ -81,13 +81,11 @@ public class VentanaLogin {
 	private JLabel label;
 	private String usuario = "";
 	private String contra = "";
-	private String contraCorrecta = "12345";
-	private String usuarioCorrecto = "ragnar";
 	private GestorUsuarios usuarios = new GestorUsuarios();
 
 	public VentanaLogin() {
-		//JFrame.setDefaultLookAndFeelDecorated(true);
-		//SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.DustSkin");
+		// JFrame.setDefaultLookAndFeelDecorated(true);
+		// SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.DustSkin");
 		initialize();
 		frLogin.setVisible(true);
 
@@ -279,14 +277,15 @@ public class VentanaLogin {
 			usuario = txtUsuario.getText();
 			contra = String.valueOf(txtContrasenia.getPassword());
 			VentanaPrincipal vp;
-			DefaultListModel<Usuario> listaUsuarios=usuarios.getLista();
-			boolean correcto=false;
-			for (int i=0;i<listaUsuarios.size();i++) {
-				if (listaUsuarios.getElementAt(i).getEmail().equals(usuario)&&listaUsuarios.getElementAt(i).getContraseña().equals(contra)){
-					correcto=true;
+			DefaultListModel<Usuario> listaUsuarios = usuarios.getLista();
+			boolean correcto = false;
+			for (int i = 0; i < listaUsuarios.size(); i++) {
+				if (listaUsuarios.getElementAt(i).getNombre().equals(usuario)
+						&& listaUsuarios.getElementAt(i).getContraseña().equals(contra)) {
+					correcto = true;
 				}
 			}
-			 
+
 			if (correcto) {
 				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
 						JOptionPane.INFORMATION_MESSAGE);
@@ -298,7 +297,7 @@ public class VentanaLogin {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
+
 				frLogin.dispose();
 
 			} else {
@@ -306,7 +305,7 @@ public class VentanaLogin {
 						"Mensaje Informativo", JOptionPane.INFORMATION_MESSAGE);
 
 			}
-		
+
 		}
 	}
 

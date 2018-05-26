@@ -13,6 +13,8 @@ import javax.swing.JTextArea;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Toolkit;
+import javax.swing.border.TitledBorder;
 
 public class VentanaCreditos extends JFrame {
 
@@ -31,10 +33,13 @@ public class VentanaCreditos extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaCreditos() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaCreditos.class.getResource("/iconos/grid-world.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 469, 279);
+		setTitle("A cerca de...");
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new TitledBorder(null, "Cr\u00E9ditos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{62, 73, 170, 55, 49, 0};
