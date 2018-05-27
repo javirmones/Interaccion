@@ -7,9 +7,10 @@ public class Usuario {
 	private String apellidos;
 	private String email;
 	private String contraseña;
+	private String direccion;
 	private int telf;
 	private String rolPrincipal;
-	private String conocimientos;
+	private String comentarios;
 	private String imagen;
 	
 	public Usuario() {
@@ -24,12 +25,12 @@ public class Usuario {
 		this.contraseña = contraseña;
 		this.telf = telefono;
 		this.rolPrincipal = "";
-		this.conocimientos = "";
+		this.comentarios = "";
 		this.imagen = imagen;
 	}
 	
 	public Usuario( String nombre, String apellidos, String email, String contraseña, int telefono,
-			String rolPrincipal, String conocimientos, String imagen) {
+			String rolPrincipal, String comentarios,String direccion, String imagen) {
 		this.idUser = ++idUser;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -37,8 +38,17 @@ public class Usuario {
 		this.contraseña = contraseña;
 		this.telf = telefono;
 		this.rolPrincipal = rolPrincipal;
-		this.conocimientos = conocimientos;
+		this.comentarios = comentarios;
 		this.imagen = imagen;
+	}
+	
+	
+	public String getDireccion() {
+		return direccion;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
 	public int getIdUser() {
@@ -98,11 +108,11 @@ public class Usuario {
 	}
 
 	public String getConocimientos() {
-		return conocimientos;
+		return comentarios;
 	}
 
 	public void setConocimientos(String conocimientos) {
-		this.conocimientos = conocimientos;
+		this.comentarios = conocimientos;
 	}
 	
 	public String getImagen() {

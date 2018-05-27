@@ -31,10 +31,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import com.toedter.calendar.JCalendar;
 
+import dominio.Usuario;
 import presentacion.paneles.PanelInicial;
 import presentacion.paneles.PanelProyecto;
+import presentacion.paneles.PanelSubTarea;
+import presentacion.paneles.PanelTarea;
 import presentacion.paneles.PanelUsuario;
-import presentacion.personalizado.TablaModelo;
 
 import java.awt.Font;
 import java.awt.Toolkit;
@@ -71,7 +73,7 @@ public class VentanaPrincipal extends JFrame {
 	private JMenu mnPersonas;
 	private JMenu mnMensajes;
 	private JMenu mnAyuda;
-	private JPanel panel_1;
+
 	private JMenuItem mntmVerAyuda;
 	private JPanel panel_ajustes;
 	private Component horizontalStrut;
@@ -114,8 +116,14 @@ public class VentanaPrincipal extends JFrame {
 	private JMenuItem mntmEditarPersona;
 	private JMenuItem mntmEliminarPersona;
 	private JPanel panel_tareas;
+	private JMenu mnEdicionSubtareas;
+	private JMenuItem mntmNuevaSubtarea;
+	private JMenuBar menuBar_1;
+	private JMenuItem mntmEditarSubtarea;
+	private JMenuItem mntmEliminarSubtarea;
+	private JPanel panel_subtareas;
 
-	public VentanaPrincipal() throws FileNotFoundException {
+	public VentanaPrincipal(Usuario u) throws FileNotFoundException {
 		setMinimumSize(new Dimension(720, 480));
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(VentanaPrincipal.class.getResource("/iconos/rate-star-button.png")));
@@ -157,6 +165,7 @@ public class VentanaPrincipal extends JFrame {
 					mnProyectos.add(mnNewMenu);
 					{
 						mntmNuevo = new JMenuItem("Nueva tarea");
+						mntmNuevo.addActionListener(new MntmNuevoActionListener());
 						mntmNuevo.setIcon(
 								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
 						mnNewMenu.add(mntmNuevo);
@@ -186,15 +195,43 @@ public class VentanaPrincipal extends JFrame {
 					}
 					{
 						mntmNewMenuItem_1 = new JMenuItem("Editar proyecto");
+						mntmNewMenuItem_1.addActionListener(new MntmNewMenuItem_1ActionListener());
 						mntmNewMenuItem_1.setIcon(
 								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
 						mnNewMenu_1.add(mntmNewMenuItem_1);
 					}
 					{
 						mntmEliminarProyecto_1 = new JMenuItem("Eliminar proyecto");
+						mntmEliminarProyecto_1.addActionListener(new MntmEliminarProyecto_1ActionListener());
 						mntmEliminarProyecto_1
 								.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
 						mnNewMenu_1.add(mntmEliminarProyecto_1);
+					}
+				}
+				{
+					mnEdicionSubtareas = new JMenu("Edicion subtareas");
+					mnProyectos.add(mnEdicionSubtareas);
+					{
+						mntmNuevaSubtarea = new JMenuItem("Nueva subtarea");
+						mntmNuevaSubtarea.addActionListener(new MntmNuevaSubtareaActionListener());
+						mntmNuevaSubtarea.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
+						mnEdicionSubtareas.add(mntmNuevaSubtarea);
+					}
+					{
+						mntmEditarSubtarea = new JMenuItem("Editar subtarea");
+						mntmEditarSubtarea.addActionListener(new MntmEditarSubtareaActionListener());
+						mntmEditarSubtarea.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
+						mnEdicionSubtareas.add(mntmEditarSubtarea);
+					}
+					{
+						mntmEliminarSubtarea = new JMenuItem("Eliminar subtarea");
+						mntmEliminarSubtarea.addActionListener(new MntmEliminarSubtareaActionListener());
+						mntmEliminarSubtarea.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
+						mnEdicionSubtareas.add(mntmEliminarSubtarea);
+					}
+					{
+						menuBar_1 = new JMenuBar();
+						mnEdicionSubtareas.add(menuBar_1);
 					}
 				}
 
@@ -347,14 +384,14 @@ public class VentanaPrincipal extends JFrame {
 				}
 			}
 			{
-				panel_inicio = new PanelInicial();
+				panel_inicio = new PanelInicial(u);
 				splitPane_inicial.setRightComponent(panel_inicio);
 				panel_inicio.setLayout(new CardLayout(0, 0));
 			}
 
 			splitPane_inicial.setDividerLocation(900);
 			{
-				panel_tareas = new JPanel();
+				panel_tareas = new PanelTarea();
 				panel_card.add(panel_tareas, "panel_tareas");
 			}
 			{
@@ -362,8 +399,12 @@ public class VentanaPrincipal extends JFrame {
 				panel_card.add(panel_proyectos, "panel_proyectos");
 			}
 			{
-				panel_personas = new PanelUsuario();
+				panel_personas = new PanelUsuario(u);
 				panel_card.add(panel_personas, "panel_personas");
+			}
+			{
+				panel_subtareas = new PanelSubTarea();
+				panel_card.add(panel_subtareas, "panel_subtareas");
 			}
 		}
 	}
@@ -434,6 +475,43 @@ public class VentanaPrincipal extends JFrame {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_proyectos");
 
+		}
+	}
+	private class MntmNuevoActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_tareas");
+		}
+	}
+	private class MntmNuevaSubtareaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_subtareas");
+			
+		}
+	}
+	private class MntmEditarSubtareaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_subtareas");
+		}
+	}
+	private class MntmEliminarSubtareaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_subtareas");
+		}
+	}
+	private class MntmNewMenuItem_1ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_proyectos");
+		}
+	}
+	private class MntmEliminarProyecto_1ActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_proyectos");
 		}
 	}
 

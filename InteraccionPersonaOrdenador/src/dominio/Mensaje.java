@@ -1,11 +1,5 @@
 package dominio;
 
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Date;
-
-
 public class Mensaje {
 
 	private int idMensaje;
@@ -13,17 +7,16 @@ public class Mensaje {
 	private String receptor;
 	private String asunto;
 	private String texto;
-	private Date fecha;
-	//private GestorMensaje gMensaje;
 
-	public Mensaje(int idMensaje, String emisor, String receptor, String asunto, String texto, Date fecha, int tipo) {
+
+
+	public Mensaje(int idMensaje, String emisor, String receptor, String asunto, String texto) {
 
 		this.idMensaje = idMensaje;
 		this.emisor = emisor;
 		this.receptor = receptor;
 		this.asunto = asunto;
 		this.texto = texto;
-		this.fecha = fecha;
 	}
 
 	public int getIdMensaje() {
@@ -66,31 +59,10 @@ public class Mensaje {
 		this.texto = texto;
 	}
 
-	public Date getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
-/*
-	public String obtenerMensaje() {
-		ResultSet rs = gMensaje.ConsultarMensajes(asunto, receptor);
-		String m = "";
-		try {
-			while (rs.next()) {
-				m = rs.getString("Mensaje");
-			}
-			rs.close();
-		} catch (SQLException e) {
-		}
-		return m;
-	}
-*/
 	@Override
 	public String toString() {
 		return "Mensaje [idMensaje=" + idMensaje + ", emisor=" + emisor + ", receptor=" + receptor + ", asunto="
-				+ asunto + ", texto=" + texto + ", adjunto=" + ", fecha=" + fecha + "";
+				+ asunto + ", texto=" + texto + ", adjunto=";
 	}
 
 }

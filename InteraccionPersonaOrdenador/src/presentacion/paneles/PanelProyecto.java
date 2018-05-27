@@ -22,20 +22,14 @@ public class PanelProyecto extends JPanel {
 	private JList list;
 	private JPanel panel;
 	private JLabel lblNombre;
-	private JLabel lblFechaInicio;
+	private JLabel lblFecha;
 	private JLabel lblEncargado;
 	private JLabel lblEstado;
-	private JLabel lblPrioridad;
-	private JLabel lblTags;
-	private JLabel lblNewLabel;
-	private JTextField textField_2;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JScrollPane scrollPane_2;
-	private JSpinner spinner;
-	private JTextField textField_5;
 	private JTextArea textArea;
 
 	/**
@@ -86,43 +80,24 @@ public class PanelProyecto extends JPanel {
 			textField.setColumns(10);
 		}
 		{
-			lblFechaInicio = new JLabel("Fecha inicio");
-			GridBagConstraints gbc_lblFechaInicio = new GridBagConstraints();
-			gbc_lblFechaInicio.anchor = GridBagConstraints.EAST;
-			gbc_lblFechaInicio.insets = new Insets(0, 0, 5, 5);
-			gbc_lblFechaInicio.gridx = 10;
-			gbc_lblFechaInicio.gridy = 2;
-			add(lblFechaInicio, gbc_lblFechaInicio);
+			lblFecha = new JLabel("Fecha creacion");
+			GridBagConstraints gbc_lblFecha = new GridBagConstraints();
+			gbc_lblFecha.anchor = GridBagConstraints.EAST;
+			gbc_lblFecha.insets = new Insets(0, 0, 5, 5);
+			gbc_lblFecha.gridx = 10;
+			gbc_lblFecha.gridy = 2;
+			add(lblFecha, gbc_lblFecha);
 		}
 		{
 			textField_1 = new JTextField();
 			GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-			gbc_textField_1.gridwidth = 2;
+			gbc_textField_1.gridwidth = 4;
 			gbc_textField_1.insets = new Insets(0, 0, 5, 5);
 			gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
 			gbc_textField_1.gridx = 11;
 			gbc_textField_1.gridy = 2;
 			add(textField_1, gbc_textField_1);
 			textField_1.setColumns(10);
-		}
-		{
-			lblNewLabel = new JLabel("Fecha fin");
-			GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-			gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
-			gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-			gbc_lblNewLabel.gridx = 13;
-			gbc_lblNewLabel.gridy = 2;
-			add(lblNewLabel, gbc_lblNewLabel);
-		}
-		{
-			textField_2 = new JTextField();
-			GridBagConstraints gbc_textField_2 = new GridBagConstraints();
-			gbc_textField_2.insets = new Insets(0, 0, 5, 5);
-			gbc_textField_2.fill = GridBagConstraints.HORIZONTAL;
-			gbc_textField_2.gridx = 14;
-			gbc_textField_2.gridy = 2;
-			add(textField_2, gbc_textField_2);
-			textField_2.setColumns(10);
 		}
 		{
 			lblEncargado = new JLabel("Encargado");
@@ -163,41 +138,6 @@ public class PanelProyecto extends JPanel {
 			gbc_textField_4.gridy = 4;
 			add(textField_4, gbc_textField_4);
 			textField_4.setColumns(10);
-		}
-		{
-			lblPrioridad = new JLabel("Prioridad");
-			GridBagConstraints gbc_lblPrioridad = new GridBagConstraints();
-			gbc_lblPrioridad.insets = new Insets(0, 0, 5, 5);
-			gbc_lblPrioridad.gridx = 10;
-			gbc_lblPrioridad.gridy = 5;
-			add(lblPrioridad, gbc_lblPrioridad);
-		}
-		{
-			spinner = new JSpinner();
-			GridBagConstraints gbc_spinner = new GridBagConstraints();
-			gbc_spinner.insets = new Insets(0, 0, 5, 5);
-			gbc_spinner.gridx = 11;
-			gbc_spinner.gridy = 5;
-			add(spinner, gbc_spinner);
-		}
-		{
-			lblTags = new JLabel("Tags");
-			GridBagConstraints gbc_lblTags = new GridBagConstraints();
-			gbc_lblTags.anchor = GridBagConstraints.EAST;
-			gbc_lblTags.insets = new Insets(0, 0, 5, 5);
-			gbc_lblTags.gridx = 13;
-			gbc_lblTags.gridy = 5;
-			add(lblTags, gbc_lblTags);
-		}
-		{
-			textField_5 = new JTextField();
-			GridBagConstraints gbc_textField_5 = new GridBagConstraints();
-			gbc_textField_5.insets = new Insets(0, 0, 5, 5);
-			gbc_textField_5.fill = GridBagConstraints.HORIZONTAL;
-			gbc_textField_5.gridx = 14;
-			gbc_textField_5.gridy = 5;
-			add(textField_5, gbc_textField_5);
-			textField_5.setColumns(10);
 		}
 		{
 			scrollPane_1 = new JScrollPane();

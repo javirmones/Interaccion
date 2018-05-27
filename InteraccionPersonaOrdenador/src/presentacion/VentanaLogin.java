@@ -111,7 +111,7 @@ public class VentanaLogin {
 		panel = new JPanel();
 		frLogin.getContentPane().add(panel, BorderLayout.CENTER);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 50, 92, 77, 38, 50, 0, 89, 42, 53, 0 };
+		gbl_panel.columnWidths = new int[] { 60, 92, 62, 38, 50, 0, 89, 62, 53, 0 };
 		gbl_panel.rowHeights = new int[] { 20, 159, 26, 26, 49, 54, 0, 0, 0, 0 };
 		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
@@ -132,7 +132,7 @@ public class VentanaLogin {
 		gbc_lblNewLabel.gridy = 1;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
 
-		lblUsuario = new JLabel("Usuario");
+		lblUsuario = new JLabel("Usuario/ Email");
 		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		GridBagConstraints gbc_lblUsuario = new GridBagConstraints();
 		gbc_lblUsuario.anchor = GridBagConstraints.WEST;
@@ -144,7 +144,7 @@ public class VentanaLogin {
 		gbc_txtUsuario.anchor = GridBagConstraints.NORTH;
 		gbc_txtUsuario.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtUsuario.insets = new Insets(0, 0, 5, 5);
-		gbc_txtUsuario.gridwidth = 5;
+		gbc_txtUsuario.gridwidth = 6;
 		gbc_txtUsuario.gridx = 2;
 		gbc_txtUsuario.gridy = 2;
 		panel.add(txtUsuario, gbc_txtUsuario);
@@ -167,13 +167,14 @@ public class VentanaLogin {
 			gbc_txtContrasenia.anchor = GridBagConstraints.NORTH;
 			gbc_txtContrasenia.fill = GridBagConstraints.HORIZONTAL;
 			gbc_txtContrasenia.insets = new Insets(0, 0, 5, 5);
-			gbc_txtContrasenia.gridwidth = 5;
+			gbc_txtContrasenia.gridwidth = 6;
 			gbc_txtContrasenia.gridx = 2;
 			gbc_txtContrasenia.gridy = 3;
 			panel.add(txtContrasenia, gbc_txtContrasenia);
 		}
 
 		btnLimpiar = new JButton("Limpiar");
+		btnLimpiar.addActionListener(new BtnLimpiarActionListener());
 		btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnLimpiar.addMouseListener(new LimpiarMouseListener());
 
@@ -273,15 +274,16 @@ public class VentanaLogin {
 
 	private class BtnEntrarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-
+			Usuario us= new Usuario();
 			usuario = txtUsuario.getText();
 			contra = String.valueOf(txtContrasenia.getPassword());
 			VentanaPrincipal vp;
 			DefaultListModel<Usuario> listaUsuarios = usuarios.getLista();
 			boolean correcto = false;
 			for (int i = 0; i < listaUsuarios.size(); i++) {
-				if (listaUsuarios.getElementAt(i).getNombre().equals(usuario)
+				if (listaUsuarios.getElementAt(i).getNombre().equals(usuario) || listaUsuarios.getElementAt(i).getEmail().equals(usuario)
 						&& listaUsuarios.getElementAt(i).getContraseña().equals(contra)) {
+					us=listaUsuarios.getElementAt(i);
 					correcto = true;
 				}
 			}
@@ -290,7 +292,8 @@ public class VentanaLogin {
 				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
 						JOptionPane.INFORMATION_MESSAGE);
 				try {
-					vp = new VentanaPrincipal();
+					System.out.println(us.toString());
+					vp = new VentanaPrincipal(us);
 					vp.setExtendedState(Frame.MAXIMIZED_BOTH);
 					vp.setVisible(true);
 				} catch (FileNotFoundException e1) {
@@ -308,9 +311,12 @@ public class VentanaLogin {
 
 		}
 	}
-
-	public void comprobarUsuario() {
-
+	private class BtnLimpiarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			txtUsuario.setText("");
+			txtContrasenia.setText("");
+		}
 	}
+
 
 }

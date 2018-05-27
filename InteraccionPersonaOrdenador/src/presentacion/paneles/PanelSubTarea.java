@@ -13,10 +13,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
-public class PanelTarea extends JPanel {
+public class PanelSubTarea extends JPanel {
 	private JPanel panel;
-	private JScrollPane scrollPaneTareas;
-	private JList list;
 	private JScrollPane scrollPane_subtareas;
 	private JList SubTareas;
 	private JLabel lblNombre;
@@ -34,7 +32,7 @@ public class PanelTarea extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelTarea() {
+	public PanelSubTarea() {
 		setLayout(new CardLayout(0, 0));
 		{
 			panel = new JPanel();
@@ -45,22 +43,6 @@ public class PanelTarea extends JPanel {
 			gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			panel.setLayout(gbl_panel);
-			{
-				scrollPaneTareas = new JScrollPane();
-				GridBagConstraints gbc_scrollPaneTareas = new GridBagConstraints();
-				gbc_scrollPaneTareas.gridwidth = 3;
-				gbc_scrollPaneTareas.gridheight = 9;
-				gbc_scrollPaneTareas.insets = new Insets(0, 0, 5, 5);
-				gbc_scrollPaneTareas.fill = GridBagConstraints.BOTH;
-				gbc_scrollPaneTareas.gridx = 0;
-				gbc_scrollPaneTareas.gridy = 0;
-				panel.add(scrollPaneTareas, gbc_scrollPaneTareas);
-				{
-					list = new JList();
-					list.setBorder(new TitledBorder(null, "Tareas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-					scrollPaneTareas.setViewportView(list);
-				}
-			}
 			{
 				lblNombre = new JLabel("Nombre");
 				lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -149,11 +131,11 @@ public class PanelTarea extends JPanel {
 				scrollPane_subtareas = new JScrollPane();
 				GridBagConstraints gbc_scrollPane_subtareas = new GridBagConstraints();
 				gbc_scrollPane_subtareas.gridwidth = 3;
-				gbc_scrollPane_subtareas.gridheight = 9;
+				gbc_scrollPane_subtareas.gridheight = 18;
 				gbc_scrollPane_subtareas.insets = new Insets(0, 0, 5, 5);
 				gbc_scrollPane_subtareas.fill = GridBagConstraints.BOTH;
 				gbc_scrollPane_subtareas.gridx = 0;
-				gbc_scrollPane_subtareas.gridy = 9;
+				gbc_scrollPane_subtareas.gridy = 0;
 				panel.add(scrollPane_subtareas, gbc_scrollPane_subtareas);
 				{
 					SubTareas = new JList();

@@ -44,6 +44,7 @@ import java.awt.Color;
 public class VentanaMensaje extends JFrame {
 
 	private JPanel contentPane;
+	
 	private JTextField textFieldDestinatario;
 	private JTextField textFieldAsunto;
 	private JTextField txtCuerpoDelMensaje;

@@ -21,6 +21,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
 
 public class VentanaAyuda extends JFrame {
 
@@ -29,6 +30,7 @@ public class VentanaAyuda extends JFrame {
 	private JPanel panel_1;
 	private JLabel lblNewLabel;
 	private JLabel lblEnlaceAUna;
+	private JLabel lblParaMsInformacin;
 
 	/**
 	 * Launch the application.
@@ -58,10 +60,11 @@ public class VentanaAyuda extends JFrame {
 		}
 		{
 			panel_1 = new JPanel();
+			panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 			contentPane.add(panel_1, BorderLayout.CENTER);
 			GridBagLayout gbl_panel_1 = new GridBagLayout();
-			gbl_panel_1.columnWidths = new int[]{32, 393, 0, 0};
-			gbl_panel_1.rowHeights = new int[]{61, 38, 54, 65, 0};
+			gbl_panel_1.columnWidths = new int[]{32, 393, 40, 0};
+			gbl_panel_1.rowHeights = new int[]{61, 38, 54, 51, 0};
 			gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
 			gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			panel_1.setLayout(gbl_panel_1);
@@ -72,8 +75,16 @@ public class VentanaAyuda extends JFrame {
 				gbc_lblNewLabel.fill = GridBagConstraints.VERTICAL;
 				gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 				gbc_lblNewLabel.gridx = 1;
-				gbc_lblNewLabel.gridy = 1;
+				gbc_lblNewLabel.gridy = 0;
 				panel_1.add(lblNewLabel, gbc_lblNewLabel);
+			}
+			{
+				lblParaMsInformacin = new JLabel("Para más información sobre la aplicación consulte en:");
+				GridBagConstraints gbc_lblParaMsInformacin = new GridBagConstraints();
+				gbc_lblParaMsInformacin.insets = new Insets(0, 0, 5, 5);
+				gbc_lblParaMsInformacin.gridx = 1;
+				gbc_lblParaMsInformacin.gridy = 2;
+				panel_1.add(lblParaMsInformacin, gbc_lblParaMsInformacin);
 			}
 			{
 				lblEnlaceAUna = new JLabel("www.vaporware.com/GPProfesional/manualusuario");
@@ -81,7 +92,7 @@ public class VentanaAyuda extends JFrame {
 				lblEnlaceAUna.setForeground(Color.CYAN);
 				GridBagConstraints gbc_lblEnlaceAUna = new GridBagConstraints();
 				gbc_lblEnlaceAUna.insets = new Insets(0, 0, 0, 5);
-				gbc_lblEnlaceAUna.fill = GridBagConstraints.BOTH;
+				gbc_lblEnlaceAUna.fill = GridBagConstraints.VERTICAL;
 				gbc_lblEnlaceAUna.gridx = 1;
 				gbc_lblEnlaceAUna.gridy = 3;
 				panel_1.add(lblEnlaceAUna, gbc_lblEnlaceAUna);

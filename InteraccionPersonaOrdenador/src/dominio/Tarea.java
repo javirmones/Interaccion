@@ -1,39 +1,35 @@
 package dominio;
 
-import java.util.Date;
 
 public class Tarea {
 
 	private int idTarea;
 	private String nombre;
-	private Date fechaIni;
-	private Date fechaFin;
-	private String estado;
+	private String fechaIni;
+	private String fechaFin;
 	private int prioridad;
-	private int encargado;
+	private String encargado;
 	private String comentarios;
 	
 	public Tarea() {
 
 	}
 	
-	public Tarea(int idTarea, String nombre, Date fechaIni, Date fechaFin, String estado, int prioridad, String comentarios) {
+	public Tarea(int idTarea, String nombre, String fechaIni, String fechaFin, int prioridad, String encargado, String comentarios) {
 		this.idTarea = idTarea;
 		this.nombre = nombre;
 		this.fechaIni = fechaIni;
 		this.fechaFin = fechaFin;
-		this.estado = estado;
-		this.encargado = 1;
+		this.encargado=encargado;
 		this.prioridad = prioridad;
 		this.comentarios = comentarios;
 	}
 	
-	public Tarea(String nombre, Date fechaIni, Date fechaFin, String estado, int prioridad, String comentarios) {
+	public Tarea(String nombre, String fechaIni, String fechaFin, int prioridad, String comentarios) {
 		this.nombre = nombre;
 		this.fechaIni = fechaIni;
 		this.fechaFin = fechaFin;
-		this.estado = estado;
-		this.encargado = 1;
+	
 		this.prioridad = prioridad;
 		this.comentarios = comentarios;
 	}
@@ -54,28 +50,20 @@ public class Tarea {
 		this.nombre = nombre;
 	}
 
-	public Date getFechaIni() {
+	public String getFechaIni() {
 		return fechaIni;
 	}
 
-	public void setFechaIni(Date fechaIni) {
+	public void setFechaIni(String fechaIni) {
 		this.fechaIni = fechaIni;
 	}
 
-	public Date getFechaFin() {
+	public String getFechaFin() {
 		return fechaFin;
 	}
 
-	public void setFechaFin(Date fechaFin) {
+	public void setFechaFin(String fechaFin) {
 		this.fechaFin = fechaFin;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
 	}
 
 	public int getPrioridad() {
@@ -86,11 +74,11 @@ public class Tarea {
 		this.prioridad = prioridad;
 	}
 
-	public int getEncargado() {
+	public String getEncargado() {
 		return encargado;
 	}
 
-	public void setEncargado(int encargado) {
+	public void setEncargado(String encargado) {
 		this.encargado = encargado;
 	}
 
