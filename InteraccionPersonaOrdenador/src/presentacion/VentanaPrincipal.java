@@ -77,7 +77,7 @@ public class VentanaPrincipal extends JFrame {
 	private Component horizontalStrut;
 	private JLabel lblHola;
 	private Component horizontalStrut_2;
-	private JPanel panel_4;
+	private JPanel panel_aux;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
 	private JSplitPane splitPane_inicial;
@@ -113,6 +113,7 @@ public class VentanaPrincipal extends JFrame {
 	private JMenuItem mntmNuevaPersona;
 	private JMenuItem mntmEditarPersona;
 	private JMenuItem mntmEliminarPersona;
+	private JPanel panel_tareas;
 
 	public VentanaPrincipal() throws FileNotFoundException {
 		setMinimumSize(new Dimension(720, 480));
@@ -130,7 +131,8 @@ public class VentanaPrincipal extends JFrame {
 				barraMenu.add(mnInicio);
 				{
 					mntmInicio = new JMenuItem("Vista inicial");
-					mntmInicio.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/home-icon-silhouette.png")));
+					mntmInicio.setIcon(
+							new ImageIcon(VentanaPrincipal.class.getResource("/iconos/home-icon-silhouette.png")));
 					mntmInicio.addActionListener(new MntmInicioActionListener());
 					mnInicio.add(mntmInicio);
 				}
@@ -141,7 +143,8 @@ public class VentanaPrincipal extends JFrame {
 				barraMenu.add(mnProyectos);
 				{
 					mntmIrAProyectos = new JMenuItem("Consultar proyectos");
-					mntmIrAProyectos.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/file-in-folder.png")));
+					mntmIrAProyectos
+							.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/file-in-folder.png")));
 					mntmIrAProyectos.setToolTipText("Ventana para gestionar los proyectos");
 					mntmIrAProyectos.addMouseListener(new MouseAdapter() {
 
@@ -154,17 +157,20 @@ public class VentanaPrincipal extends JFrame {
 					mnProyectos.add(mnNewMenu);
 					{
 						mntmNuevo = new JMenuItem("Nueva tarea");
-						mntmNuevo.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
+						mntmNuevo.setIcon(
+								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
 						mnNewMenu.add(mntmNuevo);
 					}
 					{
 						mntmEditarTarea = new JMenuItem("Editar tarea");
-						mntmEditarTarea.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
+						mntmEditarTarea.setIcon(
+								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
 						mnNewMenu.add(mntmEditarTarea);
 					}
 					{
 						mntmEliminarTarea = new JMenuItem("Eliminar tarea");
-						mntmEliminarTarea.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
+						mntmEliminarTarea
+								.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
 						mnNewMenu.add(mntmEliminarTarea);
 					}
 				}
@@ -174,17 +180,20 @@ public class VentanaPrincipal extends JFrame {
 					{
 						mntmNewMenuItem = new JMenuItem("Nuevo proyecto");
 						mntmNewMenuItem.addActionListener(new MntmNewMenuItemActionListener());
-						mntmNewMenuItem.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
+						mntmNewMenuItem.setIcon(
+								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
 						mnNewMenu_1.add(mntmNewMenuItem);
 					}
 					{
 						mntmNewMenuItem_1 = new JMenuItem("Editar proyecto");
-						mntmNewMenuItem_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
+						mntmNewMenuItem_1.setIcon(
+								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
 						mnNewMenu_1.add(mntmNewMenuItem_1);
 					}
 					{
 						mntmEliminarProyecto_1 = new JMenuItem("Eliminar proyecto");
-						mntmEliminarProyecto_1.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
+						mntmEliminarProyecto_1
+								.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
 						mnNewMenu_1.add(mntmEliminarProyecto_1);
 					}
 				}
@@ -195,7 +204,8 @@ public class VentanaPrincipal extends JFrame {
 				barraMenu.add(mnPersonas);
 				{
 					mntmIrAPersonas = new JMenuItem("Consultar personas");
-					mntmIrAPersonas.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/grid-world.png")));
+					mntmIrAPersonas
+							.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/grid-world.png")));
 					mntmIrAPersonas.setToolTipText("Ventana para gestionar la plantilla");
 					mntmIrAPersonas.addMouseListener(new MouseAdapter() {
 
@@ -208,17 +218,20 @@ public class VentanaPrincipal extends JFrame {
 					mnPersonas.add(mnEdicionPersonas);
 					{
 						mntmNuevaPersona = new JMenuItem("Nueva persona");
-						mntmNuevaPersona.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
+						mntmNuevaPersona.setIcon(
+								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
 						mnEdicionPersonas.add(mntmNuevaPersona);
 					}
 					{
 						mntmEditarPersona = new JMenuItem("Editar persona");
-						mntmEditarPersona.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
+						mntmEditarPersona.setIcon(
+								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
 						mnEdicionPersonas.add(mntmEditarPersona);
 					}
 					{
 						mntmEliminarPersona = new JMenuItem("Eliminar persona");
-						mntmEliminarPersona.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
+						mntmEliminarPersona
+								.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
 						mnEdicionPersonas.add(mntmEliminarPersona);
 					}
 				}
@@ -228,7 +241,8 @@ public class VentanaPrincipal extends JFrame {
 				barraMenu.add(mnMensajes);
 				{
 					mntmEnviarMensaje = new JMenuItem("Enviar mensaje");
-					mntmEnviarMensaje.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/letter(1).png")));
+					mntmEnviarMensaje
+							.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/letter(1).png")));
 					mntmEnviarMensaje.setToolTipText("Envio de mensajes");
 					mntmEnviarMensaje.addActionListener(new MntmEnviarMensajeActionListener());
 					mnMensajes.add(mntmEnviarMensaje);
@@ -239,7 +253,8 @@ public class VentanaPrincipal extends JFrame {
 				barraMenu.add(mnAyuda);
 				{
 					mntmVerAyuda = new JMenuItem("Consultar ayuda");
-					mntmVerAyuda.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/question-mark.png")));
+					mntmVerAyuda
+							.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/question-mark.png")));
 					mntmVerAyuda.setToolTipText("Ayuda del sistema");
 					mntmVerAyuda.addActionListener(new MntmVerAyudaActionListener());
 					mnAyuda.add(mntmVerAyuda);
@@ -250,7 +265,8 @@ public class VentanaPrincipal extends JFrame {
 				barraMenu.add(mnInformacin);
 				{
 					mntmACercaDe = new JMenuItem("A cerca de...");
-					mntmACercaDe.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/rate-star-button.png")));
+					mntmACercaDe
+							.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/rate-star-button.png")));
 					mntmACercaDe.setToolTipText("Informacion sobre los programadores");
 					mntmACercaDe.addActionListener(new MntmACercaDeActionListener());
 					mnInformacin.add(mntmACercaDe);
@@ -287,20 +303,20 @@ public class VentanaPrincipal extends JFrame {
 				panel_ajustes.add(horizontalStrut_2);
 			}
 			{
-				panel_4 = new JPanel();
-				panel_4.setAlignmentY(Component.BOTTOM_ALIGNMENT);
-				panel_4.setAlignmentX(Component.LEFT_ALIGNMENT);
-				panel_ajustes.add(panel_4);
-				panel_4.setLayout(new GridLayout(0, 2, 20, 0));
+				panel_aux = new JPanel();
+				panel_aux.setAlignmentY(Component.BOTTOM_ALIGNMENT);
+				panel_aux.setAlignmentX(Component.LEFT_ALIGNMENT);
+				panel_ajustes.add(panel_aux);
+				panel_aux.setLayout(new GridLayout(0, 2, 20, 0));
 				{
 					btnNewButton = new JButton("Ajustes");
 					btnNewButton.addActionListener(new BtnNewButtonActionListener());
-					panel_4.add(btnNewButton);
+					panel_aux.add(btnNewButton);
 				}
 				{
 					btnNewButton_1 = new JButton("Cerrar sesión");
 					btnNewButton_1.addActionListener(new BtnNewButton_1ActionListener());
-					panel_4.add(btnNewButton_1);
+					panel_aux.add(btnNewButton_1);
 				}
 			}
 		}
@@ -335,9 +351,12 @@ public class VentanaPrincipal extends JFrame {
 				splitPane_inicial.setRightComponent(panel_inicio);
 				panel_inicio.setLayout(new CardLayout(0, 0));
 			}
-			
-			
+
 			splitPane_inicial.setDividerLocation(900);
+			{
+				panel_tareas = new JPanel();
+				panel_card.add(panel_tareas, "panel_tareas");
+			}
 			{
 				panel_proyectos = new PanelProyecto();
 				panel_card.add(panel_proyectos, "panel_proyectos");
@@ -361,7 +380,7 @@ public class VentanaPrincipal extends JFrame {
 			VentanaLogin v = new VentanaLogin();
 			java.util.Date fecha = new Date();
 			escrituraFichero(fecha);
-			
+
 			dispose();
 		}
 	}
@@ -409,11 +428,12 @@ public class VentanaPrincipal extends JFrame {
 			va.setVisible(true);
 		}
 	}
+
 	private class MntmNewMenuItemActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_proyectos");
-			
+
 		}
 	}
 

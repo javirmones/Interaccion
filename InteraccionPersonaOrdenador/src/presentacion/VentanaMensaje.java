@@ -58,7 +58,7 @@ public class VentanaMensaje extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaMensaje.class.getResource("/iconos/letter(1).png")));
 		setTitle("Mensajes");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 706, 708);
+		setBounds(100, 100, 706, 745);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
