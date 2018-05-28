@@ -15,6 +15,7 @@ public class GestorTareas {
 		// for (int i=0;i<2;i++) {
 
 		// }
+		Inicializacion();
 	}
 
 	public DefaultListModel<Tarea> getLista() {

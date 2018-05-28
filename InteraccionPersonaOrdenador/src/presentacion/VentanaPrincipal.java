@@ -413,6 +413,7 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			VentanaAyuda va = new VentanaAyuda();
 			va.setVisible(true);
+			lblHola.setText("Esta usted en ayuda");
 		}
 	}
 
@@ -430,6 +431,7 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_proyectos");
+			lblHola.setText("Esta usted en proyectos");
 
 		}
 	}
@@ -438,7 +440,7 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_personas");
-
+			lblHola.setText("Esta usted en personas");
 		}
 	}
 
@@ -446,6 +448,8 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_inicial");
+			lblHola.setText("¡Hola! Bienvenido al programa");
+			
 		}
 	}
 
@@ -453,6 +457,7 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			VentanaCreditos vc = new VentanaCreditos();
 			vc.setVisible(true);
+			lblHola.setText("Creditos");
 		}
 	}
 
@@ -460,6 +465,7 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			VentanaMensaje vm = new VentanaMensaje();
 			vm.setVisible(true);
+			lblHola.setText("Esta usted en mensajes");
 		}
 	}
 
@@ -467,6 +473,7 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			VentanaAjustes va = new VentanaAjustes();
 			va.setVisible(true);
+			lblHola.setText("Esta usted en ajustes");
 		}
 	}
 
@@ -474,6 +481,7 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_proyectos");
+			lblHola.setText("Esta usted en proyectos");
 
 		}
 	}
@@ -481,12 +489,14 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent arg0) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_tareas");
+			lblHola.setText("Esta usted en tareas");
 		}
 	}
 	private class MntmNuevaSubtareaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_subtareas");
+			lblHola.setText("Esta usted en subtareas");
 			
 		}
 	}
@@ -494,24 +504,28 @@ public class VentanaPrincipal extends JFrame {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_subtareas");
+			lblHola.setText("Esta usted en subtareas");
 		}
 	}
 	private class MntmEliminarSubtareaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_subtareas");
+			lblHola.setText("Esta usted en subtareas");
 		}
 	}
 	private class MntmNewMenuItem_1ActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_proyectos");
+			lblHola.setText("Esta usted en proyectos");
 		}
 	}
 	private class MntmEliminarProyecto_1ActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_proyectos");
+			lblHola.setText("Esta usted en proyectos");
 		}
 	}
 

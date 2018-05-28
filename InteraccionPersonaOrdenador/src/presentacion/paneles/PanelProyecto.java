@@ -7,6 +7,10 @@ import javax.swing.JTree;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.border.TitledBorder;
+
+import persistencia.GestorProyectos;
+import persistencia.GestorTareas;
+
 import javax.swing.JScrollPane;
 import javax.swing.JList;
 import javax.swing.JLabel;
@@ -14,11 +18,12 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
 import javax.swing.JSpinner;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class PanelProyecto extends JPanel {
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
-	private JTree tree;
 	private JList list;
 	private JPanel panel;
 	private JLabel lblNombre;
@@ -31,12 +36,15 @@ public class PanelProyecto extends JPanel {
 	private JTextField textField_4;
 	private JScrollPane scrollPane_2;
 	private JTextArea textArea;
+	private JList list_1;
+	private GestorProyectos gp= new GestorProyectos();
+	private GestorTareas gt= new GestorTareas();
 
 	/**
 	 * Create the panel.
 	 */
 	public PanelProyecto() {
-		setBorder(new TitledBorder(null, "Proyectos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 55, 0, 74, 57, 0, 176, 49, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 38, 80, 0};
@@ -54,9 +62,11 @@ public class PanelProyecto extends JPanel {
 			gbc_scrollPane.gridy = 0;
 			add(scrollPane, gbc_scrollPane);
 			{
-				tree = new JTree();
-				tree.setBorder(new TitledBorder(null, "Proyectos/Tareas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-				scrollPane.setViewportView(tree);
+				list_1 = new JList();
+				list_1.setBorder(new TitledBorder(null, "Proyectos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				list_1.setModel(gp.etLista());
+				
+				scrollPane.setViewportView(list_1);
 			}
 		}
 		{
@@ -151,8 +161,10 @@ public class PanelProyecto extends JPanel {
 			add(scrollPane_1, gbc_scrollPane_1);
 			{
 				list = new JList();
-				list.setBorder(new TitledBorder(null, "Encargados", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				list.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Tareas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+				list.setModel(gt.getLista());
 				scrollPane_1.setViewportView(list);
+				
 			}
 		}
 		{
