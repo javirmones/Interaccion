@@ -2,6 +2,8 @@ package presentacion;
 
 import java.awt.EventQueue;
 
+import persistencia.GestorUsuarios;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -12,6 +14,8 @@ public class Main {
 					
 					//VentanaBbdd vb = new VentanaBbdd();
 					//vb.setVisible(true);
+					GestorUsuarios u=new GestorUsuarios();
+					u.Inicializacion();
 					VentanaLogin v=new VentanaLogin();
 					
 				} catch (Exception e) {

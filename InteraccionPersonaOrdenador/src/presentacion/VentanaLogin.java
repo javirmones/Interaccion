@@ -92,7 +92,7 @@ public class VentanaLogin {
 	}
 
 	private void initialize() {
-		usuarios.Inicializacion();
+		//usuarios.Inicializacion();
 		try {
 			setLookAndFeel(new SubstanceTwilightLookAndFeel());
 		} catch (Exception e) {
@@ -292,7 +292,7 @@ public class VentanaLogin {
 				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
 						JOptionPane.INFORMATION_MESSAGE);
 				try {
-					System.out.println(us.toString());
+					
 					vp = new VentanaPrincipal(us);
 					vp.setExtendedState(Frame.MAXIMIZED_BOTH);
 					vp.setVisible(true);
