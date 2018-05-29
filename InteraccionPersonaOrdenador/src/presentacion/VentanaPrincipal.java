@@ -123,6 +123,8 @@ public class VentanaPrincipal extends JFrame {
 	private JMenuItem mntmEliminarSubtarea;
 	private JPanel panel_subtareas;
 
+	
+
 	public VentanaPrincipal(Usuario u) throws FileNotFoundException {
 		setMinimumSize(new Dimension(720, 480));
 		setIconImage(Toolkit.getDefaultToolkit()
@@ -391,11 +393,11 @@ public class VentanaPrincipal extends JFrame {
 
 			splitPane_inicial.setDividerLocation(900);
 			{
-				panel_tareas = new PanelTarea();
+				panel_tareas = new PanelTarea(panel_card);
 				panel_card.add(panel_tareas, "panel_tareas");
 			}
 			{
-				panel_proyectos = new PanelProyecto();
+				panel_proyectos = new PanelProyecto(panel_card);
 				panel_card.add(panel_proyectos, "panel_proyectos");
 			}
 			{
@@ -403,11 +405,13 @@ public class VentanaPrincipal extends JFrame {
 				panel_card.add(panel_personas, "panel_personas");
 			}
 			{
-				panel_subtareas = new PanelSubTarea();
+				panel_subtareas = new PanelSubTarea(panel_card);
 				panel_card.add(panel_subtareas, "panel_subtareas");
 			}
 		}
+
 	}
+
 
 	private class MntmVerAyudaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {

@@ -338,7 +338,6 @@ public class PanelUsuario extends JPanel {
 		panel_principal.add(scrollPane_cm, gbc_scrollPane_cm);
 
 		JTextArea textAreaComentarios = new JTextArea();
-		textAreaComentarios.setEditable(false);
 		scrollPane_cm.setViewportView(textAreaComentarios);
 		splitPane_division.setDividerLocation(1300);
 		splitPane.setDividerLocation(300);

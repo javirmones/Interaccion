@@ -5,6 +5,9 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class PanelBotones extends JPanel {
 	private JButton btnNuevo;
@@ -14,7 +17,7 @@ public class PanelBotones extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public PanelBotones() {
+	public PanelBotones(String opcion) {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{188, 197, 205, 0};
 		gridBagLayout.rowHeights = new int[]{58, 0};
@@ -23,6 +26,8 @@ public class PanelBotones extends JPanel {
 		setLayout(gridBagLayout);
 		{
 			btnNuevo = new JButton("Nuevo");
+			btnNuevo.setIcon(new ImageIcon(PanelBotones.class.getResource("/iconos/add-filled-cross-sign.png")));
+			btnNuevo.addActionListener(new BtnNuevoActionListener());
 			GridBagConstraints gbc_btnNuevo = new GridBagConstraints();
 			gbc_btnNuevo.fill = GridBagConstraints.BOTH;
 			gbc_btnNuevo.insets = new Insets(0, 0, 0, 5);
@@ -32,6 +37,8 @@ public class PanelBotones extends JPanel {
 		}
 		{
 			btnEditar = new JButton("Editar");
+			btnEditar.setIcon(new ImageIcon(PanelBotones.class.getResource("/iconos/edit-draw-pencil.png")));
+			btnEditar.addActionListener(new BtnEditarActionListener());
 			GridBagConstraints gbc_btnEditar = new GridBagConstraints();
 			gbc_btnEditar.fill = GridBagConstraints.BOTH;
 			gbc_btnEditar.insets = new Insets(0, 0, 0, 5);
@@ -41,6 +48,8 @@ public class PanelBotones extends JPanel {
 		}
 		{
 			btnEliminar = new JButton("Eliminar");
+			btnEliminar.setIcon(new ImageIcon(PanelBotones.class.getResource("/iconos/waste-bin.png")));
+			btnEliminar.addActionListener(new BtnEliminarActionListener());
 			GridBagConstraints gbc_btnEliminar = new GridBagConstraints();
 			gbc_btnEliminar.fill = GridBagConstraints.BOTH;
 			gbc_btnEliminar.gridx = 2;
@@ -50,4 +59,17 @@ public class PanelBotones extends JPanel {
 
 	}
 
+	private class BtnNuevoActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			
+		}
+	}
+	private class BtnEditarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
+	private class BtnEliminarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+		}
+	}
 }
