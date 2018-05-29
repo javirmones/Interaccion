@@ -53,8 +53,10 @@ public class PanelUsuario extends JPanel {
 	private JTextField textEmail;
 	private JTextField textTelefono;
 	private JTextField textRol;
+	JTextArea textAreaComentarios;
 	private GestorUsuarios u = new GestorUsuarios();
 	private JLabel lblfoto;
+	private Usuario user1;
 
 	/**
 	 * Create the panel.
@@ -127,12 +129,12 @@ public class PanelUsuario extends JPanel {
 					}
 				}
 				if (nEncontrado) {
-					// Usuario x = new Usuario( textNombre.getText(), textApellidos.getText(),
-					// textEmail.getText(),
-					// textContraseña.getText(), Integer.parseInt(textTelefono.getText()),
-					// textRol.getText(),
-					// textComentarios.getText(), "");
-					// u.ActualizarList(x);
+					 Usuario x = new Usuario( textNombre.getText(), textApellidos.getText(),
+					 textEmail.getText(),
+					 textContraseña.getText(), Integer.parseInt(textTelefono.getText()),
+					textRol.getText(),
+					textAreaComentarios.getText(), "");
+					 u.ActualizarList(x);
 					emailInvalido = false;
 				}
 				if (emailInvalido) {
@@ -337,7 +339,7 @@ public class PanelUsuario extends JPanel {
 		gbc_scrollPane_cm.gridy = 15;
 		panel_principal.add(scrollPane_cm, gbc_scrollPane_cm);
 
-		JTextArea textAreaComentarios = new JTextArea();
+		textAreaComentarios = new JTextArea();
 		scrollPane_cm.setViewportView(textAreaComentarios);
 		splitPane_division.setDividerLocation(1300);
 		splitPane.setDividerLocation(300);
@@ -372,6 +374,7 @@ public class PanelUsuario extends JPanel {
 
 			}
 		});
+		this.user1=user;
 	}
 
 	private class BtnNewButtonActionListener implements ActionListener {
@@ -387,8 +390,9 @@ public class PanelUsuario extends JPanel {
 				if(file==null) {
 					JOptionPane.showMessageDialog(null, "Debes de seleccionar alguna imagen.", "No hubo seleccion",JOptionPane.ERROR_MESSAGE);
 				}else {
-					lblfoto.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource(file.getPath()))
-							.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+					/*lblfoto.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource(file.getPath()))
+							.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));*/
+					//user1.setImagen(file.getPath());
 				}
 				
 				

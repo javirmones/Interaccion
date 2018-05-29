@@ -30,7 +30,7 @@ public class Usuario {
 	}
 	
 	public Usuario( String nombre, String apellidos, String email, String contraseña, int telefono,
-			String rolPrincipal, String comentarios,String direccion, String imagen) {
+			String rolPrincipal, String comentarios, String imagen) {
 		this.idUser = ++idUser;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
