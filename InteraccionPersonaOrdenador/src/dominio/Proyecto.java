@@ -1,5 +1,7 @@
 package dominio;
 
+import java.util.ArrayList;
+
 public class Proyecto {
 
 	private int idProyecto;
@@ -8,12 +10,24 @@ public class Proyecto {
 	private String encargado;
 	private String descripcion;
 	private String estado;
+	private ArrayList<Tarea> tareas;
 
 	public Proyecto() {
 	}
 
 	public Proyecto(int idProyecto, String nombre, String fechaCreacion, String responsable, String estado,
+			String descripcion, ArrayList<Tarea> t) {
+		this.idProyecto = idProyecto;
+		this.nombre = nombre;
+		this.fechaCreacion = fechaCreacion;
+		this.encargado = responsable;
+		this.estado = estado;
+		this.descripcion = descripcion;
+		this.tareas = t;
+	}
+	public Proyecto( String nombre, String fechaCreacion, String responsable, String estado,
 			String descripcion) {
+		this.idProyecto=++idProyecto;
 		this.idProyecto = idProyecto;
 		this.nombre = nombre;
 		this.fechaCreacion = fechaCreacion;
@@ -22,11 +36,12 @@ public class Proyecto {
 		this.descripcion = descripcion;
 	}
 
-	public Proyecto(String nombre, String fechaCreacion, String responsable, String descripcion) {
-		this.nombre = nombre;
-		this.fechaCreacion = fechaCreacion;
-		this.encargado = responsable;
-		this.descripcion = descripcion;
+	public ArrayList<Tarea> getTareas() {
+		return tareas;
+	}
+
+	public void setTareas(ArrayList<Tarea> tareas) {
+		this.tareas = tareas;
 	}
 
 	public String getEncargado() {

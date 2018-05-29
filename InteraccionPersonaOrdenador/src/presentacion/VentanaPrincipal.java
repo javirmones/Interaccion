@@ -257,18 +257,21 @@ public class VentanaPrincipal extends JFrame {
 					mnPersonas.add(mnEdicionPersonas);
 					{
 						mntmNuevaPersona = new JMenuItem("Nueva persona");
+						mntmNuevaPersona.addActionListener(new MntmNuevaPersonaActionListener());
 						mntmNuevaPersona.setIcon(
 								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/add-filled-cross-sign.png")));
 						mnEdicionPersonas.add(mntmNuevaPersona);
 					}
 					{
 						mntmEditarPersona = new JMenuItem("Editar persona");
+						mntmEditarPersona.addActionListener(new MntmEditarPersonaActionListener());
 						mntmEditarPersona.setIcon(
 								new ImageIcon(VentanaPrincipal.class.getResource("/iconos/edit-draw-pencil.png")));
 						mnEdicionPersonas.add(mntmEditarPersona);
 					}
 					{
 						mntmEliminarPersona = new JMenuItem("Eliminar persona");
+						mntmEliminarPersona.addActionListener(new MntmEliminarPersonaActionListener());
 						mntmEliminarPersona
 								.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/waste-bin.png")));
 						mnEdicionPersonas.add(mntmEliminarPersona);
@@ -530,6 +533,28 @@ public class VentanaPrincipal extends JFrame {
 			CardLayout cl = (CardLayout) (panel_card.getLayout());
 			cl.show(panel_card, "panel_proyectos");
 			lblHola.setText("Esta usted en proyectos");
+		}
+	}
+	private class MntmNuevaPersonaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_personas");
+			lblHola.setText("Esta usted en personas");
+			
+		}
+	}
+	private class MntmEditarPersonaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_personas");
+			lblHola.setText("Esta usted en personas");
+		}
+	}
+	private class MntmEliminarPersonaActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panel_card.getLayout());
+			cl.show(panel_card, "panel_personas");
+			lblHola.setText("Esta usted en personas");
 		}
 	}
 

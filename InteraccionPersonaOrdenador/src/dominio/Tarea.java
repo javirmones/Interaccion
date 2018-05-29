@@ -1,5 +1,6 @@
 package dominio;
 
+import java.util.ArrayList;
 
 public class Tarea {
 
@@ -10,28 +11,41 @@ public class Tarea {
 	private int prioridad;
 	private String encargado;
 	private String comentarios;
-	
+	private ArrayList<Tarea> subtareas;
+
 	public Tarea() {
 
 	}
-	
-	public Tarea(int idTarea, String nombre, String fechaIni, String fechaFin, int prioridad, String encargado, String comentarios) {
+
+	public Tarea(int idTarea, String nombre, String fechaIni, String fechaFin, int prioridad, String encargado,
+			String comentarios, ArrayList<Tarea> t) {
 		this.idTarea = idTarea;
 		this.nombre = nombre;
 		this.fechaIni = fechaIni;
 		this.fechaFin = fechaFin;
-		this.encargado=encargado;
+		this.encargado = encargado;
 		this.prioridad = prioridad;
 		this.comentarios = comentarios;
+		this.subtareas = t;
 	}
-	
-	public Tarea(String nombre, String fechaIni, String fechaFin, int prioridad, String comentarios) {
+
+
+	public Tarea(int idTarea, String nombre, String fechaIni, String fechaFin, int prioridad, String encargado,
+			String comentarios) {
+		this.idTarea = idTarea;
 		this.nombre = nombre;
 		this.fechaIni = fechaIni;
 		this.fechaFin = fechaFin;
-	
+		this.encargado = encargado;
 		this.prioridad = prioridad;
 		this.comentarios = comentarios;
+	}
+	public ArrayList<Tarea> getSubtareas() {
+		return subtareas;
+	}
+
+	public void setSubtareas(ArrayList<Tarea> subtareas) {
+		this.subtareas = subtareas;
 	}
 
 	public int getIdTarea() {
@@ -89,7 +103,7 @@ public class Tarea {
 	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
 	}
-	
+
 	@Override
 	public String toString() {
 		return nombre;
