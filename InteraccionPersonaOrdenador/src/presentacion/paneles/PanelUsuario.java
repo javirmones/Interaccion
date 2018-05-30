@@ -417,11 +417,11 @@ public class PanelUsuario extends JPanel {
 							JOptionPane.ERROR_MESSAGE);
 				} else {
 					/*
-					 * lblfoto.setIcon(new ImageIcon(new
-					 * javax.swing.ImageIcon(getClass().getResource(file.getPath()))
-					 * .getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
-					 */
-					// user1.setImagen(file.getPath());
+					  lblfoto.setIcon(new ImageIcon(new
+					  javax.swing.ImageIcon(getClass().getResource(file.getPath()))
+					  .getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
+					 
+					user1.setImagen(file.getPath());*/
 				}
 
 			}

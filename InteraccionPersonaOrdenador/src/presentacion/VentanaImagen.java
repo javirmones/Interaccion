@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 
 import dominio.graficos.ImagenGrafico;
 import dominio.graficos.MiAreaDibujo;
+import presentacion.paneles.PanelUsuario;
 
 import java.awt.GridBagLayout;
 import java.awt.Image;
@@ -37,6 +38,7 @@ import java.awt.event.WindowFocusListener;
 import java.io.File;
 import java.awt.event.WindowEvent;
 import java.awt.event.MouseMotionAdapter;
+import javax.swing.SwingConstants;
 
 public class VentanaImagen extends JFrame {
 
@@ -97,16 +99,27 @@ public class VentanaImagen extends JFrame {
 		});
 		toolBar.add(btnCargarImagen);
 
-		JButton btnEstrella = new JButton("Estrella");
+		JButton btnEstrella = new JButton();
+		btnEstrella.setIcon(new ImageIcon(PanelUsuario.class.getResource("/iconos/rate-star-button.png")));
 		btnEstrella.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				modo = ESTRELLA;
 				setCursor(cursorEstrella);
 			}
 		});
+		
+		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+		});
+		toolBar.add(btnGuardar);
 		toolBar.add(btnEstrella);
 
-		JButton btnGlobo = new JButton("Globo");
+		JButton btnGlobo = new JButton();
+		btnGlobo.setIcon(new ImageIcon(PanelUsuario.class.getResource("/iconos/grid-world.png")));
 		btnGlobo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				modo = GLOBO;
@@ -127,7 +140,6 @@ public class VentanaImagen extends JFrame {
 		miAreaDibujo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				System.out.println(x);
 				x = e.getX();
 				y = e.getY();
 				if (imagen != null) {
@@ -143,7 +155,7 @@ public class VentanaImagen extends JFrame {
 
 					}
 				}
-				modo = -1;
+
 
 			}
 		});
