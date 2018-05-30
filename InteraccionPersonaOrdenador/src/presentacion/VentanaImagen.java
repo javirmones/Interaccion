@@ -38,36 +38,34 @@ import java.io.File;
 import java.awt.event.WindowEvent;
 import java.awt.event.MouseMotionAdapter;
 
-public class VentanaImagen extends JFrame{
+public class VentanaImagen extends JFrame {
 
 	public JFrame frame;
 	private MiAreaDibujo miAreaDibujo;
 	private ImageIcon imagen;
-	
+
 	private int x, y;
-	
-	//modos de seleccion
-	int modo=-1;
-	private final int ESTRELLA =1;
-	private final int GLOBO=2;
-	
-	//Cursores e imagenes
+
+	// modos de seleccion
+	int modo = -1;
+	private final int ESTRELLA = 1;
+	private final int GLOBO = 2;
+
+	// Cursores e imagenes
 	private Toolkit toolkit;
-	
+
 	private Image imagEstrella;
 	private Image imagGlobo;
-	
+
 	private Image imagCursorEstrella;
 	private Image imagCursorGlobo;
-	
+
 	private Cursor cursorEstrella;
 	private Cursor cursorGlobo;
-	
 
 	/**
 	 * Launch the application.
 	 */
-
 
 	/**
 	 * Create the application.
@@ -76,111 +74,93 @@ public class VentanaImagen extends JFrame{
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 
 		setBounds(new Rectangle(250, 250, 700, 700));
 		setBounds(100, 100, 700, 700);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JToolBar toolBar = new JToolBar();
 		getContentPane().add(toolBar, BorderLayout.NORTH);
-		
+
 		JButton btnCargarImagen = new JButton("Cargar Imagen");
 		btnCargarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser fcAbrir = new JFileChooser();
 				int valorDevuelto = fcAbrir.showOpenDialog(frame);
 				if (valorDevuelto == JFileChooser.APPROVE_OPTION) {
-				File file = fcAbrir.getSelectedFile();
-				imagen = new ImageIcon(file.getAbsolutePath());
-				miAreaDibujo.setIcon(imagen);
+					File file = fcAbrir.getSelectedFile();
+					imagen = new ImageIcon(file.getAbsolutePath());
+					miAreaDibujo.setIcon(imagen);
 				}
 
 			}
 		});
 		toolBar.add(btnCargarImagen);
-		
+
 		JButton btnEstrella = new JButton("Estrella");
 		btnEstrella.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				modo=ESTRELLA;
+				modo = ESTRELLA;
 				setCursor(cursorEstrella);
 			}
 		});
 		toolBar.add(btnEstrella);
-		
+
 		JButton btnGlobo = new JButton("Globo");
 		btnGlobo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				modo=GLOBO;
+				modo = GLOBO;
 				setCursor(cursorGlobo);
 			}
 		});
 		toolBar.add(btnGlobo);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		getContentPane().add(scrollPane, BorderLayout.CENTER);
-		
+
 		miAreaDibujo = new MiAreaDibujo();
 		miAreaDibujo.addMouseMotionListener(new MouseMotionAdapter() {
 			@Override
 			public void mouseDragged(MouseEvent arg0) {
 			}
 		});
-		/*miAreaDibujo.addMouseMotionListener(new MouseMotionAdapter() {
-			@Override
-			public void mouseDragged(MouseEvent arg0) {
-			}
-		});*/
 		miAreaDibujo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				System.out.println(x);
+				x = e.getX();
+				y = e.getY();
+				if (imagen != null) {
+					switch (modo) {
+					case ESTRELLA:
+						miAreaDibujo.addObjetoGrafico(new ImagenGrafico(x, y, imagEstrella));
+						miAreaDibujo.repaint();
+						break;
+					case GLOBO:
+						miAreaDibujo.addObjetoGrafico(new ImagenGrafico(x, y, imagGlobo));
+						miAreaDibujo.repaint();
+						break;
+
+					}
+				}
+				modo = -1;
+
 			}
 		});
 		miAreaDibujo.setIcon(null);
 		scrollPane.setViewportView(miAreaDibujo);
-		
-		//Creación de imágenes y cursores
-		toolkit = Toolkit.getDefaultToolkit();
-		imagEstrella =											 
-		toolkit.getImage(getClass().getResource("/iconos/rate-star-button.png"));
-		imagGlobo =
-		toolkit.getImage(getClass().getResource("/iconos/grid-world.png"));
-		
-		imagCursorEstrella =
-		toolkit.getImage(getClass().getResource("/iconos/rate-star-button.png"));
-		imagCursorGlobo =
-		toolkit.getImage(getClass().getResource("/iconos/grid-world.png"));
-		//Creación de los cursores
-		cursorEstrella = toolkit.createCustomCursor(imagEstrella,new Point(0,0),"CURSOR_ESTRELLA");
-		cursorGlobo= toolkit.createCustomCursor(imagGlobo,new Point(0,0),"CURSOR_GLOBO");
-		
-		//miAreaDibujo.addMouseMotionListener(new MiAreaDibujoMouseMotionListener());
-		//miAreaDibujo.addMouseListener(new MiAreaDibujoMouseListener());
-	}
-	
-	public void mousePressed(MouseEvent e) {
-		x = e.getX();
-		y = e.getY();
-		if (imagen != null)
-		{
-		switch (modo)
-		{
-		case ESTRELLA:
-		miAreaDibujo.addObjetoGrafico(new ImagenGrafico(x,y,imagEstrella));
-		miAreaDibujo.repaint();
-		break;
-		case GLOBO:
-		miAreaDibujo.addObjetoGrafico(new ImagenGrafico(x,y,imagGlobo));
-		miAreaDibujo.repaint();
-		break;
-		
-		}
-		}
-		}
 
+		// Creación de imágenes y cursores
+		toolkit = Toolkit.getDefaultToolkit();
+		imagEstrella = toolkit.getImage(getClass().getResource("/iconos/rate-star-button.png"));
+		imagGlobo = toolkit.getImage(getClass().getResource("/iconos/grid-world.png"));
+
+		imagCursorEstrella = toolkit.getImage(getClass().getResource("/iconos/rate-star-button.png"));
+		imagCursorGlobo = toolkit.getImage(getClass().getResource("/iconos/grid-world.png"));
+		// Creación de los cursores
+		cursorEstrella = toolkit.createCustomCursor(imagEstrella, new Point(0, 0), "CURSOR_ESTRELLA");
+		cursorGlobo = toolkit.createCustomCursor(imagGlobo, new Point(0, 0), "CURSOR_GLOBO");
+
+	}
 
 }
