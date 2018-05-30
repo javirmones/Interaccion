@@ -121,7 +121,9 @@ public class VentanaPrincipal extends JFrame {
 	private JMenuBar menuBar_1;
 	private JMenuItem mntmEditarSubtarea;
 	private JMenuItem mntmEliminarSubtarea;
+	private JMenuItem mntmEdicion ;
 	private JPanel panel_subtareas;
+	private JMenu mnEditarImagen;
 
 	
 
@@ -314,6 +316,20 @@ public class VentanaPrincipal extends JFrame {
 					mnInformacin.add(mntmACercaDe);
 				}
 			}
+		
+			{
+				mnEditarImagen = new JMenu("Editar Imagen");
+				barraMenu.add(mnEditarImagen);
+				{
+					mntmEdicion = new JMenuItem("Editar Imagenes");
+					mntmEdicion
+							.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/rate-star-button.png")));
+					mntmEdicion.setToolTipText("Edicion de imagenes");
+					mntmEdicion.addActionListener(new MntmEdicionListener());
+					mnEditarImagen.add(mntmEdicion);
+				}
+				
+			}
 		}
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -419,6 +435,14 @@ public class VentanaPrincipal extends JFrame {
 	private class MntmVerAyudaActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent arg0) {
 			VentanaAyuda va = new VentanaAyuda();
+			va.setVisible(true);
+			lblHola.setText("Esta usted en ayuda");
+		}
+	}
+	
+	private class MntmEdicionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			VentanaImagen va = new VentanaImagen();			
 			va.setVisible(true);
 			lblHola.setText("Esta usted en ayuda");
 		}
