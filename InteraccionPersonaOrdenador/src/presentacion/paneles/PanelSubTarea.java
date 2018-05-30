@@ -40,14 +40,16 @@ public class PanelSubTarea extends JPanel {
 	private JScrollPane scrollPaneComentarios;
 	private JPanel panelbotones;
 	private JTextArea textArea;
-	private String tarea="tarea";
+	private String tarea = "tarea";
 	private JSpinner spnPrioridad;
 	private JPanel panelCard;
 	private JButton btnAniadir;
 	private JButton btnEditar;
 	private JButton btnEliminar;
-	private GestorTareas gt= new GestorTareas();
+	private GestorTareas gt = new GestorTareas();
 	private Tarea t;
+	private JButton btnAtras;
+
 	/**
 	 *
 	 * Create the panel.
@@ -58,10 +60,14 @@ public class PanelSubTarea extends JPanel {
 			panelContenido = new JPanel();
 			add(panelContenido, "name_328803660633333");
 			GridBagLayout gbl_panelContenido = new GridBagLayout();
-			gbl_panelContenido.columnWidths = new int[]{64, 73, 106, 60, 109, 48, 57, 51, 45, 50, 79, 64, 86, 0, 48, 0, 0, 0};
-			gbl_panelContenido.rowHeights = new int[]{34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 0, 74, 0, 0, 0};
-			gbl_panelContenido.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
-			gbl_panelContenido.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+			gbl_panelContenido.columnWidths = new int[] { 64, 73, 106, 60, 109, 48, 57, 51, 45, 50, 79, 64, 86, 0, 48,
+					0, 0, 0 };
+			gbl_panelContenido.rowHeights = new int[] { 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 0, 74, 0, 0,
+					0 };
+			gbl_panelContenido.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0,
+					0.0, 1.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
+			gbl_panelContenido.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+					0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 			panelContenido.setLayout(gbl_panelContenido);
 			{
 				lblNombre = new JLabel("Nombre");
@@ -149,7 +155,8 @@ public class PanelSubTarea extends JPanel {
 				{
 					SubTareas = new JList();
 					SubTareas.addListSelectionListener(new SubTareasListSelectionListener());
-					SubTareas.setBorder(new TitledBorder(null, "SubTareas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+					SubTareas.setBorder(
+							new TitledBorder(null, "SubTareas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 					SubTareas.setModel(gt.getLista());
 					SubTareas.addListSelectionListener(new SubTareasListSelectionListener());
 					scrollPane_subtareas.setViewportView(SubTareas);
@@ -175,10 +182,24 @@ public class PanelSubTarea extends JPanel {
 				panelContenido.add(scrollPaneComentarios, gbc_scrollPaneComentarios);
 				{
 					textArea = new JTextArea();
-					textArea.setBorder(new TitledBorder(null, "Comentarios", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+					textArea.setBorder(
+							new TitledBorder(null, "Comentarios", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 					textArea.setEditable(false);
 					scrollPaneComentarios.setViewportView(textArea);
 				}
+			}
+			{
+				btnAtras = new JButton("Atrás");
+				btnAtras.addActionListener(new BtnAtrasActionListener());
+				btnAtras.setIcon(new ImageIcon(PanelSubTarea.class.getResource("/iconos/back-arrow.png")));
+				GridBagConstraints gbc_btnAtras = new GridBagConstraints();
+				gbc_btnAtras.fill = GridBagConstraints.BOTH;
+				gbc_btnAtras.gridwidth = 14;
+				gbc_btnAtras.gridheight = 2;
+				gbc_btnAtras.insets = new Insets(0, 0, 5, 5);
+				gbc_btnAtras.gridx = 3;
+				gbc_btnAtras.gridy = 15;
+				panelContenido.add(btnAtras, gbc_btnAtras);
 			}
 			{
 				btnAniadir = new JButton("Añadir");
@@ -217,15 +238,16 @@ public class PanelSubTarea extends JPanel {
 				panelContenido.add(btnEliminar, gbc_btnEliminar);
 			}
 		}
-		panelCard=p;
+		panelCard = p;
 	}
+
 	private class SubTareasListSelectionListener implements ListSelectionListener {
 		public void valueChanged(ListSelectionEvent e) {
 
-			t= SubTareas.getSelectedValue();
+			t = SubTareas.getSelectedValue();
 			DefaultListModel<Tarea> dfm = new DefaultListModel<>();
 
-			//actualizarsubTareas(t);
+			// actualizarsubTareas(t);
 			if (t != null) {
 				textNombre.setText(t.getNombre());
 				textFechaInicio.setText(t.getFechaIni());
@@ -238,10 +260,16 @@ public class PanelSubTarea extends JPanel {
 				textFechaFin.setText("");
 				spnPrioridad.setValue("");
 				textArea.setText("");
-				
 
 			}
-			
+
+		}
+	}
+	private class BtnAtrasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			CardLayout cl = (CardLayout) (panelCard.getLayout());
+			cl.show(panelCard, "panel_tareas");
+
 		}
 	}
 }

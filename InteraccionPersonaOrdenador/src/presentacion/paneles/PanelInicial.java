@@ -52,7 +52,7 @@ public class PanelInicial extends JPanel {
 	private JLabel label_Comentarios;
 	private JScrollPane spcComentarios;
 	private JTextArea textAreaComentarios;
-	private JScrollPane scrollPane_1;
+	private JScrollPane scrollPane_Foto;
 	private JLabel labelFoto;
 
 	/**
@@ -71,20 +71,20 @@ public class PanelInicial extends JPanel {
 			panel.setLayout(gbl_panel);
 			{
 				
-				scrollPane_1 = new JScrollPane();
-				GridBagConstraints gbc_scrollPane_1 = new GridBagConstraints();
-				gbc_scrollPane_1.gridheight = 3;
-				gbc_scrollPane_1.gridwidth = 6;
-				gbc_scrollPane_1.insets = new Insets(0, 0, 5, 5);
-				gbc_scrollPane_1.fill = GridBagConstraints.BOTH;
-				gbc_scrollPane_1.gridx = 1;
-				gbc_scrollPane_1.gridy = 1;
-				panel.add(scrollPane_1, gbc_scrollPane_1);
+				scrollPane_Foto = new JScrollPane();
+				GridBagConstraints gbc_scrollPane_Foto = new GridBagConstraints();
+				gbc_scrollPane_Foto.gridheight = 3;
+				gbc_scrollPane_Foto.gridwidth = 6;
+				gbc_scrollPane_Foto.insets = new Insets(0, 0, 5, 5);
+				gbc_scrollPane_Foto.fill = GridBagConstraints.BOTH;
+				gbc_scrollPane_Foto.gridx = 1;
+				gbc_scrollPane_Foto.gridy = 1;
+				panel.add(scrollPane_Foto, gbc_scrollPane_Foto);
 				{
 					labelFoto = new JLabel("");
 					labelFoto.setBorder(new TitledBorder(null, "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 					labelFoto.setIcon(new ImageIcon(PanelInicial.class.getResource("/iconos/stalin.jpg")));
-					scrollPane_1.setViewportView(labelFoto);
+					scrollPane_Foto.setViewportView(labelFoto);
 				}
 			}
 			{

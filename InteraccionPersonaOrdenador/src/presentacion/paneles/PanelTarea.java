@@ -48,11 +48,12 @@ public class PanelTarea extends JPanel {
 	private JPanel panelCard;
 	private String subtarea="subtarea";
 	private JSpinner spnPrioridad;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JButton btnNewButton_2;
+	private JButton btnAniadir;
+	private JButton btnEditar;
+	private JButton btnEliminar;
 	private GestorTareas gt = new GestorTareas();
 	private Tarea t;
+	private JButton btnAtras;
 
 	/**
 	 * Create the panel.
@@ -208,48 +209,61 @@ public class PanelTarea extends JPanel {
 				btnAniadirSubtarea.addActionListener(new BtnNewButtonActionListener());
 				GridBagConstraints gbc_btnAniadirSubtarea = new GridBagConstraints();
 				gbc_btnAniadirSubtarea.fill = GridBagConstraints.BOTH;
-				gbc_btnAniadirSubtarea.gridwidth = 14;
+				gbc_btnAniadirSubtarea.gridwidth = 6;
 				gbc_btnAniadirSubtarea.gridheight = 2;
-				gbc_btnAniadirSubtarea.insets = new Insets(0, 0, 5, 0);
+				gbc_btnAniadirSubtarea.insets = new Insets(0, 0, 5, 5);
 				gbc_btnAniadirSubtarea.gridx = 3;
 				gbc_btnAniadirSubtarea.gridy = 15;
 				panelcontenido.add(btnAniadirSubtarea, gbc_btnAniadirSubtarea);
 			}
 			{
-				btnNewButton = new JButton("Añadir");
-				btnNewButton.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/add-filled-cross-sign.png")));
-				GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-				gbc_btnNewButton.fill = GridBagConstraints.BOTH;
-				gbc_btnNewButton.gridwidth = 4;
-				gbc_btnNewButton.gridheight = 2;
-				gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
-				gbc_btnNewButton.gridx = 3;
-				gbc_btnNewButton.gridy = 17;
-				panelcontenido.add(btnNewButton, gbc_btnNewButton);
+				btnAtras = new JButton("Atrás");
+				btnAtras.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/back-arrow.png")));
+				btnAtras.addActionListener(new BtnAtrasActionListener());
+				GridBagConstraints gbc_btnAtras = new GridBagConstraints();
+				gbc_btnAtras.fill = GridBagConstraints.BOTH;
+				gbc_btnAtras.gridwidth = 8;
+				gbc_btnAtras.gridheight = 2;
+				gbc_btnAtras.insets = new Insets(0, 0, 5, 5);
+				gbc_btnAtras.gridx = 9;
+				gbc_btnAtras.gridy = 15;
+				panelcontenido.add(btnAtras, gbc_btnAtras);
 			}
 			{
-				btnNewButton_1 = new JButton("Editar");
-				btnNewButton_1.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/edit-draw-pencil.png")));
-				GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
-				gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
-				gbc_btnNewButton_1.gridwidth = 5;
-				gbc_btnNewButton_1.gridheight = 2;
-				gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 5);
-				gbc_btnNewButton_1.gridx = 7;
-				gbc_btnNewButton_1.gridy = 17;
-				panelcontenido.add(btnNewButton_1, gbc_btnNewButton_1);
+				btnAniadir = new JButton("Añadir");
+				btnAniadir.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/add-filled-cross-sign.png")));
+				GridBagConstraints gbc_btnAniadir = new GridBagConstraints();
+				gbc_btnAniadir.fill = GridBagConstraints.BOTH;
+				gbc_btnAniadir.gridwidth = 4;
+				gbc_btnAniadir.gridheight = 2;
+				gbc_btnAniadir.insets = new Insets(0, 0, 5, 5);
+				gbc_btnAniadir.gridx = 3;
+				gbc_btnAniadir.gridy = 17;
+				panelcontenido.add(btnAniadir, gbc_btnAniadir);
 			}
 			{
-				btnNewButton_2 = new JButton("Eliminar");
-				btnNewButton_2.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/waste-bin.png")));
-				GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
-				gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
-				gbc_btnNewButton_2.gridwidth = 5;
-				gbc_btnNewButton_2.gridheight = 2;
-				gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 0);
-				gbc_btnNewButton_2.gridx = 12;
-				gbc_btnNewButton_2.gridy = 17;
-				panelcontenido.add(btnNewButton_2, gbc_btnNewButton_2);
+				btnEditar = new JButton("Editar");
+				btnEditar.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/edit-draw-pencil.png")));
+				GridBagConstraints gbc_btnEditar = new GridBagConstraints();
+				gbc_btnEditar.fill = GridBagConstraints.BOTH;
+				gbc_btnEditar.gridwidth = 5;
+				gbc_btnEditar.gridheight = 2;
+				gbc_btnEditar.insets = new Insets(0, 0, 5, 5);
+				gbc_btnEditar.gridx = 7;
+				gbc_btnEditar.gridy = 17;
+				panelcontenido.add(btnEditar, gbc_btnEditar);
+			}
+			{
+				btnEliminar = new JButton("Eliminar");
+				btnEliminar.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/waste-bin.png")));
+				GridBagConstraints gbc_btnEliminar = new GridBagConstraints();
+				gbc_btnEliminar.fill = GridBagConstraints.BOTH;
+				gbc_btnEliminar.gridwidth = 5;
+				gbc_btnEliminar.gridheight = 2;
+				gbc_btnEliminar.insets = new Insets(0, 0, 5, 0);
+				gbc_btnEliminar.gridx = 12;
+				gbc_btnEliminar.gridy = 17;
+				panelcontenido.add(btnEliminar, gbc_btnEliminar);
 			}
 							
 		}
@@ -287,6 +301,14 @@ public class PanelTarea extends JPanel {
 				
 
 			}
+		}
+	}
+	private class BtnAtrasActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			CardLayout cl = (CardLayout) (panelCard.getLayout());
+			cl.show(panelCard, "panel_proyectos");
+
+			
 		}
 	}
 	

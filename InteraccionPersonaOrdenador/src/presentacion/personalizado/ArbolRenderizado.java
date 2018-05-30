@@ -15,10 +15,29 @@ public class ArbolRenderizado extends DefaultTreeCellRenderer {
 		DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) value;
 		String c = (String) (nodo.getUserObject());
 		switch (c) {
-		case "":
-
+		case "Batalla de Stalingrado":
+			setIcon(new ImageIcon(ArbolRenderizado.class.getResource("/iconos/rate-star-button.png")));
 			break;
+		case "Toma de Berlin":
+			setIcon(new ImageIcon(ArbolRenderizado.class.getResource("/iconos/home-icon-silhouette.png")));
+			break;
+		case "Conquista":
+			setIcon(new ImageIcon(ArbolRenderizado.class.getResource("/iconos/text-documents.png")));
+			break;
+
+		case "Destruir muro":
+			setIcon(new ImageIcon(ArbolRenderizado.class.getResource("/iconos/waste-bin.png")));
+			break;
+		case "Revolucion":
+			setIcon(new ImageIcon(ArbolRenderizado.class.getResource("/iconos/rate-star-button.png")));
+			break;
+
+		case "Consultar algo":
+			setIcon(new ImageIcon(ArbolRenderizado.class.getResource("/iconos/grid-world.png")));
+			break;
+
 		}
+
 		return this;
 	}
 }

@@ -32,8 +32,8 @@ public class VentanaRegistro extends JFrame {
 	private JPanel contentPane;
 	private JPanel panel;
 	private JPanel panel_registrarse;
-	private JLabel label;
-	private JLabel label_1;
+	private JLabel labelBienvenido;
+	private JLabel labelPorfavor;
 	private JTextField textnombre;
 	private JLabel labelNombre;
 	private JTextField textapellidos;
@@ -44,7 +44,7 @@ public class VentanaRegistro extends JFrame {
 	private JTextField textcontra;
 	private JLabel labelContraseña;
 	private JTextField textemail;
-	private JLabel label_8;
+	private JLabel labelEmail;
 	private JFormattedTextField textfecha;
 	private MaskFormatter fecha;
 	private MaskFormatter DNI;
@@ -77,32 +77,32 @@ public class VentanaRegistro extends JFrame {
 				Double.MIN_VALUE };
 		panel_registrarse.setLayout(gbl_panel_registrarse);
 
-		label = new JLabel("\u00A1Bienvenido al sistema!");
-		label.setHorizontalAlignment(SwingConstants.CENTER);
-		GridBagConstraints gbc_label = new GridBagConstraints();
-		gbc_label.gridwidth = 5;
-		gbc_label.anchor = GridBagConstraints.NORTH;
-		gbc_label.insets = new Insets(0, 0, 5, 0);
-		gbc_label.gridx = 0;
-		gbc_label.gridy = 1;
-		panel_registrarse.add(label, gbc_label);
+		labelBienvenido = new JLabel("\u00A1Bienvenido al sistema!");
+		labelBienvenido.setHorizontalAlignment(SwingConstants.CENTER);
+		GridBagConstraints gbc_labelBienvenido = new GridBagConstraints();
+		gbc_labelBienvenido.gridwidth = 5;
+		gbc_labelBienvenido.anchor = GridBagConstraints.NORTH;
+		gbc_labelBienvenido.insets = new Insets(0, 0, 5, 0);
+		gbc_labelBienvenido.gridx = 0;
+		gbc_labelBienvenido.gridy = 1;
+		panel_registrarse.add(labelBienvenido, gbc_labelBienvenido);
 
-		label_1 = new JLabel("Por favor para registrarte introduce tus datos personales");
-		GridBagConstraints gbc_label_1 = new GridBagConstraints();
-		gbc_label_1.gridwidth = 5;
-		gbc_label_1.anchor = GridBagConstraints.SOUTH;
-		gbc_label_1.insets = new Insets(0, 0, 5, 0);
-		gbc_label_1.gridx = 0;
-		gbc_label_1.gridy = 2;
-		panel_registrarse.add(label_1, gbc_label_1);
+		labelPorfavor = new JLabel("Por favor para registrarte introduce tus datos personales");
+		GridBagConstraints gbc_labelPorfavor = new GridBagConstraints();
+		gbc_labelPorfavor.gridwidth = 5;
+		gbc_labelPorfavor.anchor = GridBagConstraints.SOUTH;
+		gbc_labelPorfavor.insets = new Insets(0, 0, 5, 0);
+		gbc_labelPorfavor.gridx = 0;
+		gbc_labelPorfavor.gridy = 2;
+		panel_registrarse.add(labelPorfavor, gbc_labelPorfavor);
 
-		label_8 = new JLabel("Email");
-		GridBagConstraints gbc_label_8 = new GridBagConstraints();
-		gbc_label_8.gridwidth = 2;
-		gbc_label_8.insets = new Insets(0, 0, 5, 5);
-		gbc_label_8.gridx = 1;
-		gbc_label_8.gridy = 4;
-		panel_registrarse.add(label_8, gbc_label_8);
+		labelEmail = new JLabel("Email");
+		GridBagConstraints gbc_labelEmail = new GridBagConstraints();
+		gbc_labelEmail.gridwidth = 2;
+		gbc_labelEmail.insets = new Insets(0, 0, 5, 5);
+		gbc_labelEmail.gridx = 1;
+		gbc_labelEmail.gridy = 4;
+		panel_registrarse.add(labelEmail, gbc_labelEmail);
 
 		textemail = new JTextField();
 		textemail.setColumns(10);

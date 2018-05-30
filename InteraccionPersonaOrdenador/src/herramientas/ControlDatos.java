@@ -9,10 +9,11 @@ import javax.swing.tree.DefaultTreeModel;
 import dominio.Proyecto;
 import dominio.Tarea;
 import persistencia.GestorProyectos;
+import persistencia.GestorTareas;
 
 public class ControlDatos {
 
-	public static DefaultTreeModel generateProjectTreeModel(int idUser) {
+	public static DefaultTreeModel generateProjectTreeModel() {
 
 		ArrayList<Proyecto> p = GestorProyectos.getLista();
 
@@ -23,36 +24,26 @@ public class ControlDatos {
 
 		for (Proyecto prj : p) {
 
-			if (idUser == -1) {
+			nodoAuxiliar = new DefaultMutableTreeNode(prj.getNombre());
 
-				nodoAuxiliar = new DefaultMutableTreeNode(prj.getNombre());
+			// ArrayList<Task> projectTasks = findTasksById_array(prj.getTasks());
 
-				// ArrayList<Task> projectTasks = findTasksById_array(prj.getTasks());
+			ArrayList<Tarea> tareasProyecto = GestorTareas.obtenerArrayList();
+			for (Tarea tsk : tareasProyecto) {
 
-				ArrayList<Tarea> tareasProyecto = null;
-				for (Tarea tsk : tareasProyecto) {
+				nodoAuxiliar2 = new DefaultMutableTreeNode(tsk.getNombre());
 
-					if (tsk != null && (idUser == -1)) {
+				ArrayList<Tarea> tareasSubTareas = GestorTareas.obtenerSubtareas();
+				for (Tarea subtsk : tareasSubTareas) {
 
-						nodoAuxiliar2 = new DefaultMutableTreeNode(tsk.getNombre());
-
-						ArrayList<Tarea> tareasSubTareas = null;
-						for (Tarea subtsk : tareasSubTareas) {
-
-							if (subtsk != null && (idUser == -1)) {
-
-								nodoAuxiliar3 = new DefaultMutableTreeNode(subtsk.getNombre());
-								nodoAuxiliar2.add(nodoAuxiliar3);
-
-							}
-
-						}
-						nodoAuxiliar.add(nodoAuxiliar2);
-					}
+					nodoAuxiliar3 = new DefaultMutableTreeNode(subtsk.getNombre());
+					nodoAuxiliar2.add(nodoAuxiliar3);
 
 				}
-				dmtn.add(nodoAuxiliar);
+				nodoAuxiliar.add(nodoAuxiliar2);
+
 			}
+			dmtn.add(nodoAuxiliar);
 
 		}
 

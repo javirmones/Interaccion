@@ -325,7 +325,7 @@ public class VentanaPrincipal extends JFrame {
 		}
 		{
 			panel_ajustes = new JPanel();
-			contentPane.add(panel_ajustes, BorderLayout.SOUTH);
+			contentPane.add(panel_ajustes, BorderLayout.NORTH);
 			panel_ajustes.setLayout(new GridLayout(0, 5, 0, 0));
 			{
 				horizontalStrut = Box.createHorizontalStrut(20);

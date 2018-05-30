@@ -57,7 +57,6 @@ public class PanelProyecto extends JPanel {
 	private GestorProyectos gp = new GestorProyectos();
 	private GestorTareas gt = new GestorTareas();
 	private JButton btnAniadirTarea;
-	private JButton btnSubtarea;
 	private JPanel panelCard;
 	private String prt = "proyecto";
 	private JList<Tarea> list;
@@ -223,24 +222,11 @@ public class PanelProyecto extends JPanel {
 			GridBagConstraints gbc_btnAniadirTarea = new GridBagConstraints();
 			gbc_btnAniadirTarea.fill = GridBagConstraints.BOTH;
 			gbc_btnAniadirTarea.gridheight = 2;
-			gbc_btnAniadirTarea.gridwidth = 5;
+			gbc_btnAniadirTarea.gridwidth = 9;
 			gbc_btnAniadirTarea.insets = new Insets(0, 0, 5, 5);
 			gbc_btnAniadirTarea.gridx = 9;
 			gbc_btnAniadirTarea.gridy = 12;
 			add(btnAniadirTarea, gbc_btnAniadirTarea);
-		}
-		{
-			btnSubtarea = new JButton("Añadir Subtarea");
-			btnSubtarea.setIcon(new ImageIcon(PanelProyecto.class.getResource("/iconos/text-documents.png")));
-			btnSubtarea.addActionListener(new BtnNewButtonActionListener());
-			GridBagConstraints gbc_btnSubtarea = new GridBagConstraints();
-			gbc_btnSubtarea.fill = GridBagConstraints.BOTH;
-			gbc_btnSubtarea.gridwidth = 4;
-			gbc_btnSubtarea.gridheight = 2;
-			gbc_btnSubtarea.insets = new Insets(0, 0, 5, 0);
-			gbc_btnSubtarea.gridx = 14;
-			gbc_btnSubtarea.gridy = 12;
-			add(btnSubtarea, gbc_btnSubtarea);
 		}
 		{
 			btnAniadir = new JButton("Añadir");
@@ -284,13 +270,6 @@ public class PanelProyecto extends JPanel {
 			boolean enable = true;
 			CardLayout cl = (CardLayout) (panelCard.getLayout());
 			cl.show(panelCard, "panel_tareas");
-		}
-	}
-
-	private class BtnNewButtonActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			CardLayout cl = (CardLayout) (panelCard.getLayout());
-			cl.show(panelCard, "panel_subtareas");
 		}
 	}
 
