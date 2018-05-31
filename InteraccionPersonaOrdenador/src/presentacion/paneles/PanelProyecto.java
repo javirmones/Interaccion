@@ -69,8 +69,7 @@ public class PanelProyecto extends JPanel {
 	 * Create the panel.
 	 */
 	public PanelProyecto(JPanel p) {
-		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING,
-				TitledBorder.TOP, null, new Color(0, 0, 0)));
+		setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 55, 0, 0, 74, 57, 0, 0, 176, 49, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 0, 0, 0, 38, 73, 0 };
@@ -93,14 +92,14 @@ public class PanelProyecto extends JPanel {
 				listaProyectos = new JList();
 				listaProyectos.addListSelectionListener(new ListaProyectosListSelectionListener());
 				listaProyectos.setBorder(
-						new TitledBorder(null, "Proyectos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+						new TitledBorder(null, MessagesVProyectos.getString("PanelProyecto.listaProyectos.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 				listaProyectos.setModel(gp.etLista());
 				listaProyectos.addListSelectionListener(new ListaProyectosListSelectionListener());
 				scrollPane.setViewportView(listaProyectos);
 			}
 		}
 		{
-			lblNombre = new JLabel("Nombre");
+			lblNombre = new JLabel(MessagesVProyectos.getString("PanelProyecto.lblNombre.text")); //$NON-NLS-1$
 			GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 			gbc_lblNombre.fill = GridBagConstraints.HORIZONTAL;
 			gbc_lblNombre.insets = new Insets(0, 0, 5, 5);
@@ -120,7 +119,7 @@ public class PanelProyecto extends JPanel {
 			textNombre.setColumns(10);
 		}
 		{
-			lblFecha = new JLabel("Fecha creacion");
+			lblFecha = new JLabel(MessagesVProyectos.getString("PanelProyecto.lblFecha.text")); //$NON-NLS-1$
 			GridBagConstraints gbc_lblFecha = new GridBagConstraints();
 			gbc_lblFecha.fill = GridBagConstraints.HORIZONTAL;
 			gbc_lblFecha.insets = new Insets(0, 0, 5, 5);
@@ -140,7 +139,7 @@ public class PanelProyecto extends JPanel {
 			txtFecha.setColumns(10);
 		}
 		{
-			lblEncargado = new JLabel("Encargado");
+			lblEncargado = new JLabel(MessagesVProyectos.getString("PanelProyecto.lblEncargado.text")); //$NON-NLS-1$
 			GridBagConstraints gbc_lblEncargado = new GridBagConstraints();
 			gbc_lblEncargado.fill = GridBagConstraints.HORIZONTAL;
 			gbc_lblEncargado.insets = new Insets(0, 0, 5, 5);
@@ -160,7 +159,7 @@ public class PanelProyecto extends JPanel {
 			textEncargado.setColumns(10);
 		}
 		{
-			lblEstado = new JLabel("Estado");
+			lblEstado = new JLabel(MessagesVProyectos.getString("PanelProyecto.lblEstado.text")); //$NON-NLS-1$
 			GridBagConstraints gbc_lblEstado = new GridBagConstraints();
 			gbc_lblEstado.fill = GridBagConstraints.HORIZONTAL;
 			gbc_lblEstado.insets = new Insets(0, 0, 5, 5);
@@ -192,7 +191,7 @@ public class PanelProyecto extends JPanel {
 			{
 				list = new JList();
 				list.addListSelectionListener(new ListListSelectionListener());
-				list.setBorder(new TitledBorder(null, "Tareas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				list.setBorder(new TitledBorder(null, MessagesVProyectos.getString("PanelProyecto.list.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 				// list.setModel(gt.getLista());
 				scrollPaneTareas.setViewportView(list);
 			}
@@ -210,13 +209,13 @@ public class PanelProyecto extends JPanel {
 			{
 				textAreaDescripcion = new JTextArea();
 				textAreaDescripcion.setBorder(
-						new TitledBorder(null, "Descripcion", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+						new TitledBorder(null, MessagesVProyectos.getString("PanelProyecto.textAreaDescripcion.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 				textAreaDescripcion.setEditable(false);
 				scrollPaneDescripcion.setViewportView(textAreaDescripcion);
 			}
 		}
 		{
-			btnAniadirTarea = new JButton("AñadirTarea");
+			btnAniadirTarea = new JButton(MessagesVProyectos.getString("PanelProyecto.btnAniadirTarea.text")); //$NON-NLS-1$
 			btnAniadirTarea.setIcon(new ImageIcon(PanelProyecto.class.getResource("/iconos/edit-document.png")));
 			btnAniadirTarea.addActionListener(new BtnAniadirTareaActionListener());
 			GridBagConstraints gbc_btnAniadirTarea = new GridBagConstraints();
@@ -229,7 +228,7 @@ public class PanelProyecto extends JPanel {
 			add(btnAniadirTarea, gbc_btnAniadirTarea);
 		}
 		{
-			btnAniadir = new JButton("Añadir");
+			btnAniadir = new JButton(MessagesVProyectos.getString("PanelProyecto.btnAniadir.text")); //$NON-NLS-1$
 			btnAniadir.addActionListener(new BtnAniadirActionListener());
 			btnAniadir.setIcon(new ImageIcon(PanelProyecto.class.getResource("/iconos/add-filled-cross-sign.png")));
 			GridBagConstraints gbc_btnAniadir = new GridBagConstraints();
@@ -241,7 +240,7 @@ public class PanelProyecto extends JPanel {
 			add(btnAniadir, gbc_btnAniadir);
 		}
 		{
-			btnEditar = new JButton("Modificar");
+			btnEditar = new JButton(MessagesVProyectos.getString("PanelProyecto.btnEditar.text")); //$NON-NLS-1$
 			btnEditar.setIcon(new ImageIcon(PanelProyecto.class.getResource("/iconos/edit-draw-pencil.png")));
 			GridBagConstraints gbc_btnEditar = new GridBagConstraints();
 			gbc_btnEditar.fill = GridBagConstraints.BOTH;
@@ -252,7 +251,7 @@ public class PanelProyecto extends JPanel {
 			add(btnEditar, gbc_btnEditar);
 		}
 		{
-			btnEliminar = new JButton("Eliminar");
+			btnEliminar = new JButton(MessagesVProyectos.getString("PanelProyecto.btnEliminar.text")); //$NON-NLS-1$
 			btnEliminar.addActionListener(new BtnEliminarActionListener());
 			btnEliminar.setIcon(new ImageIcon(PanelProyecto.class.getResource("/iconos/waste-bin.png")));
 			GridBagConstraints gbc_btnEliminar = new GridBagConstraints();

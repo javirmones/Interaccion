@@ -52,9 +52,9 @@ public class VentanaAyuda extends JFrame {
 	public VentanaAyuda() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaAyuda.class.getResource("/iconos/question-mark.png")));
 		setResizable(false);
-		setTitle("Ayuda");
+		setTitle(MessagesVentanaAyuda.getString("VentanaAyuda.this.title")); //$NON-NLS-1$
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 552, 324);
+		setBounds(100, 100, 552, 335);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setFocusable(false);
@@ -79,7 +79,7 @@ public class VentanaAyuda extends JFrame {
 			gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			panel_1.setLayout(gbl_panel_1);
 			{
-				lblNewLabel = new JLabel("Ayuda");
+				lblNewLabel = new JLabel(MessagesVentanaAyuda.getString("VentanaAyuda.lblNewLabel.text")); //$NON-NLS-1$
 				lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
 				GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 				gbc_lblNewLabel.gridwidth = 6;
@@ -90,7 +90,7 @@ public class VentanaAyuda extends JFrame {
 				panel_1.add(lblNewLabel, gbc_lblNewLabel);
 			}
 			{
-				lblParaMsInformacin = new JLabel("Para más información sobre la aplicación consulte en:");
+				lblParaMsInformacin = new JLabel(MessagesVentanaAyuda.getString("VentanaAyuda.lblParaMsInformacin.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblParaMsInformacin = new GridBagConstraints();
 				gbc_lblParaMsInformacin.gridwidth = 6;
 				gbc_lblParaMsInformacin.insets = new Insets(0, 0, 5, 0);
@@ -102,7 +102,7 @@ public class VentanaAyuda extends JFrame {
 				lblEnlaceAUna = new JLabel("https://github.com/javirmones/Interaccion/wiki");
 				lblEnlaceAUna.addMouseListener(new LblEnlaceAUnaMouseListener());
 				{
-					lblNewLabel_1 = new JLabel("Documentación");
+					lblNewLabel_1 = new JLabel(MessagesVentanaAyuda.getString("VentanaAyuda.lblNewLabel_1.text")); //$NON-NLS-1$
 					GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 					gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 					gbc_lblNewLabel_1.gridx = 1;
@@ -120,7 +120,7 @@ public class VentanaAyuda extends JFrame {
 				panel_1.add(lblEnlaceAUna, gbc_lblEnlaceAUna);
 			}
 			{
-				lblCdigo = new JLabel("Código");
+				lblCdigo = new JLabel(MessagesVentanaAyuda.getString("VentanaAyuda.lblCdigo.text")); //$NON-NLS-1$
 				GridBagConstraints gbc_lblCdigo = new GridBagConstraints();
 				gbc_lblCdigo.insets = new Insets(0, 0, 0, 5);
 				gbc_lblCdigo.gridx = 1;

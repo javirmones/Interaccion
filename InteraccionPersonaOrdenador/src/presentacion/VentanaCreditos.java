@@ -36,9 +36,9 @@ public class VentanaCreditos extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaCreditos.class.getResource("/iconos/grid-world.png")));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 469, 279);
-		setTitle("A cerca de...");
+		setTitle(MessagesVentanaCreditos.getString("VentanaCreditos.this.title")); //$NON-NLS-1$
 		contentPane = new JPanel();
-		contentPane.setBorder(new TitledBorder(null, "Cr\u00E9ditos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.setBorder(new TitledBorder(null, MessagesVentanaCreditos.getString("VentanaCreditos.contentPane.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		setLocationRelativeTo(null);
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
@@ -48,7 +48,7 @@ public class VentanaCreditos extends JFrame {
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		{
-			lblIngenieraInformticaEscuela = new JLabel("Ingeniería Informática ESI 3º C");
+			lblIngenieraInformticaEscuela = new JLabel(MessagesVentanaCreditos.getString("VentanaCreditos.lblIngenieraInformticaEscuela.text")); //$NON-NLS-1$
 			GridBagConstraints gbc_lblIngenieraInformticaEscuela = new GridBagConstraints();
 			gbc_lblIngenieraInformticaEscuela.gridwidth = 5;
 			gbc_lblIngenieraInformticaEscuela.insets = new Insets(0, 0, 5, 5);
@@ -57,7 +57,7 @@ public class VentanaCreditos extends JFrame {
 			contentPane.add(lblIngenieraInformticaEscuela, gbc_lblIngenieraInformticaEscuela);
 		}
 		{
-			lblPrcticaDeInteraccin = new JLabel("Práctica de Interacción Persona Ordenador I");
+			lblPrcticaDeInteraccin = new JLabel(MessagesVentanaCreditos.getString("VentanaCreditos.lblPrcticaDeInteraccin.text")); //$NON-NLS-1$
 			GridBagConstraints gbc_lblPrcticaDeInteraccin = new GridBagConstraints();
 			gbc_lblPrcticaDeInteraccin.gridwidth = 5;
 			gbc_lblPrcticaDeInteraccin.insets = new Insets(0, 0, 5, 5);
@@ -66,7 +66,7 @@ public class VentanaCreditos extends JFrame {
 			contentPane.add(lblPrcticaDeInteraccin, gbc_lblPrcticaDeInteraccin);
 		}
 		{
-			lblAutores = new JLabel("Autores:");
+			lblAutores = new JLabel(MessagesVentanaCreditos.getString("VentanaCreditos.lblAutores.text")); //$NON-NLS-1$
 			GridBagConstraints gbc_lblAutores = new GridBagConstraints();
 			gbc_lblAutores.insets = new Insets(0, 0, 5, 5);
 			gbc_lblAutores.gridx = 1;

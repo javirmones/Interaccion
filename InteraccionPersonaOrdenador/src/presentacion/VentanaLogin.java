@@ -65,9 +65,9 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.Toolkit;
 
-public class VentanaLogin {
+public class VentanaLogin extends JFrame{
 
-	private JFrame frLogin;
+	private JFrame frLogin= this;
 	private JPanel panel;
 	private JButton btnLimpiar;
 	private JButton btnEntrar;
@@ -82,12 +82,14 @@ public class VentanaLogin {
 	private String usuario = "";
 	private String contra = "";
 	private GestorUsuarios usuarios = new GestorUsuarios();
-
+	private JButton button;
+	private Usuario user;
+	
 	public VentanaLogin() {
 		// JFrame.setDefaultLookAndFeelDecorated(true);
 		// SubstanceLookAndFeel.setSkin("org.jvnet.substance.skin.DustSkin");
 		initialize();
-		frLogin.setVisible(true);
+		setVisible(true);
 
 	}
 
@@ -98,27 +100,37 @@ public class VentanaLogin {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		frLogin = new JFrame();
-		frLogin.setIconImage(
+		
+		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(VentanaLogin.class.getResource("/iconos/rate-star-button.png")));
-		frLogin.setTitle("Gestion de Proyectos");
-		frLogin.addWindowListener(new FrLoginWindowListener());
-		frLogin.setResizable(false);
-		frLogin.setLocationRelativeTo(null);
-		frLogin.setBounds(700, 200, 492, 415);
-		frLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle(MessagesVLogin.getString("VentanaLogin.frLogin.title")); //$NON-NLS-1$
+		addWindowListener(new FrLoginWindowListener());
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setBounds(700, 200, 492, 439);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		panel = new JPanel();
-		frLogin.getContentPane().add(panel, BorderLayout.CENTER);
+	    getContentPane().add(panel, BorderLayout.CENTER);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 60, 92, 62, 38, 50, 0, 89, 62, 53, 0 };
-		gbl_panel.rowHeights = new int[] { 20, 159, 26, 26, 49, 54, 0, 0, 0, 0 };
-		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
-		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.columnWidths = new int[] { 0, 42, 84, 62, 0, 0, 38, 14, 0, 28, 0 };
+		gbl_panel.rowHeights = new int[] { 20, 38, 137, 26, 26, 28, 65, 13, 0 };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE };
+		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE };
 		panel.setLayout(gbl_panel);
 
 		txtUsuario = new JTextField();
 		txtUsuario.addMouseListener(new TxtUsuarioMouseListener());
+		
+		button = new JButton(MessagesVLogin.getString("VentanaLogin.button.text")); //$NON-NLS-1$
+		button.addActionListener(new ButtonActionListener());
+		button.setIcon(new ImageIcon(VentanaLogin.class.getResource("/iconos/grid-world.png")));
+		GridBagConstraints gbc_button = new GridBagConstraints();
+		gbc_button.gridwidth = 2;
+		gbc_button.insets = new Insets(0, 0, 5, 0);
+		gbc_button.gridx = 8;
+		gbc_button.gridy = 1;
+		panel.add(button, gbc_button);
 
 		lblNewLabel = new JLabel("");
 		lblNewLabel.setEnabled(false);
@@ -126,39 +138,39 @@ public class VentanaLogin {
 		lblNewLabel.setIcon(new ImageIcon(VentanaLogin.class.getResource("/iconos/image004.png")));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.fill = GridBagConstraints.BOTH;
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.gridwidth = 7;
+		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel.gridwidth = 9;
 		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 1;
+		gbc_lblNewLabel.gridy = 2;
 		panel.add(lblNewLabel, gbc_lblNewLabel);
-
-		lblUsuario = new JLabel("Usuario/ Email");
-		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		GridBagConstraints gbc_lblUsuario = new GridBagConstraints();
-		gbc_lblUsuario.anchor = GridBagConstraints.WEST;
-		gbc_lblUsuario.insets = new Insets(0, 0, 5, 5);
-		gbc_lblUsuario.gridx = 1;
-		gbc_lblUsuario.gridy = 2;
-		panel.add(lblUsuario, gbc_lblUsuario);
+		
+				lblUsuario = new JLabel(MessagesVLogin.getString("VentanaLogin.lblUsuario.text")); //$NON-NLS-1$
+				lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				GridBagConstraints gbc_lblUsuario = new GridBagConstraints();
+				gbc_lblUsuario.anchor = GridBagConstraints.WEST;
+				gbc_lblUsuario.insets = new Insets(0, 0, 5, 5);
+				gbc_lblUsuario.gridx = 2;
+				gbc_lblUsuario.gridy = 3;
+				panel.add(lblUsuario, gbc_lblUsuario);
 		GridBagConstraints gbc_txtUsuario = new GridBagConstraints();
 		gbc_txtUsuario.anchor = GridBagConstraints.NORTH;
 		gbc_txtUsuario.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtUsuario.insets = new Insets(0, 0, 5, 5);
 		gbc_txtUsuario.gridwidth = 6;
-		gbc_txtUsuario.gridx = 2;
-		gbc_txtUsuario.gridy = 2;
+		gbc_txtUsuario.gridx = 3;
+		gbc_txtUsuario.gridy = 3;
 		panel.add(txtUsuario, gbc_txtUsuario);
 		txtUsuario.setColumns(10);
-
-		lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setEnabled(false);
-		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		GridBagConstraints gbc_lblContrasea = new GridBagConstraints();
-		gbc_lblContrasea.fill = GridBagConstraints.HORIZONTAL;
-		gbc_lblContrasea.insets = new Insets(0, 0, 5, 5);
-		gbc_lblContrasea.gridx = 1;
-		gbc_lblContrasea.gridy = 3;
-		panel.add(lblContrasea, gbc_lblContrasea);
+		
+				lblContrasea = new JLabel(MessagesVLogin.getString("VentanaLogin.lblContrasea.text")); //$NON-NLS-1$
+				lblContrasea.setEnabled(false);
+				lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				GridBagConstraints gbc_lblContrasea = new GridBagConstraints();
+				gbc_lblContrasea.fill = GridBagConstraints.HORIZONTAL;
+				gbc_lblContrasea.insets = new Insets(0, 0, 5, 5);
+				gbc_lblContrasea.gridx = 2;
+				gbc_lblContrasea.gridy = 4;
+				panel.add(lblContrasea, gbc_lblContrasea);
 		{
 			txtContrasenia = new JPasswordField();
 
@@ -168,63 +180,62 @@ public class VentanaLogin {
 			gbc_txtContrasenia.fill = GridBagConstraints.HORIZONTAL;
 			gbc_txtContrasenia.insets = new Insets(0, 0, 5, 5);
 			gbc_txtContrasenia.gridwidth = 6;
-			gbc_txtContrasenia.gridx = 2;
-			gbc_txtContrasenia.gridy = 3;
+			gbc_txtContrasenia.gridx = 3;
+			gbc_txtContrasenia.gridy = 4;
 			panel.add(txtContrasenia, gbc_txtContrasenia);
 		}
 
-		btnLimpiar = new JButton("Limpiar");
-		btnLimpiar.addActionListener(new BtnLimpiarActionListener());
-		btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnLimpiar.addMouseListener(new LimpiarMouseListener());
-
-		lblaunNoTienes = new JLabel("\u00BFAun no tienes cuenta?");
+		lblaunNoTienes = new JLabel(MessagesVLogin.getString("VentanaLogin.lblaunNoTienes.text")); //$NON-NLS-1$
 		lblaunNoTienes.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		GridBagConstraints gbc_lblaunNoTienes = new GridBagConstraints();
 		gbc_lblaunNoTienes.anchor = GridBagConstraints.EAST;
 		gbc_lblaunNoTienes.fill = GridBagConstraints.VERTICAL;
 		gbc_lblaunNoTienes.insets = new Insets(0, 0, 5, 5);
-		gbc_lblaunNoTienes.gridwidth = 3;
+		gbc_lblaunNoTienes.gridwidth = 5;
 		gbc_lblaunNoTienes.gridx = 1;
-		gbc_lblaunNoTienes.gridy = 4;
+		gbc_lblaunNoTienes.gridy = 5;
 		panel.add(lblaunNoTienes, gbc_lblaunNoTienes);
+		
+				lblRegistrarse = new JLabel(MessagesVLogin.getString("VentanaLogin.lblRegistrarse.text")); //$NON-NLS-1$
+				lblRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				lblRegistrarse.addMouseListener(new LblRegistrarseMouseListener());
+				lblRegistrarse.setForeground(Color.BLUE);
+				GridBagConstraints gbc_lblRegistrarse = new GridBagConstraints();
+				gbc_lblRegistrarse.anchor = GridBagConstraints.WEST;
+				gbc_lblRegistrarse.fill = GridBagConstraints.VERTICAL;
+				gbc_lblRegistrarse.insets = new Insets(0, 0, 5, 5);
+				gbc_lblRegistrarse.gridx = 8;
+				gbc_lblRegistrarse.gridy = 5;
+				panel.add(lblRegistrarse, gbc_lblRegistrarse);
 
-		lblRegistrarse = new JLabel("Registrarse");
-		lblRegistrarse.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblRegistrarse.addMouseListener(new LblRegistrarseMouseListener());
-		lblRegistrarse.setForeground(Color.BLUE);
-		GridBagConstraints gbc_lblRegistrarse = new GridBagConstraints();
-		gbc_lblRegistrarse.anchor = GridBagConstraints.WEST;
-		gbc_lblRegistrarse.fill = GridBagConstraints.VERTICAL;
-		gbc_lblRegistrarse.insets = new Insets(0, 0, 5, 5);
-		gbc_lblRegistrarse.gridwidth = 2;
-		gbc_lblRegistrarse.gridx = 5;
-		gbc_lblRegistrarse.gridy = 4;
-		panel.add(lblRegistrarse, gbc_lblRegistrarse);
-		GridBagConstraints gbc_btnLimpiar = new GridBagConstraints();
-		gbc_btnLimpiar.fill = GridBagConstraints.BOTH;
-		gbc_btnLimpiar.insets = new Insets(0, 0, 5, 5);
-		gbc_btnLimpiar.gridwidth = 2;
-		gbc_btnLimpiar.gridx = 1;
-		gbc_btnLimpiar.gridy = 5;
-		panel.add(btnLimpiar, gbc_btnLimpiar);
-
-		btnEntrar = new JButton("Entrar");
+		btnEntrar = new JButton(MessagesVLogin.getString("VentanaLogin.btnEntrar.text")); //$NON-NLS-1$
 		btnEntrar.addActionListener(new BtnEntrarActionListener());
+		
+				btnLimpiar = new JButton(MessagesVLogin.getString("VentanaLogin.btnLimpiar.text")); //$NON-NLS-1$
+				btnLimpiar.addActionListener(new BtnLimpiarActionListener());
+				btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 17));
+				btnLimpiar.addMouseListener(new LimpiarMouseListener());
+				GridBagConstraints gbc_btnLimpiar = new GridBagConstraints();
+				gbc_btnLimpiar.gridwidth = 5;
+				gbc_btnLimpiar.fill = GridBagConstraints.BOTH;
+				gbc_btnLimpiar.insets = new Insets(0, 0, 5, 5);
+				gbc_btnLimpiar.gridx = 1;
+				gbc_btnLimpiar.gridy = 6;
+				panel.add(btnLimpiar, gbc_btnLimpiar);
 
 		btnEntrar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		GridBagConstraints gbc_btnEntrar = new GridBagConstraints();
-		gbc_btnEntrar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnEntrar.insets = new Insets(0, 0, 5, 0);
 		gbc_btnEntrar.fill = GridBagConstraints.BOTH;
 		gbc_btnEntrar.gridwidth = 4;
-		gbc_btnEntrar.gridx = 4;
-		gbc_btnEntrar.gridy = 5;
+		gbc_btnEntrar.gridx = 6;
+		gbc_btnEntrar.gridy = 6;
 		panel.add(btnEntrar, gbc_btnEntrar);
 
 		label = new JLabel("");
 		GridBagConstraints gbc_label = new GridBagConstraints();
-		gbc_label.insets = new Insets(0, 0, 5, 5);
-		gbc_label.gridx = 4;
+		gbc_label.insets = new Insets(0, 0, 0, 5);
+		gbc_label.gridx = 7;
 		gbc_label.gridy = 7;
 		panel.add(label, gbc_label);
 	}
@@ -254,11 +265,11 @@ public class VentanaLogin {
 			int dialogResult = JOptionPane.showConfirmDialog(frLogin, "¿Quiere salir de la aplicación?", "Salir",
 					dialogButton);
 			if (dialogResult == 0) {
-				frLogin.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+				setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 				JOptionPane.showMessageDialog(frLogin, "Gracias por utilizar nuestra aplicación",
 						"Cerrar la aplicación", JOptionPane.PLAIN_MESSAGE);
 			} else {
-				frLogin.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+				setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 			}
 		}
 	}
@@ -275,6 +286,7 @@ public class VentanaLogin {
 	private class BtnEntrarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			Usuario us= new Usuario();
+			user=us;
 			usuario = txtUsuario.getText();
 			contra = String.valueOf(txtContrasenia.getPassword());
 			VentanaPrincipal vp;
@@ -287,7 +299,7 @@ public class VentanaLogin {
 					correcto = true;
 				}
 			}
-
+			
 			if (correcto) {
 				JOptionPane.showMessageDialog(frLogin, "Login correcto", "Mensaje Informativo",
 						JOptionPane.INFORMATION_MESSAGE);
@@ -301,7 +313,7 @@ public class VentanaLogin {
 					e1.printStackTrace();
 				}
 
-				frLogin.dispose();
+				dispose();
 
 			} else {
 				JOptionPane.showMessageDialog(frLogin, "Login incorrecto, introduzca la		 contraseña correcta.",
@@ -315,6 +327,12 @@ public class VentanaLogin {
 		public void actionPerformed(ActionEvent e) {
 			txtUsuario.setText("");
 			txtContrasenia.setText("");
+		}
+	}
+	private class ButtonActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			VentanaAjustes va= new VentanaAjustes(frLogin,user);
+			va.setVisible(true);
 		}
 	}
 

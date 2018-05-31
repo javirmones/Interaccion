@@ -57,7 +57,7 @@ public class VentanaMensaje extends JFrame {
 
 	public VentanaMensaje() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaMensaje.class.getResource("/iconos/letter(1).png")));
-		setTitle("Mensajes");
+		setTitle(MessagesVentanaMensaje.getString("VentanaMensaje.this.title")); //$NON-NLS-1$
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 706, 745);
 		setResizable(false);
@@ -89,7 +89,7 @@ public class VentanaMensaje extends JFrame {
 		gbc_lblfoto.gridy = 0;
 		panel_mensaje.add(lblfoto, gbc_lblfoto);
 
-		JLabel lblDestinatario = new JLabel("Destinatario");
+		JLabel lblDestinatario = new JLabel(MessagesVentanaMensaje.getString("VentanaMensaje.lblDestinatario.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblDestinatario = new GridBagConstraints();
 		gbc_lblDestinatario.anchor = GridBagConstraints.EAST;
 		gbc_lblDestinatario.fill = GridBagConstraints.VERTICAL;
@@ -108,7 +108,7 @@ public class VentanaMensaje extends JFrame {
 		panel_mensaje.add(textFieldDestinatario, gbc_textFieldDestinatario);
 		textFieldDestinatario.setColumns(10);
 
-		JLabel lblNewLabel_1 = new JLabel("Asunto");
+		JLabel lblNewLabel_1 = new JLabel(MessagesVentanaMensaje.getString("VentanaMensaje.lblNewLabel_1.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel_1.fill = GridBagConstraints.VERTICAL;
@@ -127,7 +127,7 @@ public class VentanaMensaje extends JFrame {
 		panel_mensaje.add(textFieldAsunto, gbc_textFieldAsunto);
 		textFieldAsunto.setColumns(10);
 
-		JLabel lblAdjunto = new JLabel("Adjuntar");
+		JLabel lblAdjunto = new JLabel(MessagesVentanaMensaje.getString("VentanaMensaje.lblAdjunto.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblAdjunto = new GridBagConstraints();
 		gbc_lblAdjunto.anchor = GridBagConstraints.EAST;
 		gbc_lblAdjunto.fill = GridBagConstraints.VERTICAL;
@@ -171,7 +171,7 @@ public class VentanaMensaje extends JFrame {
 		txtCuerpoDelMensaje = new JTextField();
 		txtCuerpoDelMensaje.setEditable(false);
 		txtCuerpoDelMensaje.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCuerpoDelMensaje.setText("Cuerpo del mensaje");
+		txtCuerpoDelMensaje.setText(MessagesVentanaMensaje.getString("VentanaMensaje.txtCuerpoDelMensaje.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_txtCuerpoDelMensaje = new GridBagConstraints();
 		gbc_txtCuerpoDelMensaje.gridwidth = 5;
 		gbc_txtCuerpoDelMensaje.fill = GridBagConstraints.BOTH;
@@ -193,11 +193,11 @@ public class VentanaMensaje extends JFrame {
 		JTextArea textAreaCuerpo = new JTextArea();
 		scrollPane.setViewportView(textAreaCuerpo);
 
-		btnAtrs = new JButton("Atrás");
+		btnAtrs = new JButton(MessagesVentanaMensaje.getString("VentanaMensaje.btnAtrs.text")); //$NON-NLS-1$
 		btnAtrs.addActionListener(new BtnAtrsActionListener());
 		contentPane.add(btnAtrs);
 
-		JButton btnEnviar = new JButton("Enviar");
+		JButton btnEnviar = new JButton(MessagesVentanaMensaje.getString("VentanaMensaje.btnEnviar.text")); //$NON-NLS-1$
 		contentPane.add(btnEnviar);
 		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -225,7 +225,7 @@ public class VentanaMensaje extends JFrame {
 
 	private class BtnEditarActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			VentanaEditarImagen ve = new VentanaEditarImagen();
+			VentanaImagen ve = new VentanaImagen();
 			ve.setVisible(true);
 		}
 	}

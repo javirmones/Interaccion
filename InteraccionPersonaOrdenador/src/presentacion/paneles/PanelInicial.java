@@ -82,13 +82,13 @@ public class PanelInicial extends JPanel {
 				panel.add(scrollPane_Foto, gbc_scrollPane_Foto);
 				{
 					labelFoto = new JLabel("");
-					labelFoto.setBorder(new TitledBorder(null, "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+					labelFoto.setBorder(new TitledBorder(null, MessagesVentanaPInicial.getString("PanelInicial.labelFoto.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 					labelFoto.setIcon(new ImageIcon(PanelInicial.class.getResource("/iconos/stalin.jpg")));
 					scrollPane_Foto.setViewportView(labelFoto);
 				}
 			}
 			{
-				label_nombre = new JLabel("Nombre");
+				label_nombre = new JLabel(MessagesVentanaPInicial.getString("PanelInicial.label_nombre.text")); //$NON-NLS-1$
 				label_nombre.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_label_nombre = new GridBagConstraints();
 				gbc_label_nombre.anchor = GridBagConstraints.SOUTH;
@@ -111,7 +111,7 @@ public class PanelInicial extends JPanel {
 				panel.add(txtNombre, gbc_txtNombre);
 			}
 			{
-				label_Apellidos = new JLabel("Apellidos");
+				label_Apellidos = new JLabel(MessagesVentanaPInicial.getString("PanelInicial.label_Apellidos.text")); //$NON-NLS-1$
 				label_Apellidos.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_label_Apellidos = new GridBagConstraints();
 				gbc_label_Apellidos.insets = new Insets(0, 0, 5, 5);
@@ -132,7 +132,7 @@ public class PanelInicial extends JPanel {
 				panel.add(txtApellidos, gbc_txtApellidos);
 			}
 			{
-				lblDireccion = new JLabel("Direccion");
+				lblDireccion = new JLabel(MessagesVentanaPInicial.getString("PanelInicial.lblDireccion.text")); //$NON-NLS-1$
 				lblDireccion.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_lblDireccion = new GridBagConstraints();
 				gbc_lblDireccion.insets = new Insets(0, 0, 5, 5);
@@ -153,7 +153,7 @@ public class PanelInicial extends JPanel {
 				panel.add(txtDireccion, gbc_txtDireccion);
 			}
 			{
-				label_Email = new JLabel("Email");
+				label_Email = new JLabel(MessagesVentanaPInicial.getString("PanelInicial.label_Email.text")); //$NON-NLS-1$
 				label_Email.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_label_Email = new GridBagConstraints();
 				gbc_label_Email.insets = new Insets(0, 0, 5, 5);
@@ -174,7 +174,7 @@ public class PanelInicial extends JPanel {
 				panel.add(txtEmail, gbc_txtEmail);
 			}
 			{
-				label_Telefono = new JLabel("Telefono");
+				label_Telefono = new JLabel(MessagesVentanaPInicial.getString("PanelInicial.label_Telefono.text")); //$NON-NLS-1$
 				label_Telefono.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_label_Telefono = new GridBagConstraints();
 				gbc_label_Telefono.insets = new Insets(0, 0, 5, 5);
@@ -195,7 +195,7 @@ public class PanelInicial extends JPanel {
 				panel.add(txtTelefono, gbc_txtTelefono);
 			}
 			{
-				label_Rol = new JLabel("Rol");
+				label_Rol = new JLabel(MessagesVentanaPInicial.getString("PanelInicial.label_Rol.text")); //$NON-NLS-1$
 				label_Rol.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_label_Rol = new GridBagConstraints();
 				gbc_label_Rol.insets = new Insets(0, 0, 5, 5);
@@ -216,7 +216,7 @@ public class PanelInicial extends JPanel {
 				panel.add(txtRol, gbc_txtRol);
 			}
 			{
-				label_Comentarios = new JLabel("Comentarios");
+				label_Comentarios = new JLabel(MessagesVentanaPInicial.getString("PanelInicial.label_Comentarios.text")); //$NON-NLS-1$
 				label_Comentarios.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_label_Comentarios = new GridBagConstraints();
 				gbc_label_Comentarios.anchor = GridBagConstraints.NORTH;

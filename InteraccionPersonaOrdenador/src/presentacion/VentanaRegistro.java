@@ -55,7 +55,7 @@ public class VentanaRegistro extends JFrame {
 
 	public VentanaRegistro() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(VentanaRegistro.class.getResource("/iconos/edit-draw-pencil.png")));
-		setTitle("Registrarse");
+		setTitle(MessagesVentanaRegistro.getString("VentanaRegistro.this.title")); //$NON-NLS-1$
 		setResizable(false);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -67,7 +67,7 @@ public class VentanaRegistro extends JFrame {
 		setContentPane(contentPane);
 
 		panel_registrarse = new JPanel();
-		panel_registrarse.setBorder(new TitledBorder(null, "GestionProyectos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_registrarse.setBorder(new TitledBorder(null, MessagesVentanaRegistro.getString("VentanaRegistro.panel_registrarse.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		contentPane.add(panel_registrarse, BorderLayout.CENTER);
 		GridBagLayout gbl_panel_registrarse = new GridBagLayout();
 		gbl_panel_registrarse.columnWidths = new int[] { 31, 21, 126, 328, 30, 0 };
@@ -77,7 +77,7 @@ public class VentanaRegistro extends JFrame {
 				Double.MIN_VALUE };
 		panel_registrarse.setLayout(gbl_panel_registrarse);
 
-		labelBienvenido = new JLabel("\u00A1Bienvenido al sistema!");
+		labelBienvenido = new JLabel(MessagesVentanaRegistro.getString("VentanaRegistro.labelBienvenido.text")); //$NON-NLS-1$
 		labelBienvenido.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_labelBienvenido = new GridBagConstraints();
 		gbc_labelBienvenido.gridwidth = 5;
@@ -87,7 +87,7 @@ public class VentanaRegistro extends JFrame {
 		gbc_labelBienvenido.gridy = 1;
 		panel_registrarse.add(labelBienvenido, gbc_labelBienvenido);
 
-		labelPorfavor = new JLabel("Por favor para registrarte introduce tus datos personales");
+		labelPorfavor = new JLabel(MessagesVentanaRegistro.getString("VentanaRegistro.labelPorfavor.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_labelPorfavor = new GridBagConstraints();
 		gbc_labelPorfavor.gridwidth = 5;
 		gbc_labelPorfavor.anchor = GridBagConstraints.SOUTH;
@@ -96,7 +96,7 @@ public class VentanaRegistro extends JFrame {
 		gbc_labelPorfavor.gridy = 2;
 		panel_registrarse.add(labelPorfavor, gbc_labelPorfavor);
 
-		labelEmail = new JLabel("Email");
+		labelEmail = new JLabel(MessagesVentanaRegistro.getString("VentanaRegistro.labelEmail.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_labelEmail = new GridBagConstraints();
 		gbc_labelEmail.gridwidth = 2;
 		gbc_labelEmail.insets = new Insets(0, 0, 5, 5);
@@ -114,7 +114,7 @@ public class VentanaRegistro extends JFrame {
 		gbc_textemail.gridy = 4;
 		panel_registrarse.add(textemail, gbc_textemail);
 
-		labelNombre = new JLabel("Nombre");
+		labelNombre = new JLabel(MessagesVentanaRegistro.getString("VentanaRegistro.labelNombre.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_labelNombre = new GridBagConstraints();
 		gbc_labelNombre.gridwidth = 2;
 		gbc_labelNombre.insets = new Insets(0, 0, 5, 5);
@@ -132,7 +132,7 @@ public class VentanaRegistro extends JFrame {
 		gbc_textnombre.gridy = 5;
 		panel_registrarse.add(textnombre, gbc_textnombre);
 
-		labelApellido = new JLabel("Apellidos");
+		labelApellido = new JLabel(MessagesVentanaRegistro.getString("VentanaRegistro.labelApellido.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_labelApellido = new GridBagConstraints();
 		gbc_labelApellido.gridwidth = 2;
 		gbc_labelApellido.insets = new Insets(0, 0, 5, 5);
@@ -150,7 +150,7 @@ public class VentanaRegistro extends JFrame {
 		gbc_textapellidos.gridy = 6;
 		panel_registrarse.add(textapellidos, gbc_textapellidos);
 
-		labelContraseña = new JLabel("Contrase\u00F1a");
+		labelContraseña = new JLabel(MessagesVentanaRegistro.getString("VentanaRegistro.labelContraseña.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_labelContraseña = new GridBagConstraints();
 		gbc_labelContraseña.gridwidth = 2;
 		gbc_labelContraseña.insets = new Insets(0, 0, 5, 5);
@@ -168,7 +168,7 @@ public class VentanaRegistro extends JFrame {
 		gbc_textcontra.gridy = 7;
 		panel_registrarse.add(textcontra, gbc_textcontra);
 
-		lblTelefono = new JLabel("Telefono");
+		lblTelefono = new JLabel(MessagesVentanaRegistro.getString("VentanaRegistro.lblTelefono.text")); //$NON-NLS-1$
 		GridBagConstraints gbc_lblTelefono = new GridBagConstraints();
 		gbc_lblTelefono.gridwidth = 2;
 		gbc_lblTelefono.insets = new Insets(0, 0, 5, 5);
@@ -202,10 +202,10 @@ public class VentanaRegistro extends JFrame {
 			e.printStackTrace();
 		}
 
-		btnRegistrarse = new JButton("Registrarse");
+		btnRegistrarse = new JButton(MessagesVentanaRegistro.getString("VentanaRegistro.btnRegistrarse.text")); //$NON-NLS-1$
 		btnRegistrarse.addActionListener(new Button_1ActionListener());
 
-		btnCancelar = new JButton("Cancelar");
+		btnCancelar = new JButton(MessagesVentanaRegistro.getString("VentanaRegistro.btnCancelar.text")); //$NON-NLS-1$
 		btnCancelar.addActionListener(new ButtonActionListener());
 		
 		horizontalStrut = Box.createHorizontalStrut(20);

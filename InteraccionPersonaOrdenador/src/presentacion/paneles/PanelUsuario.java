@@ -75,7 +75,7 @@ public class PanelUsuario extends JPanel {
 		panel_personas.setLayout(new BorderLayout(0, 0));
 
 		JList<Usuario> listUsuarios = new JList();
-		listUsuarios.setBorder(new TitledBorder(null, "Personas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		listUsuarios.setBorder(new TitledBorder(null, MessagesUsuario.getString("PanelUsuario.listUsuarios.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		listUsuarios.setFont(new Font("Arial Narrow", Font.PLAIN, 30));
 
 		JSplitPane splitPane_division = new JSplitPane();
@@ -91,7 +91,7 @@ public class PanelUsuario extends JPanel {
 		tree_proyectos.setCellRenderer(new ArbolRenderizado());
 		tree_proyectos.setFont(new Font("Arial Narrow", Font.PLAIN, 20));
 		tree_proyectos
-				.setBorder(new TitledBorder(null, "Proyectos", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+				.setBorder(new TitledBorder(null, MessagesUsuario.getString("PanelUsuario.tree_proyectos.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		splitPane_division.setRightComponent(tree_proyectos);
 
 		JPanel panel_principal = new JPanel();
@@ -117,16 +117,16 @@ public class PanelUsuario extends JPanel {
 		panel_principal.add(scrollPane, gbc_scrollPane);
 
 		lblfoto = new JLabel("");
-		lblfoto.setBorder(new TitledBorder(null, "Foto", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		lblfoto.setBorder(new TitledBorder(null, MessagesUsuario.getString("PanelUsuario.lblfoto.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 		scrollPane.setViewportView(lblfoto);
 		lblfoto.setIcon(new ImageIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/x.png")).getImage()
 				.getScaledInstance(200, 200, Image.SCALE_SMOOTH)));
 		lblfoto.setHorizontalTextPosition(SwingConstants.CENTER);
 		lblfoto.setHorizontalAlignment(SwingConstants.CENTER);
 
-		JButton btnAñadir = new JButton("Añadir");
+		JButton btnAñadir = new JButton(MessagesUsuario.getString("PanelUsuario.btnAñadir.text")); //$NON-NLS-1$
 		btnAñadir.setIcon(new ImageIcon(PanelUsuario.class.getResource("/iconos/add-filled-cross-sign.png")));
-		btnAñadir.setToolTipText("Añadir una persona");
+		btnAñadir.setToolTipText(MessagesUsuario.getString("PanelUsuario.btnAñadir.toolTipText")); //$NON-NLS-1$
 		btnAñadir.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		btnAñadir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -153,7 +153,7 @@ public class PanelUsuario extends JPanel {
 			}
 		});
 				
-						JLabel lblNewLabel_1 = new JLabel("Nombre");
+						JLabel lblNewLabel_1 = new JLabel(MessagesUsuario.getString("PanelUsuario.lblNewLabel_1.text")); //$NON-NLS-1$
 						lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 20));
 						GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 						gbc_lblNewLabel_1.anchor = GridBagConstraints.SOUTH;
@@ -162,7 +162,7 @@ public class PanelUsuario extends JPanel {
 						gbc_lblNewLabel_1.gridy = 3;
 						panel_principal.add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-				JButton btnSubirImg = new JButton("Subir imagen");
+				JButton btnSubirImg = new JButton(MessagesUsuario.getString("PanelUsuario.btnSubirImg.text")); //$NON-NLS-1$
 				btnSubirImg.setIcon(new ImageIcon(PanelUsuario.class.getResource("/iconos/file-in-folder.png")));
 				btnSubirImg.addActionListener(new BtnNewButtonActionListener());
 				
@@ -177,7 +177,7 @@ public class PanelUsuario extends JPanel {
 						panel_principal.add(textNombre, gbc_textNombre);
 						textNombre.setColumns(10);
 				
-						JLabel lblApellidos = new JLabel("Apellidos");
+						JLabel lblApellidos = new JLabel(MessagesUsuario.getString("PanelUsuario.lblApellidos.text")); //$NON-NLS-1$
 						lblApellidos.setFont(new Font("Arial", Font.PLAIN, 20));
 						GridBagConstraints gbc_lblApellidos = new GridBagConstraints();
 						gbc_lblApellidos.insets = new Insets(0, 0, 5, 5);
@@ -195,7 +195,7 @@ public class PanelUsuario extends JPanel {
 						panel_principal.add(textApellidos, gbc_textApellidos);
 						textApellidos.setColumns(10);
 				
-						JLabel lblContra = new JLabel("Contraseña");
+						JLabel lblContra = new JLabel(MessagesUsuario.getString("PanelUsuario.lblContra.text")); //$NON-NLS-1$
 						lblContra.setFont(new Font("Arial", Font.PLAIN, 20));
 						GridBagConstraints gbc_lblContra = new GridBagConstraints();
 						gbc_lblContra.insets = new Insets(0, 0, 5, 5);
@@ -221,7 +221,7 @@ public class PanelUsuario extends JPanel {
 				gbc_btnSubirImg.gridy = 8;
 				panel_principal.add(btnSubirImg, gbc_btnSubirImg);
 		
-				JLabel lblEmail = new JLabel("Email");
+				JLabel lblEmail = new JLabel(MessagesUsuario.getString("PanelUsuario.lblEmail.text")); //$NON-NLS-1$
 				lblEmail.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_lblEmail = new GridBagConstraints();
 				gbc_lblEmail.insets = new Insets(0, 0, 5, 5);
@@ -247,7 +247,7 @@ public class PanelUsuario extends JPanel {
 		gbc_btnAñadir.gridy = 10;
 		panel_principal.add(btnAñadir, gbc_btnAñadir);
 
-		JButton btnEliminar = new JButton("Eliminar");
+		JButton btnEliminar = new JButton(MessagesUsuario.getString("PanelUsuario.btnEliminar.text")); //$NON-NLS-1$
 		btnEliminar.setIcon(new ImageIcon(PanelUsuario.class.getResource("/iconos/waste-bin.png")));
 		btnEliminar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -259,7 +259,7 @@ public class PanelUsuario extends JPanel {
 			}
 		});
 		
-				JLabel lblTlf = new JLabel("Telefono");
+				JLabel lblTlf = new JLabel(MessagesUsuario.getString("PanelUsuario.lblTlf.text")); //$NON-NLS-1$
 				lblTlf.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_lblTlf = new GridBagConstraints();
 				gbc_lblTlf.insets = new Insets(0, 0, 5, 5);
@@ -276,7 +276,7 @@ public class PanelUsuario extends JPanel {
 				gbc_textTelefono.gridy = 11;
 				panel_principal.add(textTelefono, gbc_textTelefono);
 				textTelefono.setColumns(10);
-		btnEliminar.setToolTipText("Eliminar una persona");
+		btnEliminar.setToolTipText(MessagesUsuario.getString("PanelUsuario.btnEliminar.toolTipText")); //$NON-NLS-1$
 		btnEliminar.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		GridBagConstraints gbc_btnEliminar = new GridBagConstraints();
 		gbc_btnEliminar.gridheight = 2;
@@ -287,7 +287,7 @@ public class PanelUsuario extends JPanel {
 		gbc_btnEliminar.gridy = 13;
 		panel_principal.add(btnEliminar, gbc_btnEliminar);
 
-		JButton btnModificar = new JButton("Modificar");
+		JButton btnModificar = new JButton(MessagesUsuario.getString("PanelUsuario.btnModificar.text")); //$NON-NLS-1$
 		btnModificar.setIcon(new ImageIcon(PanelUsuario.class.getResource("/iconos/edit-draw-pencil.png")));
 		btnModificar.addMouseListener(new MouseAdapter() {
 			@Override
@@ -304,7 +304,7 @@ public class PanelUsuario extends JPanel {
 			}
 		});
 		
-				JLabel lblRol = new JLabel("Rol");
+				JLabel lblRol = new JLabel(MessagesUsuario.getString("PanelUsuario.lblRol.text")); //$NON-NLS-1$
 				lblRol.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_lblRol = new GridBagConstraints();
 				gbc_lblRol.insets = new Insets(0, 0, 5, 5);
@@ -322,7 +322,7 @@ public class PanelUsuario extends JPanel {
 				panel_principal.add(textRol, gbc_textRol);
 				textRol.setColumns(10);
 		
-				JLabel lblNewLabel_7 = new JLabel("Comentarios");
+				JLabel lblNewLabel_7 = new JLabel(MessagesUsuario.getString("PanelUsuario.lblNewLabel_7.text")); //$NON-NLS-1$
 				lblNewLabel_7.setFont(new Font("Arial", Font.PLAIN, 20));
 				GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
 				gbc_lblNewLabel_7.anchor = GridBagConstraints.NORTH;
@@ -330,7 +330,7 @@ public class PanelUsuario extends JPanel {
 				gbc_lblNewLabel_7.gridx = 7;
 				gbc_lblNewLabel_7.gridy = 15;
 				panel_principal.add(lblNewLabel_7, gbc_lblNewLabel_7);
-		btnModificar.setToolTipText("Modificar una persona");
+		btnModificar.setToolTipText(MessagesUsuario.getString("PanelUsuario.btnModificar.toolTipText")); //$NON-NLS-1$
 		btnModificar.setFont(new Font("Arial Black", Font.PLAIN, 20));
 		GridBagConstraints gbc_btnModificar = new GridBagConstraints();
 		gbc_btnModificar.gridheight = 2;
@@ -354,7 +354,7 @@ public class PanelUsuario extends JPanel {
 		textAreaComentarios = new JTextArea();
 		scrollPane_cm.setViewportView(textAreaComentarios);
 
-		JButton btnEnviarMensaje = new JButton("Enviar mensaje");
+		JButton btnEnviarMensaje = new JButton(MessagesUsuario.getString("PanelUsuario.btnEnviarMensaje.text")); //$NON-NLS-1$
 		btnEnviarMensaje.setIcon(new ImageIcon(PanelUsuario.class.getResource("/iconos/letter(1).png")));
 		btnEnviarMensaje.addActionListener(new BtnEnviarMensajeActionListener());
 		btnEnviarMensaje.setFont(new Font("Arial Black", Font.PLAIN, 20));

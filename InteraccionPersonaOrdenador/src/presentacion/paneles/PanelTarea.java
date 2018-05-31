@@ -83,14 +83,14 @@ public class PanelTarea extends JPanel {
 				{
 					listTareas = new JList();
 					listTareas.addListSelectionListener(new ListTareasListSelectionListener());
-					listTareas.setBorder(new TitledBorder(null, "Tareas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+					listTareas.setBorder(new TitledBorder(null, MessagesTarea.getString("PanelTarea.listTareas.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 					listTareas.setModel(gt.getLista());
 					listTareas.addListSelectionListener(new ListTareasListSelectionListener());
 					scrollPaneTareas.setViewportView(listTareas);
 				}
 			}
 			{
-				lblNombre = new JLabel("Nombre");
+				lblNombre = new JLabel(MessagesTarea.getString("PanelTarea.lblNombre.text")); //$NON-NLS-1$
 				lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 				gbc_lblNombre.fill = GridBagConstraints.HORIZONTAL;
@@ -111,7 +111,7 @@ public class PanelTarea extends JPanel {
 				txtNombre.setColumns(10);
 			}
 			{
-				lblFechaInicio = new JLabel("Fecha inicio");
+				lblFechaInicio = new JLabel(MessagesTarea.getString("PanelTarea.lblFechaInicio.text")); //$NON-NLS-1$
 				lblFechaInicio.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				GridBagConstraints gbc_lblFechaInicio = new GridBagConstraints();
 				gbc_lblFechaInicio.fill = GridBagConstraints.HORIZONTAL;
@@ -132,7 +132,7 @@ public class PanelTarea extends JPanel {
 				txtFechaInicio.setColumns(10);
 			}
 			{
-				lblFechaFin = new JLabel("Fecha fin");
+				lblFechaFin = new JLabel(MessagesTarea.getString("PanelTarea.lblFechaFin.text")); //$NON-NLS-1$
 				lblFechaFin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				GridBagConstraints gbc_lblFechaFin = new GridBagConstraints();
 				gbc_lblFechaFin.fill = GridBagConstraints.HORIZONTAL;
@@ -153,7 +153,7 @@ public class PanelTarea extends JPanel {
 				txtFechaFin.setColumns(10);
 			}
 			{
-				lblPrioridad = new JLabel("Prioridad");
+				lblPrioridad = new JLabel(MessagesTarea.getString("PanelTarea.lblPrioridad.text")); //$NON-NLS-1$
 				lblPrioridad.setFont(new Font("Tahoma", Font.PLAIN, 16));
 				GridBagConstraints gbc_lblPrioridad = new GridBagConstraints();
 				gbc_lblPrioridad.fill = GridBagConstraints.HORIZONTAL;
@@ -182,7 +182,7 @@ public class PanelTarea extends JPanel {
 				panelcontenido.add(scrollPane_subtareas, gbc_scrollPane_subtareas);
 				{
 					SubTareas = new JList();
-					SubTareas.setBorder(new TitledBorder(null, "SubTareas", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+					SubTareas.setBorder(new TitledBorder(null, MessagesTarea.getString("PanelTarea.SubTareas.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 					scrollPane_subtareas.setViewportView(SubTareas);
 				}
 			}
@@ -198,13 +198,13 @@ public class PanelTarea extends JPanel {
 				panelcontenido.add(scrollPaneComentarios, gbc_scrollPaneComentarios);
 				{
 					textArea = new JTextArea();
-					textArea.setBorder(new TitledBorder(null, "Comentarios", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+					textArea.setBorder(new TitledBorder(null, MessagesTarea.getString("PanelTarea.textArea.borderTitle"), TitledBorder.LEADING, TitledBorder.TOP, null, null)); //$NON-NLS-1$
 					textArea.setEditable(false);
 					scrollPaneComentarios.setViewportView(textArea);
 				}
 			}
 			{
-				btnAniadirSubtarea = new JButton("Añadir Subtarea");
+				btnAniadirSubtarea = new JButton(MessagesTarea.getString("PanelTarea.btnAniadirSubtarea.text")); //$NON-NLS-1$
 				btnAniadirSubtarea.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/text-documents.png")));
 				btnAniadirSubtarea.addActionListener(new BtnNewButtonActionListener());
 				GridBagConstraints gbc_btnAniadirSubtarea = new GridBagConstraints();
@@ -217,7 +217,7 @@ public class PanelTarea extends JPanel {
 				panelcontenido.add(btnAniadirSubtarea, gbc_btnAniadirSubtarea);
 			}
 			{
-				btnAtras = new JButton("Atrás");
+				btnAtras = new JButton(MessagesTarea.getString("PanelTarea.btnAtras.text")); //$NON-NLS-1$
 				btnAtras.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/back-arrow.png")));
 				btnAtras.addActionListener(new BtnAtrasActionListener());
 				GridBagConstraints gbc_btnAtras = new GridBagConstraints();
@@ -230,7 +230,7 @@ public class PanelTarea extends JPanel {
 				panelcontenido.add(btnAtras, gbc_btnAtras);
 			}
 			{
-				btnAniadir = new JButton("Añadir");
+				btnAniadir = new JButton(MessagesTarea.getString("PanelTarea.btnAniadir.text")); //$NON-NLS-1$
 				btnAniadir.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/add-filled-cross-sign.png")));
 				GridBagConstraints gbc_btnAniadir = new GridBagConstraints();
 				gbc_btnAniadir.fill = GridBagConstraints.BOTH;
@@ -242,7 +242,7 @@ public class PanelTarea extends JPanel {
 				panelcontenido.add(btnAniadir, gbc_btnAniadir);
 			}
 			{
-				btnEditar = new JButton("Editar");
+				btnEditar = new JButton(MessagesTarea.getString("PanelTarea.btnEditar.text")); //$NON-NLS-1$
 				btnEditar.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/edit-draw-pencil.png")));
 				GridBagConstraints gbc_btnEditar = new GridBagConstraints();
 				gbc_btnEditar.fill = GridBagConstraints.BOTH;
@@ -254,7 +254,7 @@ public class PanelTarea extends JPanel {
 				panelcontenido.add(btnEditar, gbc_btnEditar);
 			}
 			{
-				btnEliminar = new JButton("Eliminar");
+				btnEliminar = new JButton(MessagesTarea.getString("PanelTarea.btnEliminar.text")); //$NON-NLS-1$
 				btnEliminar.setIcon(new ImageIcon(PanelTarea.class.getResource("/iconos/waste-bin.png")));
 				GridBagConstraints gbc_btnEliminar = new GridBagConstraints();
 				gbc_btnEliminar.fill = GridBagConstraints.BOTH;
