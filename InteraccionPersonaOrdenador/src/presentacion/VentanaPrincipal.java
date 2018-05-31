@@ -280,6 +280,20 @@ public class VentanaPrincipal extends JFrame {
 					}
 				}
 			}
+			
+				{
+					mnEditarImagen = new JMenu("Editar Imagen");
+					barraMenu.add(mnEditarImagen);
+					{
+						mntmEdicion = new JMenuItem("Editar Imagenes");
+						mntmEdicion
+								.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/rate-star-button.png")));
+						mntmEdicion.setToolTipText("Edicion de imagenes");
+						mntmEdicion.addActionListener(new MntmEdicionListener());
+						mnEditarImagen.add(mntmEdicion);
+					}
+					
+				}
 			{
 				mnMensajes = new JMenu("Mensajes");
 				barraMenu.add(mnMensajes);
@@ -315,20 +329,6 @@ public class VentanaPrincipal extends JFrame {
 					mntmACercaDe.addActionListener(new MntmACercaDeActionListener());
 					mnInformacin.add(mntmACercaDe);
 				}
-			}
-		
-			{
-				mnEditarImagen = new JMenu("Editar Imagen");
-				barraMenu.add(mnEditarImagen);
-				{
-					mntmEdicion = new JMenuItem("Editar Imagenes");
-					mntmEdicion
-							.setIcon(new ImageIcon(VentanaPrincipal.class.getResource("/iconos/rate-star-button.png")));
-					mntmEdicion.setToolTipText("Edicion de imagenes");
-					mntmEdicion.addActionListener(new MntmEdicionListener());
-					mnEditarImagen.add(mntmEdicion);
-				}
-				
 			}
 		}
 		contentPane = new JPanel();

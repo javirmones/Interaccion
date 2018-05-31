@@ -79,7 +79,7 @@ public class VentanaImagen extends JFrame {
 	private void initialize() {
 
 		setBounds(new Rectangle(250, 250, 700, 700));
-		setBounds(100, 100, 700, 700);
+		setBounds(500, 100, 700, 700);
 
 		JToolBar toolBar = new JToolBar();
 		getContentPane().add(toolBar, BorderLayout.NORTH);
