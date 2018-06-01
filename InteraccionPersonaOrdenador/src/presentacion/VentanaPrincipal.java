@@ -399,12 +399,14 @@ public class VentanaPrincipal extends JFrame {
 					btnNewButton = new JButton(
 							MessagesVentanaPrincipal.getString("VentanaPrincipal.btnNewButton.text")); //$NON-NLS-1$
 					btnNewButton.addActionListener(new BtnNewButtonActionListener());
+					btnNewButton.setToolTipText("Ajustes");
 					panel_aux.add(btnNewButton);
 				}
 				{
 					btnNewButton_1 = new JButton(
 							MessagesVentanaPrincipal.getString("VentanaPrincipal.btnNewButton_1.text")); //$NON-NLS-1$
 					btnNewButton_1.addActionListener(new BtnNewButton_1ActionListener());
+					btnNewButton_1.setToolTipText("Cierre sesión");
 					panel_aux.add(btnNewButton_1);
 				}
 			}

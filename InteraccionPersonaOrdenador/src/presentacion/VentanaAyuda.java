@@ -73,7 +73,7 @@ public class VentanaAyuda extends JFrame {
 			panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 			contentPane.add(panel_1, BorderLayout.CENTER);
 			GridBagLayout gbl_panel_1 = new GridBagLayout();
-			gbl_panel_1.columnWidths = new int[]{32, 128, 202, 13, 0, 40, 0};
+			gbl_panel_1.columnWidths = new int[]{32, 128, 188, 13, 0, 63, 0};
 			gbl_panel_1.rowHeights = new int[]{61, 38, 54, 29, 41, 33, 0};
 			gbl_panel_1.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 			gbl_panel_1.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};

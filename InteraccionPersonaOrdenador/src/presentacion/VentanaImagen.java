@@ -87,6 +87,7 @@ public class VentanaImagen extends JFrame {
 		getContentPane().add(toolBar, BorderLayout.NORTH);
 
 		JButton btnCargarImagen = new JButton("Cargar Imagen");
+		btnCargarImagen.setToolTipText("Seleccione una imagen");
 		btnCargarImagen.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JFileChooser fcAbrir = new JFileChooser();
@@ -111,6 +112,7 @@ public class VentanaImagen extends JFrame {
 		});
 		
 		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar.setToolTipText("Guardar la imagen");
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

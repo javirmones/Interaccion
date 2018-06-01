@@ -28,6 +28,7 @@ import presentacion.paneles.MessagesUsuario;
 import presentacion.paneles.MessagesVProyectos;
 import presentacion.paneles.MessagesVentanaPInicial;
 
+
 import java.awt.Color;
 
 public class VentanaAjustes extends JFrame {
@@ -81,7 +82,8 @@ public class VentanaAjustes extends JFrame {
 			}
 			{
 				comboBox = new JComboBox();
-				comboBox.setModel(new DefaultComboBoxModel(new String[] { "Español", "Inglés" }));
+				comboBox.setModel(new DefaultComboBoxModel(new String[] {"Español", "Inglés"}));
+				comboBox.setToolTipText("Seleccione un idioma");
 				GridBagConstraints gbc_comboBox = new GridBagConstraints();
 				gbc_comboBox.gridwidth = 3;
 				gbc_comboBox.insets = new Insets(0, 0, 5, 5);

@@ -120,9 +120,11 @@ public class VentanaLogin extends JFrame{
 		panel.setLayout(gbl_panel);
 
 		txtUsuario = new JTextField();
+		txtUsuario.setToolTipText(MessagesVLogin.getString("VentanaLogin.txtUsuario.toolTipText")); //$NON-NLS-1$
 		txtUsuario.addMouseListener(new TxtUsuarioMouseListener());
 		
 		button = new JButton(MessagesVLogin.getString("VentanaLogin.button.text")); //$NON-NLS-1$
+		button.setToolTipText(MessagesVLogin.getString("VentanaLogin.button.toolTipText")); //$NON-NLS-1$
 		button.addActionListener(new ButtonActionListener());
 		button.setIcon(new ImageIcon(VentanaLogin.class.getResource("/iconos/grid-world.png")));
 		GridBagConstraints gbc_button = new GridBagConstraints();
@@ -173,7 +175,7 @@ public class VentanaLogin extends JFrame{
 				panel.add(lblContrasea, gbc_lblContrasea);
 		{
 			txtContrasenia = new JPasswordField();
-
+			txtContrasenia.setToolTipText(MessagesVLogin.getString("VentanaLogin.txtContrasenia.toolTipText")); //$NON-NLS-1$
 			txtContrasenia.setEnabled(false);
 			GridBagConstraints gbc_txtContrasenia = new GridBagConstraints();
 			gbc_txtContrasenia.anchor = GridBagConstraints.NORTH;
@@ -191,8 +193,8 @@ public class VentanaLogin extends JFrame{
 		gbc_lblaunNoTienes.anchor = GridBagConstraints.EAST;
 		gbc_lblaunNoTienes.fill = GridBagConstraints.VERTICAL;
 		gbc_lblaunNoTienes.insets = new Insets(0, 0, 5, 5);
-		gbc_lblaunNoTienes.gridwidth = 5;
-		gbc_lblaunNoTienes.gridx = 1;
+		gbc_lblaunNoTienes.gridwidth = 4;
+		gbc_lblaunNoTienes.gridx = 2;
 		gbc_lblaunNoTienes.gridy = 5;
 		panel.add(lblaunNoTienes, gbc_lblaunNoTienes);
 		
@@ -209,9 +211,11 @@ public class VentanaLogin extends JFrame{
 				panel.add(lblRegistrarse, gbc_lblRegistrarse);
 
 		btnEntrar = new JButton(MessagesVLogin.getString("VentanaLogin.btnEntrar.text")); //$NON-NLS-1$
+		btnEntrar.setToolTipText(MessagesVLogin.getString("VentanaLogin.btnEntrar.toolTipText")); //$NON-NLS-1$
 		btnEntrar.addActionListener(new BtnEntrarActionListener());
 		
 				btnLimpiar = new JButton(MessagesVLogin.getString("VentanaLogin.btnLimpiar.text")); //$NON-NLS-1$
+				btnLimpiar.setToolTipText(MessagesVLogin.getString("VentanaLogin.btnLimpiar.toolTipText")); //$NON-NLS-1$
 				btnLimpiar.addActionListener(new BtnLimpiarActionListener());
 				btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 				btnLimpiar.addMouseListener(new LimpiarMouseListener());
