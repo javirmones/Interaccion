@@ -2,13 +2,13 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="jcalendar-1.4.jar"/>
-	<classpathentry kind="lib" path="miglayout15-swing.jar"/>
-	<classpathentry kind="lib" path="laf-plugin-7.3.jar"/>
-	<classpathentry kind="lib" path="laf-widget-7.3.jar"/>
-	<classpathentry kind="lib" path="substance-7.3-tools.jar"/>
-	<classpathentry kind="lib" path="substance-7.3-tst.jar"/>
-	<classpathentry kind="lib" path="substance-7.3.jar"/>
-	<classpathentry kind="lib" path="trident-7.2.jar"/>
+	<classpathentry kind="lib" path="src/librerias/jcalendar-1.4.jar"/>
+	<classpathentry kind="lib" path="src/librerias/laf-widget-7.3.jar"/>
+	<classpathentry kind="lib" path="src/librerias/substance-7.3-tools.jar"/>
+	<classpathentry kind="lib" path="src/librerias/laf-plugin-7.3.jar"/>
+	<classpathentry kind="lib" path="src/librerias/miglayout15-swing.jar"/>
+	<classpathentry kind="lib" path="src/librerias/substance-7.3-tst.jar"/>
+	<classpathentry kind="lib" path="src/librerias/substance-7.3.jar"/>
+	<classpathentry kind="lib" path="src/librerias/trident-7.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

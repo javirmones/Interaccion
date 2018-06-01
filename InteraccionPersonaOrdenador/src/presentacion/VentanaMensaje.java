@@ -201,6 +201,7 @@ public class VentanaMensaje extends JFrame {
 		contentPane.add(btnEnviar);
 		btnEnviar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				dispose();
 			}
 		});
 	}
